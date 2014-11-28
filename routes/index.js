@@ -7,9 +7,9 @@ router.route('/')
     .get(function (req, res) {
         res.render('index/index',
             {
-                title: 'Index',
+                pageTitle: 'Index',
                 msg: 'V逼格',
-                tmpl:'index-index'
+                pageName:'index-index'
             });
     });
 

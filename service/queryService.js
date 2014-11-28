@@ -3,41 +3,37 @@
  */
 
 var http = require('http');
-//var qs = require('querystring');
-
 
 exports.get = function (path, callback) {
 
     var _host = 'http://statistics.vzhibo.tv/';
     var _path = path || '';
 
-    http.get(_host + _path, function (res) {
+    var _protect = {
+        callback: function (response) {
 
-        console.log('STATUS: ' + res.statusCode);
-        console.log('HEADERS: ' + JSON.stringify(res.headers));
+            var _result = '';
 
-        var _result = '';
-        res.setEncoding('utf8');
-        res.on('data', function (chunk) {
+            console.log('STATUS: ' + response.statusCode);
+            console.log('HEADERS: ' + JSON.stringify(response.headers));
 
-            console.log("Got data: " + chunk);
+            response.setEncoding('utf8');
+            response.on('data', function (chunk) {
 
-            _result += chunk.toString();
+                console.log("Got data: " + chunk);
+                _result += chunk.toString();
 
-        }).on('end', function () {
+            }).on('end', function () {
 
-            console.log('QueryService: End.');
-
-
-            callback(false,{
-                from: _host + _path,
-                data: _result
+                console.log('QueryService: End.');
+                callback(false, {
+                    from: _host + _path,
+                    data: _result
+                });
             });
-        })
+        }
+    };
 
-    }).on('error', function (e) {
-        console.log('QueryService:' + e.message);
-        return e;
-    });
+    http.get(_host + _path, _protect.callback).end();
 
 };

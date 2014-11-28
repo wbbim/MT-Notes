@@ -11,8 +11,8 @@ router.route('/')
 router.route('/login')
     .get(function (req, res) {
       res.render('users/login',{
-          title :'Login',
-          tmpl  :'users-login',
+          pageTitle :'Login',
+          pageName  :'users-login',
           errorInfo:{
               flag:false
           }
@@ -25,8 +25,8 @@ router.route('/login')
             res.send('Welcome Back! Master');
         }else{
             res.render('users/login',{
-                title :'Login',
-                tmpl  :'users-login',
+                pageTitle :'Login',
+                pageName  :'users-login',
                 errorInfo :{
                     flag:true,
                     msg:'Login failed! Try Again,'
