@@ -1,0 +1,56 @@
+@import "../public/base";
+
+
+.header{
+    height: 200px;
+}
+.main{
+
+    .form-login{
+        width: 100%;
+        padding: 1em 0;
+
+
+
+        .form-group{
+            @form_padding : 0.4em;
+            padding: @form_padding 0;
+            font-size: 100%;
+
+            label{
+                padding: @form_padding 0;
+                width: 100%;
+                display: block;
+            }
+
+            input{
+                padding: @form_padding 0;
+                width: 100%;
+                display: block;
+                border-radius: @form_padding;
+
+                &:focus{
+                    box-shadow: inset #b3d4fc;
+                }
+            }
+
+            button.button{
+                padding: 0.5em 1em;
+                min-width: 7em;
+                display: inline-block;
+
+                text-align: center;
+                border: 0.1em solid #333333;
+                border-radius: 0.5em;
+                text-decoration: none;
+                background-color: #ffffff;
+            }
+        }
+    }
+
+}
+
+.footer{
+
+}
+

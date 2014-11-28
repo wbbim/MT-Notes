@@ -1,0 +1,4 @@
+.idea/
+node_modules/
+public/js/spm_modules/
+public/vendors/bower_components/
