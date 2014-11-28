@@ -3,7 +3,7 @@
  */
 
 var app_config = {
-    dev: true,
+    dev: false,
     pro: true,
     bse: function (url) {
         var _baseTag = document.createElement("base");
@@ -13,8 +13,8 @@ var app_config = {
 };
 
 var sea_config = {
-    bse: '',
-    app: '',
+    app:'',
+    base: '',
     suffix: ''
 };
 
@@ -36,17 +36,17 @@ if (app_config.pro) {
 
 if (app_config.dev) {
 
-    sea_config.app = '/public/js/src/page/' + TMPL + sea_config.suffix;
+    sea_config.app = '/public/js/src/page/' + PAGE_NAME + sea_config.suffix;
     sea_config.base = '/public/js/spm_modules/';
 
 } else {
 
-    sea_config.app = '/public/js/dist/vbigger/0.0.1/src/page/' + TMPL + sea_config.suffix;
+    sea_config.app = '/public/js/dist/MT.SPM/0.0.1/src/page/' + PAGE_NAME + sea_config.suffix;
     sea_config.base = '/public/js/dist';
 
 }
 
-seajs.config({base: sea_config.bse});
+seajs.config({base: sea_config.base});
 
 seajs.use(sea_config.app, function (page) {
     page.init();

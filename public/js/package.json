@@ -16,7 +16,10 @@
   "spm": {
     "main": "index.js",
     "output": [
-      "src/page/index-index.js"
+      "src/page/index-index.js",
+      "src/page/user-login.js",
+      "src/page/doc-multi.js",
+      "src/page/doc-single.js"
     ],
     "dependencies": {
       "seajs": "2.3.0",
