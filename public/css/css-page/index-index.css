@@ -533,6 +533,36 @@ body {
 .layout .footer {
   padding: 1em;
 }
+html,
+body,
+.wrap,
+.layout {
+  height: 100% !important;
+}
+.layout {
+  position: relative;
+  top: 0;
+  display: table;
+}
+.header {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.header .nav a.button {
+  padding: 0.5em 1em;
+  min-width: 7em;
+  display: inline-block;
+  text-align: center;
+  color: #333333;
+  border: 0.1em solid #333333;
+  border-radius: 0.5em;
+  text-decoration: none;
+}
+.main {
+  display: table-cell;
+  vertical-align: middle;
+}
 .main .about {
   width: 100%;
   padding: 1em 0;
@@ -549,4 +579,9 @@ body {
   border: 0.1em solid #333333;
   border-radius: 0.5em;
   text-decoration: none;
+}
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }

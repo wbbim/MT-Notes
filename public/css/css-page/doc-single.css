@@ -537,6 +537,13 @@ body {
   width: 100%;
   padding: 1em 0;
 }
+.main .document .title {
+  padding: 1em 0;
+  border-bottom: 1px solid #eeeeee;
+}
+.main .document .content {
+  padding: 1em 0;
+}
 .main .info {
   padding: 1em 0;
 }
@@ -549,4 +556,144 @@ body {
   border: 0.1em solid #333333;
   border-radius: 0.5em;
   text-decoration: none;
+}
+.document h1,
+.document h2,
+.document h3,
+.document h4,
+.document h5,
+.document h6,
+.document p,
+.document blockquote {
+  margin: 0;
+  padding: 0;
+}
+.document body {
+  font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  color: #737373;
+  background-color: white;
+  margin: 10px 13px 10px 13px;
+}
+.document table {
+  margin: 10px 0 15px 0;
+  border-collapse: collapse;
+}
+.document td,
+.document th {
+  border: 1px solid #ddd;
+  padding: 3px 10px;
+}
+.document th {
+  padding: 5px 10px;
+}
+.document a {
+  color: #0069d6;
+}
+.document a:hover {
+  color: #0050a3;
+  text-decoration: none;
+}
+.document a img {
+  border: none;
+}
+.document p {
+  margin-bottom: 9px;
+}
+.document h1,
+.document h2,
+.document h3,
+.document h4,
+.document h5,
+.document h6 {
+  color: #404040;
+  line-height: 36px;
+}
+.document h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+}
+.document h2 {
+  font-size: 24px;
+}
+.document h3 {
+  font-size: 18px;
+}
+.document h4 {
+  font-size: 16px;
+}
+.document h5 {
+  font-size: 14px;
+}
+.document h6 {
+  font-size: 13px;
+}
+.document hr {
+  margin: 0 0 19px;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+}
+.document blockquote {
+  padding: 13px 13px 21px 15px;
+  margin-bottom: 18px;
+  font-family: georgia, serif;
+  font-style: italic;
+}
+.document blockquote:before {
+  content: "\201C";
+  font-size: 40px;
+  margin-left: -10px;
+  font-family: georgia, serif;
+  color: #eee;
+}
+.document blockquote p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 18px;
+  margin-bottom: 0;
+  font-style: italic;
+}
+.document code,
+.document pre {
+  font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+.document code {
+  background-color: #fee9cc;
+  color: rgba(0, 0, 0, 0.75);
+  padding: 1px 3px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+.document pre {
+  display: block;
+  padding: 14px;
+  margin: 0 0 18px;
+  line-height: 16px;
+  font-size: 11px;
+  border: 1px solid #d9d9d9;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.document pre code {
+  background-color: #fff;
+  color: #737373;
+  font-size: 11px;
+  padding: 0;
+}
+.document sup {
+  font-size: 0.83em;
+  vertical-align: super;
+  line-height: 0;
+}
+.document * {
+  -webkit-print-color-adjust: exact;
+}
+.footer div {
+  padding: 1em 0 3em 0;
+  border-top: 1px solid #eeeeee;
+}
+.footer div p {
+  padding: 1em 0 0 0;
+  margin: 0;
 }

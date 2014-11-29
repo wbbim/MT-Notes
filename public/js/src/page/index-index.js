@@ -8,8 +8,8 @@ var init = function () {
     "儿时的梦想，终究未能实现。\n"+
     "如今还剩下什么呢？\n\n");
 
-    resizeHeader();
-    $(window).resize(resizeHeader);
+    //resizeHeader();
+    //$(window).resize(resizeHeader);
 };
 
 function resizeHeader(){

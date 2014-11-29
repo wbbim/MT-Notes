@@ -533,3 +533,35 @@ body {
 .layout .footer {
   padding: 1em;
 }
+.main .document {
+  width: 100%;
+  padding: 1em 0;
+}
+.main .document .content {
+  padding: 2em 0;
+}
+.main .document .content ul li a {
+  display: block;
+  padding: 0.1em 0;
+}
+.main .document hr {
+  border: none;
+  border-bottom: 1px solid #eeeeee;
+}
+.main .info {
+  padding: 1em 0;
+}
+.main .info a.button {
+  padding: 0.5em 1em;
+  min-width: 7em;
+  display: inline-block;
+  text-align: center;
+  color: #333333;
+  border: 0.1em solid #333333;
+  border-radius: 0.5em;
+  text-decoration: none;
+}
+.footer div {
+  padding: 1em 0;
+  border-top: 1px solid #eeeeee;
+}

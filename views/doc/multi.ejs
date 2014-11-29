@@ -13,11 +13,37 @@
 				</div>
 				<div class="main">
 						<div class="document">
-								<h4>Document</h4>
-								<p>About Document</p>
+								<% if (pageContent.render){ %>
+
+								<h2 class="title">Documents - <%= pageContent.title %> </h2>
+								<h4>List For Documents & Directory</h4>
+								<hr/>
+
+								<div class="content">
+										<ul>
+												<% pageContent.content.forEach(function(obj){ %>
+												<li>
+														<a href="/doc/<%= obj.path.toString() %>"><%= obj.name.toString() %></a>
+												</li>
+												<% }) %>
+										</ul>
+								</div>
+
+								<% }else{ %>
+
+								<h3 class="title"><%= pageContent.title %></h3>
+
+								<div class="content">
+										<%- pageContent.content %>
+								</div>
+
+								<% } %>
 						</div>
 				</div>
 				<div class="footer">
+						<div class="col-12 center text-right">
+								All Documents are hosted on <i class="fa fa-github"> Github</i> .
+						</div>
 				</div>
 		</div>
 
