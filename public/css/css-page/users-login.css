@@ -560,7 +560,8 @@ body {
 }
 .main .form-login .form-group button.button {
   padding: 0.5em 1em;
-  min-width: 7em;
+  margin: 0.5em;
+  min-width: 6em;
   display: inline-block;
   text-align: center;
   border: 0.1em solid #333333;

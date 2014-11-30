@@ -551,6 +551,7 @@ body,
 }
 .header .nav a.button {
   padding: 0.5em 1em;
+  margin: 0.5em;
   min-width: 7em;
   display: inline-block;
   text-align: center;
@@ -572,6 +573,7 @@ body,
 }
 .main .info a.button {
   padding: 0.5em 1em;
+  margin: 0.5em 0;
   min-width: 7em;
   display: inline-block;
   text-align: center;
