@@ -83,13 +83,17 @@ function renderData(pageTitle, queryString, res) {
 
         console.log(typeof data);
 
-        //data = JSON.parse(data);
-
         if (_template.templateType == 'doc/single') {
             _content = renderService.renderMarkdown(JSON.parse(data));
 
         } else if (_template.templateType == 'doc/multi') {
             _content = eval(data);
+
+            // Remove ignore list file.
+
+            if(_content[0].name == '.gitignore'){
+                _content = _content.slice(1);
+            }
         }
 
         res.render(_template.templateType, {
