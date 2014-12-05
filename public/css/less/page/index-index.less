@@ -16,9 +16,13 @@ body,
 .header {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 1em;
 
     .nav {
+        :nth-child(1){
+            margin-right: 0 !important;
+        }
+
         a.button {
             padding: 0.5em 1em;
             margin: 0.5em;
@@ -61,6 +65,6 @@ body,
 
 .footer {
     position: absolute;
-    right: 0;
+    right: 1em;
     bottom: 0;
 }

@@ -13,6 +13,7 @@ var cookieParser = require('cookie-parser');
 // =============================================================================
 var app = express();
 
+app.set('env','product');
 app.set('port', process.env.PORT || 8084);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -25,9 +26,9 @@ app.use(cookieParser());
 // RESOURCES FOR OUR API
 // =============================================================================
 
-//app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use('/public',express.static(path.join(__dirname, 'public')));
 app.use('/apps',express.static(path.join(__dirname, 'apps')));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
 // ROUTES FOR OUR API
 // =============================================================================

@@ -30,7 +30,7 @@ exports.get = function (queryString, callback) {
             response.setEncoding('utf8');
             response.on('data', function (chunk) {
 
-                console.log("Got data: " + chunk);
+                //console.log("Got data: " + chunk);
 
                 _chunks += chunk;
                 _length += chunk.length;

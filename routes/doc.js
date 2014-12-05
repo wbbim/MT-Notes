@@ -40,9 +40,9 @@ function getMulti(req, res) {
     template.templateName = 'doc-multi';
 
     var query = {
-        host:api.host,
-        port:api.port,
-        path:api.path+_category
+        host: api.host,
+        port: api.port,
+        path: api.path + _category
     };
 
     renderData(_category || 'Doc', query, res);
@@ -54,15 +54,18 @@ function getSingle(req, res) {
     // Query Single
     var _category = req.param('category');
     var _document = req.param('document');
+
+    console.log(_document);
+
     var _path = _category + '/' + _document;
 
     template.templateType = 'doc/single';
     template.templateName = 'doc-single';
 
     var query = {
-        host:api.host,
-        port:api.port,
-        path:api.path+_path
+        host: api.host,
+        port: api.port,
+        path: api.path + _path
     };
 
     renderData(_document, query, res);
@@ -76,34 +79,29 @@ function renderData(pageTitle, queryString, res) {
 
         var _gotData = !err;
         var _template = template;
+        var _content = {};
 
-        data = JSON.parse(data);
+        console.log(typeof data);
+
+        //data = JSON.parse(data);
 
         if (_template.templateType == 'doc/single') {
-
-            res.render(_template.templateType, {
-                pageTitle: pageTitle,
-                pageName: _template.templateName,
-                pageContent: {
-                    render: _gotData,
-                    title: pageTitle,
-                    content: renderService.renderMarkdown(data)
-                }
-            });
+            _content = renderService.renderMarkdown(JSON.parse(data));
 
         } else if (_template.templateType == 'doc/multi') {
-
-            res.render(_template.templateType, {
-                pageTitle: pageTitle,
-                pageName: _template.templateName,
-                pageContent: {
-                    render: _gotData,
-                    title: pageTitle,
-                    content: data
-                }
-            });
-
+            _content = eval(data);
         }
+
+        res.render(_template.templateType, {
+            pageTitle: pageTitle,
+            pageName: _template.templateName,
+            pageContent: {
+                render: _gotData,
+                title: pageTitle,
+                content: _content
+            }
+        });
+
     });
 }
 

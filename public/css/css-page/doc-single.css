@@ -596,6 +596,10 @@ body {
   color: #0050a3;
   text-decoration: none;
 }
+.document img {
+  max-width: 100%;
+  overflow: hidden;
+}
 .document a img {
   border: none;
 }

@@ -4,17 +4,16 @@
 
 var marked = require('marked');
 
-exports.renderMarkdown = function(json){
+exports.renderMarkdown = function (json) {
 
-    var _raw  = '';
+    var _raw = '';
     var _html = '';
 
-    if(json.content){
-        _raw =  new Buffer(json.content, json.encoding).toString('utf8');
+    if (json.content) {
+        _raw = new Buffer(json.content, json.encoding).toString('utf8');
         _html = marked(_raw);
-    }else{
+    } else {
         _html = json.message + ' . ' + json.documentation_url;
     }
-
     return _html;
 };

@@ -547,7 +547,10 @@ body,
 .header {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 1em;
+}
+.header .nav :nth-child(1) {
+  margin-right: 0 !important;
 }
 .header .nav a.button {
   padding: 0.5em 1em;
@@ -584,6 +587,6 @@ body,
 }
 .footer {
   position: absolute;
-  right: 0;
+  right: 1em;
   bottom: 0;
 }
