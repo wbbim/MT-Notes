@@ -24,8 +24,8 @@ exports.get = function (queryString, callback) {
             var _chunks = '';
             var _length = 0;
 
-            console.log('STATUS: ' + response.statusCode);
-            console.log('HEADERS: ' + JSON.stringify(response.headers));
+            //console.log('STATUS: ' + response.statusCode);
+            //console.log('HEADERS: ' + JSON.stringify(response.headers));
 
             response.setEncoding('utf8');
             response.on('data', function (chunk) {
@@ -37,7 +37,7 @@ exports.get = function (queryString, callback) {
 
             }).on('end', function () {
 
-                console.log('QueryService: End.');
+                //console.log('QueryService: End.');
                 callback( null, _chunks);
             });
         }

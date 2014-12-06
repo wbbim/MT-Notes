@@ -8,8 +8,16 @@ router.route('/')
         res.render('index/index',
             {
                 pageTitle: 'Index',
-                msg: 'V逼格',
-                pageName:'index-index'
+                pageName: 'index-index'
+            });
+    });
+
+router.route('/about')
+    .get(function (req, res) {
+        res.render('index/about',
+            {
+                pageTitle: 'About',
+                pageName: 'index-about'
             });
     });
 

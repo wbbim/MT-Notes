@@ -4,6 +4,27 @@
 
 var init = function () {
     console.log('users-login');
+
+    resizeHeight();
+
+    // Don't ask me why i do this.
+    setTimeout(function () {
+        $('.layout').css({
+            'opacity':1
+        });
+    },200);
+
 };
+
+function resizeHeight(){
+    var _widowsHeight = $(window).height();
+    var _layoutHeight = $('.layout').height();
+
+    if( _widowsHeight > _layoutHeight){
+        $('.header').css(
+            {'margin-top':(_widowsHeight - _layoutHeight ) / 2}
+        );
+    }
+}
 
 exports.init = init;

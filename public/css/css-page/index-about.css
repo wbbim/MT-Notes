@@ -533,42 +533,60 @@ body {
 .layout .footer {
   padding: 1em;
 }
+html,
+body,
+.wrap,
 .layout {
-  opacity: 0;
+  height: 100% !important;
+}
+.layout {
+  position: relative;
+  top: 0;
+  display: table;
 }
 .header {
-  border-bottom: 1px solid #eeeeee;
+  position: absolute;
+  top: 0;
+  right: 1em;
 }
-.main .form-login {
-  width: 100%;
-  padding: 1em 0;
+.header .nav :nth-child(1) {
+  margin-right: 0 !important;
 }
-.main .form-login .form-group {
-  padding: 0.4em 0;
-  font-size: 100%;
-}
-.main .form-login .form-group label {
-  padding: 0.4em 0;
-  width: 100%;
-  display: block;
-}
-.main .form-login .form-group input {
-  padding: 0.4em 0;
-  width: 100%;
-  display: block;
-  border-radius: 0.4em;
-}
-.main .form-login .form-group input:focus {
-  box-shadow: inset #b3d4fc;
-}
-.main .form-login .form-group button.button {
+.header .nav a.button {
   padding: 0.5em 1em;
   margin: 0.5em;
-  min-width: 6em;
+  min-width: 7em;
   display: inline-block;
   text-align: center;
+  color: #333333;
   border: 0.1em solid #333333;
   border-radius: 0.5em;
   text-decoration: none;
-  background-color: #ffffff;
+}
+.main {
+  display: table-cell;
+  vertical-align: middle;
+}
+.main .about {
+  width: 100%;
+  padding: 1em 0;
+}
+.main .info {
+  padding: 1em 0;
+}
+.main .info a.button {
+  padding: 0.5em 1em;
+  margin: 0.5em 0;
+  min-width: 7em;
+  display: inline-block;
+  text-align: center;
+  color: #333333;
+  border: 0.1em solid #333333;
+  border-radius: 0.5em;
+  text-decoration: none;
+}
+.footer {
+  position: absolute;
+  right: 1em;
+  bottom: 0;
 }

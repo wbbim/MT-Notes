@@ -17,17 +17,18 @@
     "main": "index.js",
     "output": [
       "src/page/index-index.js",
+      "src/page/index-about.js",
       "src/page/users-login.js",
       "src/page/doc-multi.js",
       "src/page/doc-single.js"
     ],
     "dependencies": {
       "seajs": "2.3.0",
-      "seajs-wrap": "1.0.1",
       "jquery": "2.1.1"
     },
     "devDependencies": {
-      "expect.js": "0.3.1"
+      "expect.js": "0.3.1",
+      "seajs-wrap": "1.0.1"
     }
   }
 }

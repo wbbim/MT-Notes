@@ -8,6 +8,9 @@ var init = function () {
     "儿时的梦想，终究未能实现。\n"+
     "如今还剩下什么呢？\n\n");
 
+    //var modal = require('../modal/modal').create(null);
+    //modal.init();
+
     //resizeHeader();
     //$(window).resize(resizeHeader);
 };
