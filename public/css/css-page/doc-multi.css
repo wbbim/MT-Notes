@@ -457,6 +457,9 @@ table {
 .gray-lighter {
   color: #eeeeee;
 }
+.white {
+  color: #ffffff;
+}
 .right {
   float: right;
   margin-left: 0.5em;
