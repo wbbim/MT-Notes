@@ -1,11 +1,26 @@
-<!-- INCLUDE JAVASCRIPT -->
-<!-- In production use: -->
-<script type="text/javascript" src="/public/js/spm_modules/jquery/2.1.1/jquery.min.js"></script>
-<script type="text/javascript" src="/public/js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
-<script type="text/javascript" src="/public/vendors/bower_components/marked/lib/marked.js"></script>
 
-<% //include dev %>
-<!-- Run_Env Config: -->
-<script type="text/javascript" src="/public/js/config.js"></script>
+<!-- INCLUDE JAVASCRIPT -->
+
+	<!-- In all use: -->
+	<script type="text/javascript" src="/public/js/spm_modules/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/public/js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
+
+<% if(settings.env === 'product'){ %>
+
+	<!-- In production use: -->
+	<script src="http://cdn.bootcss.com/marked/0.3.2/marked.js"></script>
+
+<% }else{ %>
+
+	<!-- In development use: -->
+	<script type="text/javascript" src="/public/vendors/bower_components/marked/lib/marked.js"></script>
+
+	<% include dev %>
+
+<% } %>
+
+	<!-- Run_Env Config: -->
+	<script type="text/javascript" src="/public/js/config.js"></script>
+
 </body>
 </html>

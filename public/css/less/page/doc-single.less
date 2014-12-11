@@ -1,20 +1,45 @@
 @import "../public/base";
 
 .header {
+
+    background-color: rgb(240, 75, 95);
+    color: #ffffff;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2);
+
+    .inner{
+        .nav {
+            a {
+                display: block;
+                color: #ffffff;
+                text-decoration: none;
+
+                font-size: 1.5em;
+                margin: 0.83em 0;
+
+                &:visited {
+                }
+
+                &:hover {
+
+                }
+            }
+        }
+    }
 }
 
 .main {
 
     .document {
         width: 100%;
-        padding: 1em 0;
+        padding: 1em;
 
-        .title{
+        .title {
             padding: 1em 0;
             border-bottom: 1px solid #eeeeee;
+            box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
         }
 
-        .content{
+        .content {
             padding: 1em 0;
         }
     }
@@ -35,7 +60,25 @@
     }
 }
 
-.document {
+.footer {
+
+    background-color: #37393c;
+    box-shadow: 0px -2px 1px rgba(0, 0, 0, 0.2);
+
+    .inner {
+        .state {
+            padding: 1em 0;
+
+            p {
+                padding: 0.5em 0;
+                margin: 0;
+                color: #a6a6a6;
+            }
+        }
+    }
+}
+
+.content {
 
     h1,
     h2,
@@ -47,14 +90,6 @@
     blockquote {
         margin: 0;
         padding: 0;
-    }
-    body {
-        font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
-        font-size: 13px;
-        line-height: 18px;
-        color: #737373;
-        background-color: white;
-        margin: 10px 13px 10px 13px;
     }
     table {
         margin: 10px 0 15px 0;
@@ -75,9 +110,9 @@
         color: #0050a3;
         text-decoration: none;
     }
-    img{
-	max-width:100%;
-	overflow:hidden; 
+    img {
+        max-width: 100%;
+        overflow: hidden;
     }
     a img {
         border: none;
@@ -159,6 +194,7 @@
         border: 1px solid #d9d9d9;
         white-space: pre-wrap;
         word-wrap: break-word;
+        overflow: hidden;
     }
     pre code {
         background-color: #fff;
@@ -173,17 +209,5 @@
     }
     * {
         -webkit-print-color-adjust: exact;
-    }
-}
-
-.footer{
-    div{
-        padding: 1em 0 3em 0;
-        border-top : 1px solid #eeeeee;
-
-        p{
-            padding: 1em 0 0 0;
-            margin: 0;
-        }
     }
 }

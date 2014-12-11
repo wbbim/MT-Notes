@@ -6,16 +6,23 @@
 				href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 
-		<div class="layout">
+		<div class="layout-full">
 
 				<div class="header">
-
+						<div class="inner">
+								<div class="col-5">
+										<h2><i class="fa fa-folder-open-o"> Documents</i></h2>
+								</div>
+								<div class="col-5 right text-right nav">
+										<a href="/"><i class="fa fa-home"> Home</i></a>
+								</div>
+						</div>
 				</div>
 				<div class="main">
 						<div class="document">
 								<% if (pageContent.render){ %>
 
-								<h2 class="title">Documents - <%= pageContent.title %> </h2>
+								<!--<h2 class="title">Documents - <%= pageContent.title %> </h2>-->
 								<h4>List For Documents & Directory</h4>
 								<hr/>
 
@@ -29,7 +36,7 @@
 												<% }); %>
 										</ul>
 										<% }else{ %>
-											<%= pageContent.content.message + ' . From ' + pageContent.content.documentation_url%>
+										<%= pageContent.content.message + ' . From ' + pageContent.content.documentation_url %>
 										<% } %>
 								</div>
 
@@ -43,11 +50,15 @@
 								</div>
 
 								<% } %>
+
+								<hr/>
 						</div>
 				</div>
 				<div class="footer">
-						<div class="col-12 center text-right">
-								All Documents are hosted on <i class="fa fa-github"> Github</i> .
+						<div class="inner">
+								<div class="col-12 center text-right">
+										All Documents are hosted on <i class="fa fa-github"> Github</i> .
+								</div>
 						</div>
 				</div>
 		</div>

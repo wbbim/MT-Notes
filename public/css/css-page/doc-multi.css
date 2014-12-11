@@ -475,39 +475,51 @@ table {
 }
 .col-1 {
   width: 8.33333333% !important;
+  display: inline-block;
 }
 .col-2 {
   width: 16.66666667% !important;
+  display: inline-block;
 }
 .col-3 {
   width: 25% !important;
+  display: inline-block;
 }
 .col-4 {
   width: 33.33333333% !important;
+  display: inline-block;
 }
 .col-5 {
   width: 41.66666667% !important;
+  display: inline-block;
 }
 .col-6 {
   width: 50% !important;
+  display: inline-block;
 }
 .col-7 {
   width: 58.33333333% !important;
+  display: inline-block;
 }
 .col-8 {
   width: 66.66666667% !important;
+  display: inline-block;
 }
 .col-9 {
   width: 75% !important;
+  display: inline-block;
 }
 .col-10 {
   width: 83.33333333% !important;
+  display: inline-block;
 }
 .col-11 {
   width: 91.66666667% !important;
+  display: inline-block;
 }
 .col-12 {
   width: 100% !important;
+  display: inline-block;
 }
 *,
 :after,
@@ -524,7 +536,7 @@ body {
 .layout {
   width: 100%;
   max-width: 960px;
-  padding: 0 1em;
+  padding: 0;
   margin: 0 auto;
 }
 .layout .header {
@@ -536,9 +548,37 @@ body {
 .layout .footer {
   padding: 1em;
 }
+.layout-full {
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+}
+.layout-full .main {
+  margin: 0 auto;
+  max-width: 960px;
+}
+.layout-full .header .inner,
+.layout-full .main .inner,
+.layout-full .footer .inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1em;
+}
+.header {
+  background-color: #f04b5f;
+  color: #ffffff;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.header .inner .nav a {
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.5em;
+  margin: 0.83em 0;
+}
 .main .document {
   width: 100%;
-  padding: 1em 0;
+  padding: 1em;
 }
 .main .document .content {
   padding: 2em 0;
@@ -546,10 +586,13 @@ body {
 .main .document .content ul li a {
   display: block;
   padding: 0.1em 0;
+  text-decoration: none;
+  color: #222222;
 }
 .main .document hr {
   border: none;
   border-bottom: 1px solid #eeeeee;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
 .main .info {
   padding: 1em 0;
@@ -564,8 +607,4 @@ body {
   border: 0.1em solid #333333;
   border-radius: 0.5em;
   text-decoration: none;
-}
-.footer div {
-  padding: 1em 0;
-  border-top: 1px solid #eeeeee;
 }

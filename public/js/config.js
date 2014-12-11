@@ -11,7 +11,7 @@ var app_config = {
     }
 };
 var sea_config = {
-    app:'',
+    app: '',
     base: '',
     suffix: ''
 };
