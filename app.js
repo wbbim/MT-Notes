@@ -8,12 +8,13 @@ var favicon     = require('serve-favicon');
 var logger      = require('morgan');
 var bodyParser  = require('body-parser');
 var cookieParser = require('cookie-parser');
+var envConf     = require('./conf/env').envConf;
 
 // CONFIGURE FOR OUR API
 // =============================================================================
 var app = express();
 
-app.set('env','product');
+app.set('env',envConf.env());
 app.set('port', process.env.PORT || 8084);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
