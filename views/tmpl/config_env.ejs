@@ -3,10 +3,10 @@
 <% if(settings.local){ %>
 
 	<!-- In local_server use: -->
-	<script type="text/javascript" src="/public/js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
-	<script type="text/javascript" src="/public/js/spm_modules/jquery/2.1.1/jquery.min.js"></script>
-	<script type="text/javascript" src="/public/vendors/bower_components/marked/lib/marked.js"></script>
-	<script type="text/javascript" src="/public/js/spm_modules/seajs-wrap/1.0.1/dist/seajs-wrap.js"></script>
+	<script src="/public/js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
+	<script src="/public/js/spm_modules/jquery/2.1.1/jquery.min.js"></script>
+	<script src="/public/vendors/bower_components/marked/lib/marked.js"></script>
+	<script src="/public/js/spm_modules/seajs-wrap/1.0.1/dist/seajs-wrap.js"></script>
 
 <% }else{ %>
 
@@ -18,7 +18,7 @@
 <% } %>
 
 <!-- SEA.JS CONFIG -->
-<script type="text/javascript">
+<script>
 
 	var app_config = {
 		local: <%= settings.local %>,
