@@ -2,7 +2,7 @@
 
 <% if(settings.local){ %>
 
-	<!-- In development use: -->
+	<!-- In local_server use: -->
 	<script type="text/javascript" src="/public/js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
 	<script type="text/javascript" src="/public/js/spm_modules/jquery/2.1.1/jquery.min.js"></script>
 	<script type="text/javascript" src="/public/vendors/bower_components/marked/lib/marked.js"></script>
@@ -10,7 +10,7 @@
 
 <% }else{ %>
 
-	<!-- In production use: -->
+	<!-- In remote_server use: -->
 	<script src="http://cdn.bootcss.com/seajs/2.3.0/sea.js"></script>
 	<script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.js"></script>
 	<script src="http://cdn.bootcss.com/marked/0.3.2/marked.js"></script>
