@@ -1,67 +1,67 @@
 <% include ../tmpl/header %>
 
 <div class="wrap">
-		<!--[if lt IE 7]>
-		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a
-				href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-		<![endif]-->
+	<!--[if lt IE 7]>
+	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a
+			href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
 
-		<div class="layout-full">
+	<div class="layout-full">
 
-				<div class="header">
-						<div class="inner">
-								<div class="col-5">
-										<h3><i class="fa fa-folder-open-o"> Documents</i></h3>
-								</div>
-								<div class="col-5 right text-right nav">
-										<a href="/"><i class="fa fa-home"> Home</i></a>
-								</div>
-						</div>
+		<div class="header">
+			<div class="inner">
+				<div class="col-5">
+					<h3><i class="fa fa-folder-open-o"> Documents</i></h3>
 				</div>
-				<div class="main">
-						<div class="document">
-								<% if (pageContent.render){ %>
-
-								<!--<h2 class="title">Documents - <%= pageContent.title %> </h2>-->
-								<h4>List For Documents & Directory</h4>
-								<hr/>
-
-								<div class="content">
-										<% if(pageContent.content.constructor == Array){ %>
-										<ul>
-												<% pageContent.content.forEach(function(obj){ %>
-												<li>
-														<a href="/doc/<%= encodeURI(obj.path.toString()) %>"><%= obj.name.toString() %></a>
-												</li>
-												<% }); %>
-										</ul>
-										<% }else{ %>
-										<%= pageContent.content.message + ' . From ' + pageContent.content.documentation_url %>
-										<% } %>
-								</div>
-
-								<% }else{ %>
-
-								<h3 class="title">Can't get ?</h3>
-
-								<div class="content">
-										<pre>Something wrong, you may try again.</pre>
-										<%- pageContent.content %>
-								</div>
-
-								<% } %>
-
-								<hr/>
-						</div>
+				<div class="col-5 right text-right nav">
+					<a href="/"><i class="fa fa-home"> Home</i></a>
 				</div>
-				<div class="footer">
-						<div class="inner">
-								<div class="col-12 center text-right">
-										All Documents are hosted on <i class="fa fa-github"> Github</i> .
-								</div>
-						</div>
-				</div>
+			</div>
 		</div>
+		<div class="main">
+			<div class="document">
+				<% if (pageContent.render){ %>
+
+				<!--<h2 class="title">Documents - <%= pageContent.title %> </h2>-->
+				<h4>List For Documents & Directory</h4>
+				<hr/>
+
+				<div class="content">
+					<% if(pageContent.content.constructor == Array){ %>
+					<ul>
+						<% pageContent.content.forEach(function(obj){ %>
+						<li>
+							<a href="/doc/<%= encodeURI(obj.path.toString()) %>"><%= obj.name.toString() %></a>
+						</li>
+						<% }); %>
+					</ul>
+					<% }else{ %>
+					<%= pageContent.content.message + ' . From ' + pageContent.content.documentation_url %>
+					<% } %>
+				</div>
+
+				<% }else{ %>
+
+				<h3 class="title">Can't get ?</h3>
+
+				<div class="content">
+					<pre>Something wrong, you may try again.</pre>
+					<%- pageContent.content %>
+				</div>
+
+				<% } %>
+
+				<hr/>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="inner">
+				<div class="col-12 center text-right">
+					All Documents are hosted on <i class="fa fa-github"> Github</i> .
+				</div>
+			</div>
+		</div>
+	</div>
 
 </div>
 

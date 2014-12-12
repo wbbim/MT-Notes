@@ -1,52 +1,52 @@
 <% include ../tmpl/header %>
 
 <div class="wrap">
-		<!--[if lt IE 7]>
-		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a
-				href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-		<![endif]-->
+	<!--[if lt IE 7]>
+	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a
+			href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
 
-		<div class="layout">
+	<div class="layout">
 
-				<div class="header">
-						<div class="col-12 center text-left">
-								MT.NODE & Administrator
-						</div>
-				</div>
-
-				<div class="main">
-						<form class="form-login col-12 center" action="/users/login" method="post">
-
-								<% if (errorInfo.flag) { %>
-								<div class="form-group">
-										<span><%= errorInfo.msg %></span>
-								</div>
-								<% } %>
-
-								<div class="form-group">
-										<label for="userMail">Mail:</label>
-										<input type="text" name="userMail"/>
-								</div>
-
-								<div class="form-group">
-										<label for="userPass">Pass:</label>
-										<input type="password" name="userPass"/>
-								</div>
-
-								<div class="form-group">
-										<button type="reset" class="button gray-dark right">Reset</button>
-										<button type="submit" class="button gray-dark right">Submit</button>
-										<div class="clearfix"></div>
-								</div>
-						</form>
-				</div>
-
-				<div class="footer">
-						<div class="col-12 center text-right">
-								@GR.TEAM & Arashi Vision.
-						</div>
-				</div>
+		<div class="header">
+			<div class="col-12 center text-left">
+				MT.NODE & Administrator
+			</div>
 		</div>
+
+		<div class="main">
+			<form class="form-login col-12 center" action="/users/login" method="post">
+
+				<% if (errorInfo.flag) { %>
+				<div class="form-group">
+					<span><%= errorInfo.msg %></span>
+				</div>
+				<% } %>
+
+				<div class="form-group">
+					<label for="userMail">Mail:</label>
+					<input type="text" name="userMail"/>
+				</div>
+
+				<div class="form-group">
+					<label for="userPass">Pass:</label>
+					<input type="password" name="userPass"/>
+				</div>
+
+				<div class="form-group">
+					<button type="reset" class="button gray-dark right">Reset</button>
+					<button type="submit" class="button gray-dark right">Submit</button>
+					<div class="clearfix"></div>
+				</div>
+			</form>
+		</div>
+
+		<div class="footer">
+			<div class="col-12 center text-right">
+				@GR.TEAM & Arashi Vision.
+			</div>
+		</div>
+	</div>
 
 </div>
 

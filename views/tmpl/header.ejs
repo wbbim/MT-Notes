@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <!--
  _____   _   _   _____   __   _       ___   _____   _____   _____
 |_   _| | | | | /  _  \ |  \ | |     /   | |_   _| /  _  \ /  ___/
@@ -15,38 +15,22 @@
 -->
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Thonatos.Yang">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Thonatos.Yang">
 
-    <title><%= pageTitle %> - Thonatos.Yang</title>
+	<title><%= pageTitle %> - Thonatos.Yang</title>
 
-     <!-- GLOBAL JAVASCRIPT -->
-    <script>
-        PAGE_NAME = '<%= pageName %>';
-    </script>
+	<!-- GLOBAL JAVASCRIPT -->
+	<script>
+		PAGE_NAME = '<%= pageName %>';
+	</script>
 
 	<link href='http://fonts.useso.com/css?family=Open+Sans:300,400,600&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="/public/css/css-page/<%= pageName %>.min.css">
 
-	<% if(settings.env === 'product'){ %>
-
-	<!-- INCLUDE STYLESHEET -->
-	<link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
-	<!-- INCLUDE JAVASCRIPT -->
-	<script src="http://cdn.bootcss.com/modernizr/2.6.2/modernizr.min.js"></script>
-
-	<% }else{ %>
-
-	<!-- INCLUDE STYLESHEET -->
-	<link rel="stylesheet" href="/public/vendors/bower_components/font-awesome/css/font-awesome.min.css">
-
-	<!-- INCLUDE JAVASCRIPT -->
-	<script src="/public/vendors/bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
-
-	<% } %>
+	<% include config_cdn %>
 
 </head>
 <body>

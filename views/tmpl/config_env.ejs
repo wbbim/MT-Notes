@@ -1,0 +1,56 @@
+<!-- INCLUDE JAVASCRIPT -->
+
+	<!-- In all use: -->
+	<script type="text/javascript" src="/public/js/spm_modules/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/public/js/spm_modules/seajs/2.3.0/dist/sea.js"></script>
+
+<% if(settings.local){ %>
+
+	<!-- In development use: -->
+	<script type="text/javascript" src="/public/vendors/bower_components/marked/lib/marked.js"></script>
+	<script type="text/javascript" src="/public/js/spm_modules/seajs-wrap/1.0.1/dist/seajs-wrap.js"></script>
+
+<% }else{ %>
+
+	<!-- In production use: -->
+	<script src="http://cdn.bootcss.com/marked/0.3.2/marked.js"></script>
+
+<% } %>
+
+<!-- SEA.JS CONFIG -->
+<script type="text/javascript">
+
+	var app_config = {
+		local: <%= settings.local %>,
+		debug: <%= settings.debug %>,
+		bse: function (url) {
+			var _baseTag = document.createElement("base");
+			_baseTag.setAttribute("href", url);
+			document.getElementsByTagName("head")[0].appendChild(_baseTag);
+		}
+	};
+	var sea_config = {
+		app: '',
+		base: '',
+		suffix: ''
+	};
+	<!-- We Add dynamic base attribute by run_env-->
+	if (app_config.debug) {
+		sea_config.suffix = '-debug';
+	} else {
+		sea_config.suffix = '';
+	}
+	<!-- We use different app-version by run_env-->
+	if (app_config.local) {
+		sea_config.app = '/public/js/src/page/' + PAGE_NAME + sea_config.suffix;
+		sea_config.base = '/public/js/spm_modules/';
+	} else {
+		sea_config.app = '/public/js/dist/MT.SPM/0.0.1/src/page/' + PAGE_NAME + sea_config.suffix;
+		sea_config.base = '/public/js/dist';
+	}
+	seajs.config({base: sea_config.base});
+	seajs.use(sea_config.app, function (page) {
+		page.init();
+	});
+
+</script>
