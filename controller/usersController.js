@@ -1,15 +1,14 @@
-var express = require('express');
-var router = express.Router();
+/**
+ * Created by thonatos on 14/12/12.
+ */
 
-/* GET users listing. */
+var encrypt = require('../utils/encrypt');
+//var Token = require('../../models/token');
 
-router.route('/')
-    .get(function (req, res) {
-        res.redirect('/users/login');
-    });
+var routerHandler = {
 
-router.route('/login')
-    .get(function (req, res) {
+    loginGet: function (req, res) {
+
         res.render('users/login', {
             pageTitle: 'Login',
             pageName: 'users-login',
@@ -17,12 +16,15 @@ router.route('/login')
                 flag: false
             }
         });
-    })
-    .post(function (req, res) {
+
+    },
+
+    loginPost: function (req, res) {
         console.log(req.body);
 
         if (req.body.userMail == 'thonatos' && req.body.userPass == 'vzhibo') {
-            res.send('Welcome Back! Master');
+            var token = encrypt.sha1('thonatos');
+            res.send('Welcome Back! Master'+token);
         } else {
             res.render('users/login', {
                 pageTitle: 'Login',
@@ -33,6 +35,8 @@ router.route('/login')
                 }
             });
         }
-    });
+    }
 
-module.exports = router;
+};
+
+exports.usersController = routerHandler;

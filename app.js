@@ -36,13 +36,15 @@ app.use(favicon(__dirname + '/public/favicon.ico'));
 // ROUTES FOR OUR API
 // =============================================================================
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var doc = require('./routes/doc');
+//var api   = require('./routes/api/api');
+var docs  = require('./routes/default/docs');
+var index = require('./routes/default/index');
+var users = require('./routes/default/users');
 
-app.use('/', routes);
+app.use('/', index);
+//app.use('/api',api);
+app.use(/^\/doc\w{0,1}/,docs);
 app.use('/users', users);
-app.use('/doc',doc);
 
 // ERROR HANDLER FOR OUR API
 // =============================================================================

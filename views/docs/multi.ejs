@@ -31,7 +31,7 @@
 					<ul>
 						<% pageContent.content.forEach(function(obj){ %>
 						<li>
-							<a href="/doc/<%= encodeURI(obj.path.toString()) %>"><%= obj.name.toString() %></a>
+							<a href="/docs/<%= encodeURI(obj.path.toString()) %>"><%= obj.name.toString() %></a>
 						</li>
 						<% }); %>
 					</ul>

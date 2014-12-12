@@ -4,7 +4,7 @@
 
 var _development = true;
 
-var _local = false;
+var _local = true;
 var _debug = false;
 
 exports.conf = {

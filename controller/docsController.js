@@ -15,8 +15,8 @@ var routerHandler = {
         // Query lists
         var _category = req.param('category') || '';
 
-        template.templateType = 'doc/multi';
-        template.templateName = 'doc-multi';
+        template.templateType = 'docs/multi';
+        template.templateName = 'docs-multi';
 
         var query = {
             host: api.host,
@@ -24,7 +24,7 @@ var routerHandler = {
             path: api.path + _category
         };
 
-        this.renderData(_category || 'Doc', query, res);
+        routerHandler.renderData(_category || 'Docs', query, res);
 
     },
 
@@ -38,8 +38,8 @@ var routerHandler = {
 
         var _path = _category + '/' + _document;
 
-        template.templateType = 'doc/single';
-        template.templateName = 'doc-single';
+        template.templateType = 'docs/single';
+        template.templateName = 'docs-single';
 
         var query = {
             host: api.host,
@@ -47,7 +47,7 @@ var routerHandler = {
             path: api.path + _path
         };
 
-        this.renderData(_document, query, res);
+        routerHandler.renderData(_document.replace(/\.md$/,''), query, res);
     },
 
     renderData: function (pageTitle, queryString, res) {
@@ -61,10 +61,10 @@ var routerHandler = {
             var _content = {};
 
 
-            if (_template.templateType == 'doc/single') {
+            if (_template.templateType == 'docs/single') {
                 _content = renderService.renderMarkdown(JSON.parse(data));
 
-            } else if (_template.templateType == 'doc/multi') {
+            } else if (_template.templateType == 'docs/multi') {
                 _content = eval(data);
 
                 // Remove ignore list file.
@@ -88,4 +88,4 @@ var routerHandler = {
     }
 };
 
-exports.docController = routerHandler;
+exports.docsController = routerHandler;
