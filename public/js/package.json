@@ -19,8 +19,8 @@
       "src/page/index-index.js",
       "src/page/index-about.js",
       "src/page/users-login.js",
-      "src/page/doc-multi.js",
-      "src/page/doc-single.js"
+      "src/page/docs-multi.js",
+      "src/page/docs-single.js"
     ],
     "dependencies": {
       "seajs": "2.3.0",
