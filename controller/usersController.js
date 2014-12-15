@@ -2,10 +2,13 @@
  * Created by thonatos on 14/12/12.
  */
 
-var encrypt = require('../utils/encrypt');
-//var Token = require('../../models/token');
+var authService = require('../service/authService').authService;
 
-var routerHandler = {
+exports.usersController = {
+
+    loginAll: function (req, res, next) {
+        authService.verAuth(req, res, next);
+    },
 
     loginGet: function (req, res) {
 
@@ -20,11 +23,20 @@ var routerHandler = {
     },
 
     loginPost: function (req, res) {
-        console.log(req.body);
 
-        if (req.body.userMail == 'thonatos' && req.body.userPass == 'vzhibo') {
-            var token = encrypt.sha1('thonatos');
-            res.send('Welcome Back! Master'+token);
+        var _userMail = req.body.userMail;
+        var _userPass = req.body.userPass;
+        var _options = {expires: new Date(Date.now() + 600000), httpOnly: true};
+
+        if ('thonatos' === _userMail && 'vzhibo' === _userPass) {
+
+            var _auth = authService.setAuth(_userMail,_userPass);
+
+            req.session.auth = _auth;
+            res.cookie('userEmail', _auth.userEmail, _options);
+            res.cookie('userToken', _auth.userToken, _options);
+
+            res.send('Welcome Back! Master');
         } else {
             res.render('users/login', {
                 pageTitle: 'Login',
@@ -35,8 +47,13 @@ var routerHandler = {
                 }
             });
         }
+    },
+
+    logoutGet: function (req, res) {
+
+        req.session.destroy();
+        res.cookies.destroy();
+
     }
 
 };
-
-exports.usersController = routerHandler;

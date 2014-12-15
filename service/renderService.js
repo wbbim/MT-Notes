@@ -4,16 +4,19 @@
 
 var marked = require('marked');
 
-exports.renderMarkdown = function (json) {
+exports.renderService = {
+    renderMarkdown : function (json) {
 
-    var _raw = '';
-    var _html = '';
+        var _raw = '';
+        var _html = '';
 
-    if (json.content) {
-        _raw = new Buffer(json.content, json.encoding).toString('utf8');
-        _html = marked(_raw);
-    } else {
-        _html = json.message + ' . ' + json.documentation_url;
+        if (json.content) {
+            _raw = new Buffer(json.content, json.encoding).toString('utf8');
+            _html = marked(_raw);
+        } else {
+            _html = json.message + ' . ' + json.documentation_url;
+        }
+        return _html;
     }
-    return _html;
 };
+
