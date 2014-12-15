@@ -9,10 +9,12 @@ var docsController = require('../../controller/docsController').docsController;
 
 router.route('*').all(function (req,res,next) {
         // We Can handle all request from /doc so that we can also do something before next();
+        res.cookie('APP','MT-NODE');
         console.log('==== Docs ====');
         next();
     }
 );
+
 router.route('/').get(docsController.getMulti);
 
 router.route('/:category').get(docsController.getMulti);

@@ -17,8 +17,11 @@ var del = require('del'),
     autoprefixer = require('gulp-autoprefixer');
 
 // Define Vars
-var less_src = './public/css/less-page/*.less';
-var sass_src = './public/css/scss-page/*.scss';
+var less_src = './public/css-gulp/less-page/*.less';
+var sass_src = './public/css-gulp/scss-page/*.scss';
+
+var less_src_watch = './public/css/less/page/**/*.less';
+var scss_src_watch = './public/css/scss/page/**/*.scss';
 
 var path_dev = './public/css/css-page/';
 var path_dep = './public/css/css-page/';
@@ -73,13 +76,13 @@ gulp.task('default', ['clean'], function() {
 gulp.task('less_watch', function() {
 
     // Watch .less files
-    gulp.watch('./public/css/less/page/**/*.less', ['clean','less']);
+    gulp.watch(less_src_watch, ['clean','less']);
 
 });
 
 gulp.task('sass_watch', function() {
 
     // Watch .scss files
-    gulp.watch('./public/css/scss/page/**/*.scss', ['clean','sass']);
+    gulp.watch(scss_src_watch, ['clean','sass']);
 
 });

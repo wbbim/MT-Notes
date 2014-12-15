@@ -1,5 +1,8 @@
+# Dir
 .idea/
 node_modules/
-public/js/spm_modules/
-public/vendors/bower_components/
+public/js-spm/spm_modules/
+
+# File
 *.DS_Store
+npm-debug.log
