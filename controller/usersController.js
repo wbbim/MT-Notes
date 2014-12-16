@@ -59,7 +59,7 @@ exports.usersController = {
     adminGet: function(req,res){
         res.render('users/admin', {
             pageTitle: 'Admin',
-            pageName: 'users-admin',
+            pageName: 'users-admin'
         });
     }
 

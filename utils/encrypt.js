@@ -20,15 +20,13 @@ exports.decrypt = function (str, secret) {
 exports.md5 = function (str) {
     var md5sum = crypto.createHash('md5');
     md5sum.update(str);
-    str = md5sum.digest('hex');
-    return str;
+    return md5sum.digest('hex');
 };
 
 exports.sha1 = function(str){
     var shasum = crypto.createHash('sha1');
     shasum.update(str);
-    var str = shasum.digest('hex');
-    return str;
+    return shasum.digest('hex');
 };
 
 exports.randomString = function (size) {

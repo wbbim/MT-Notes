@@ -60,14 +60,14 @@ function renderData (pageTitle, queryString, res) {
         var _content = {};
 
 
-        if (_template.templateType == 'docs/single') {
+        if (_template.templateType === 'docs/single') {
             _content = renderService.renderMarkdown(JSON.parse(data));
 
-        } else if (_template.templateType == 'docs/multi') {
+        } else if (_template.templateType === 'docs/multi') {
             _content = eval(data);
 
             // Remove ignore list file.
-            if (_content[0].name == '.gitignore') {
+            if (_content[0].name === '.gitignore') {
                 _content = _content.slice(1);
             }
         }
