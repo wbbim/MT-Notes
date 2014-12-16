@@ -474,51 +474,51 @@ table {
   text-align: right;
 }
 .col-1 {
-  width: 8.33333333% !important;
+  width: 8.25% !important;
   display: inline-block;
 }
 .col-2 {
-  width: 16.66666667% !important;
+  width: 16.5% !important;
   display: inline-block;
 }
 .col-3 {
-  width: 25% !important;
+  width: 24.75% !important;
   display: inline-block;
 }
 .col-4 {
-  width: 33.33333333% !important;
+  width: 33% !important;
   display: inline-block;
 }
 .col-5 {
-  width: 41.66666667% !important;
+  width: 41.25% !important;
   display: inline-block;
 }
 .col-6 {
-  width: 50% !important;
+  width: 49.5% !important;
   display: inline-block;
 }
 .col-7 {
-  width: 58.33333333% !important;
+  width: 57.75% !important;
   display: inline-block;
 }
 .col-8 {
-  width: 66.66666667% !important;
+  width: 66% !important;
   display: inline-block;
 }
 .col-9 {
-  width: 75% !important;
+  width: 74.25% !important;
   display: inline-block;
 }
 .col-10 {
-  width: 83.33333333% !important;
+  width: 82.5% !important;
   display: inline-block;
 }
 .col-11 {
-  width: 91.66666667% !important;
+  width: 90.75% !important;
   display: inline-block;
 }
 .col-12 {
-  width: 100% !important;
+  width: 99% !important;
   display: inline-block;
 }
 *,

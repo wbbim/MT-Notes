@@ -54,6 +54,13 @@ exports.usersController = {
         req.session.destroy();
         res.cookies.destroy();
 
+    },
+
+    adminGet: function(req,res){
+        res.render('users/admin', {
+            pageTitle: 'Admin',
+            pageName: 'users-admin',
+        });
     }
 
 };

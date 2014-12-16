@@ -1,7 +1,7 @@
 @grid-base : 12;
 
 .col(@num) {
-    width: percentage(@num/@grid-base) !important;
+    width: percentage(@num/@grid-base) * .99 !important;
     display: inline-block;
 }
 

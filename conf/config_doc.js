@@ -3,8 +3,6 @@
  */
 
 // Define Doc Source To  Github Repo
-
-
 exports.document = {
     host: 'api.github.com',
     port: 443,

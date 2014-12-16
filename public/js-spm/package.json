@@ -20,7 +20,8 @@
       "src/page/index-about.js",
       "src/page/users-login.js",
       "src/page/docs-multi.js",
-      "src/page/docs-single.js"
+      "src/page/docs-single.js",
+      "src/page/videos-live.js"
     ],
     "dependencies": {
       "seajs": "2.3.0",

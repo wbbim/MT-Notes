@@ -1,0 +1,51 @@
+<% include ../tmpl/header%>
+
+<div class="wrap">
+	<!--[if lt IE 7]>
+	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a
+			href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+
+	<div class="layout-full">
+
+		<div class="header">
+
+			<div class="inner">
+				<div class="col-5">
+					<h3><i class="fa fa-dashboard"> Live</i></h3>
+				</div>
+				<div class="col-5 right text-right nav">
+					<a href="/"><i class="fa fa-home"> Home</i></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="main">
+			<div class="inner">
+				<div class="col-12">
+						<div class="live-section" style="width: 100%;height: 400px;">
+							<video id="live-video" style="width: 100%;height: 400px;" data-src="http://hls-vzhibo.vzhibo.tv/b90e606e89c6382e047ebdeb751c7cf8_180/playlist.m3u8" controls autobuffer autoplay poster="">
+								<!--<source type="application/x-mpegurl" src="http://hls-vzhibo.vzhibo.tv/b90e606e89c6382e047ebdeb751c7cf8_180/playlist.m3u8">-->
+								<!--<source type="application/x-mpegurl">-->
+								<source type="video/mp4">
+								您的浏览器不支持 HTML5 video 标签。
+							</video>
+						</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<div class="inner">
+				<div class="col-12 center text-right state">
+					<p>Live is life .</p>
+
+					<p>时间总是把最好的，留在最后。</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<% include ../tmpl/footer%>
