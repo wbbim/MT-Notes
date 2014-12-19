@@ -5,8 +5,8 @@
 var queryService = require('../service/queryService').queryService;
 var renderService = require('../service/renderService').renderService;
 
-var document = require('../conf/config_doc').document;
-var template = require('../conf/config_doc').template;
+var document = require('../conf/config_emu').create.docRepo();
+var template = require('../conf/config_emu').create.docTemplate();
 
 exports.docsController = {
 
