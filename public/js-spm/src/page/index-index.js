@@ -13,7 +13,19 @@ var init = function () {
 
     //resizeHeader();
     //$(window).resize(resizeHeader);
+
+    randomBackground();
 };
+
+function randomBackground(){
+    var _num = (Math.random()*10).toFixed(0) % 2;
+    var _bgSrc = '0' + _num.toString();
+
+    var $wrap = $('.wrap');
+        $wrap.css({
+            "background-image": 'url(/public/images/bg/'+_bgSrc +'.jpg)'
+        });
+}
 
 function resizeHeader(){
 

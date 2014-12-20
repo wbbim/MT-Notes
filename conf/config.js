@@ -21,7 +21,7 @@ exports.conf = {
     "runEnv": {
         "DEV": true,
         "PORT": 8084,
-        "LOCAL": true,
+        "LOCAL": false,
         "SEAJS": true,
         "DEBUG": false
     },
