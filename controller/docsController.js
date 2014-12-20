@@ -12,8 +12,13 @@ exports.docsController = {
 
     getMulti: function (req, res) {
 
-        // Query lists
+        // Query Multi
         var _category = req.param('category') || '';
+        var _path = _category;
+
+        if(document.host.indexOf('coding') !== -1){
+            _path = 'treeinfo/master/' + _path;
+        }
 
         template.templateType = 'docs/multi';
         template.templateName = 'docs-multi';
@@ -21,7 +26,7 @@ exports.docsController = {
         var query = {
             host: document.host,
             port: document.port,
-            path: document.path + _category
+            path: document.path + _path
         };
 
         renderData(_category || 'Docs', query, res);
@@ -33,10 +38,11 @@ exports.docsController = {
         // Query Single
         var _category = req.param('category');
         var _document = req.param('document');
-
-        //console.log(_document);
-
         var _path = _category + '/' + _document;
+
+        if(document.host.indexOf('coding') !== -1){
+            _path = 'blob/master/' + _path;
+        }
 
         template.templateType = 'docs/single';
         template.templateName = 'docs-single';
@@ -57,18 +63,26 @@ function renderData (pageTitle, queryString, res) {
 
         var _gotData = !err;
         var _template = template;
-        var _content = {};
+        var _content = [];
 
 
         if (_template.templateType === 'docs/single') {
-            _content = renderService.renderMarkdown(JSON.parse(data));
+
+            if(queryString.host.indexOf('coding') !== -1){
+                console.log(queryString);
+                _content = renderService.renderMarkdown(JSON.parse(data),'C');
+            }else{
+                _content = renderService.renderMarkdown(JSON.parse(data),'G');
+            }
+
 
         } else if (_template.templateType === 'docs/multi') {
-            _content = eval(data);
 
-            // Remove ignore list file.
-            if (_content[0].name === '.gitignore') {
-                _content = _content.slice(1);
+            if(queryString.host.indexOf('coding') !== -1){
+                var _tmp = JSON.parse(data);
+                _content = eval(_tmp.data.infos);
+            }else{
+                _content = eval(data);
             }
         }
 

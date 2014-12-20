@@ -4,7 +4,9 @@
 
 
 exports.conf = {
-    "siteName": "Thonatos.Yang",
+    "site":{
+      "name":"Thonatos.Yang"
+    } ,
     "docRepo": {
         "github": {
             "doc_user": "thonatos",
@@ -14,7 +16,7 @@ exports.conf = {
             "doc_user": "thonatos",
             "doc_project": "Mt.Notes.And.Documents"
         },
-        "GC": "G"
+        "GC": "C"
     },
     "runEnv": {
         "DEV": true,

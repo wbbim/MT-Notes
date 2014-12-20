@@ -11,10 +11,9 @@ var cookieParser = require('cookie-parser');
 
 var app = express();
 
-var mtNodeJson = {};
 var CONFIG_RUN_ENV  = {};
 var CONFIG_SECURE   = {};
-var CONFIG_DOC_REPO = {};
+var CONFIG_SITE= {};
 
 var MtNode = {
 
@@ -31,7 +30,7 @@ var MtNode = {
 
         CONFIG_RUN_ENV  = _conf.runEnv;
         CONFIG_SECURE   = _conf.secure;
-        CONFIG_DOC_REPO = _conf.docRepo;
+        CONFIG_SITE   = _conf.site;
 
         return true;
     },
@@ -52,9 +51,8 @@ var MtNode = {
 
         _protected.setLocals = function () {
 
+            app.set('site',CONFIG_SITE);
             app.set('config', CONFIG_RUN_ENV);
-            app.set('docrepo',CONFIG_DOC_REPO);
-
 
         };
 
