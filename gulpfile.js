@@ -33,8 +33,8 @@ gulp.task('less', function () {
             paths: [ path.join(__dirname, 'less', 'includes') ]
         }))
         .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
+            //browsers: ['last 2 versions'],
+            cascade: true
         }))
         .pipe(gulp.dest(path_dev))
         .pipe(rename({ suffix: '.min' }))

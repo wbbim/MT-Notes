@@ -11,8 +11,6 @@ var CODING = {
     path: '/api/user/MTTUSER/project/MTTPROJECT/git/'
 };
 
-//https://coding.net/api/user/thonatos/project/Mt.Notes.And.Documents/git/treeinfo/master/
-
 var GITHUB = {
     host: 'api.github.com',
     port: 443,

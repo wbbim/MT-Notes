@@ -3,6 +3,7 @@
  */
 
 var crypto = require('crypto');
+
 exports.encrypt = function (str, secret) {
     var cipher = crypto.createCipher('aes192', secret);
     var enc = cipher.update(str, 'utf8', 'hex');

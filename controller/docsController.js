@@ -69,7 +69,6 @@ function renderData (pageTitle, queryString, res) {
         if (_template.templateType === 'docs/single') {
 
             if(queryString.host.indexOf('coding') !== -1){
-                console.log(queryString);
                 _content = renderService.renderMarkdown(JSON.parse(data),'C');
             }else{
                 _content = renderService.renderMarkdown(JSON.parse(data),'G');
@@ -78,11 +77,12 @@ function renderData (pageTitle, queryString, res) {
 
         } else if (_template.templateType === 'docs/multi') {
 
+            var _tmp = JSON.parse(data);
+
             if(queryString.host.indexOf('coding') !== -1){
-                var _tmp = JSON.parse(data);
-                _content = eval(_tmp.data.infos);
+                _content = _tmp.data.infos;
             }else{
-                _content = eval(data);
+                _content = _tmp;
             }
         }
 

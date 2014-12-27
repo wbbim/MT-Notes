@@ -10,7 +10,22 @@ var init = function () {
 
     console.log('Live Page');
 
-    var html5Player = require('../components/html5-player').create($('.live-section'),$('.live-section video'),document.getElementById("live-video"));
+    var html5Player = require('../components/html5-player').create(
+        $('.video-section'),
+        $('.video-section video'),
+        document.getElementById("html5-video"),
+        {
+            display:{
+              volumeControl:false
+            },
+            control:
+            {
+                progress:false,
+                volume:false
+            }
+        }
+
+    );
     html5Player.init();
     html5Player.resume();
 

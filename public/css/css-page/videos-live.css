@@ -589,3 +589,267 @@ body {
   margin: 0;
   color: #a6a6a6;
 }
+.video-section {
+  width: 640px;
+  position: relative;
+}
+.video-section:hover .video-controls {
+  opacity: .9;
+}
+.video-section .video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 0;
+  display: inline-block;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-out;
+          transition: opacity 0.3s ease-out;
+  background-image: -webkit-linear-gradient(bottom, #181818, to(#181818));
+  background-image: linear-gradient(bottom, #181818, to(#181818));
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.13, #181818), color-stop(1, #181818));
+}
+.video-section .video-controls .controls-container {
+  margin: 0 auto;
+  width: 100%;
+  height: 24px;
+}
+.video-section .video-controls .controls-container .play,
+.video-section .video-controls .controls-container .progress,
+.video-section .video-controls .controls-container .mute,
+.video-section .video-controls .controls-container .volume,
+.video-section .video-controls .controls-container .full-screen {
+  height: 24px;
+  float: left;
+  margin: 0 2px;
+}
+.video-section .video-controls .controls-container .play a.button,
+.video-section .video-controls .controls-container .progress a.button,
+.video-section .video-controls .controls-container .mute a.button,
+.video-section .video-controls .controls-container .volume a.button,
+.video-section .video-controls .controls-container .full-screen a.button {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+  display: block;
+  border: none;
+  background-size: 24px 24px;
+  background-position: center center;
+}
+.video-section .video-controls .controls-container .play a.button:hover,
+.video-section .video-controls .controls-container .progress a.button:hover,
+.video-section .video-controls .controls-container .mute a.button:hover,
+.video-section .video-controls .controls-container .volume a.button:hover,
+.video-section .video-controls .controls-container .full-screen a.button:hover,
+.video-section .video-controls .controls-container .play a.button:visited,
+.video-section .video-controls .controls-container .progress a.button:visited,
+.video-section .video-controls .controls-container .mute a.button:visited,
+.video-section .video-controls .controls-container .volume a.button:visited,
+.video-section .video-controls .controls-container .full-screen a.button:visited,
+.video-section .video-controls .controls-container .play a.button:active,
+.video-section .video-controls .controls-container .progress a.button:active,
+.video-section .video-controls .controls-container .mute a.button:active,
+.video-section .video-controls .controls-container .volume a.button:active,
+.video-section .video-controls .controls-container .full-screen a.button:active {
+  border: none;
+}
+.video-section .video-controls .controls-container .play {
+  width: 36px;
+}
+.video-section .video-controls .controls-container .play a.button {
+  background: url(../../images/player/player-play.svg);
+  background-repeat: no-repeat;
+}
+.video-section .video-controls .controls-container .progress {
+  width: 300px;
+}
+.video-section .video-controls .controls-container .progress input[type=range].seek-bar {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 3px 0;
+  background: none;
+}
+.video-section .video-controls .controls-container .progress input[type=range].seek-bar:focus {
+  outline: none;
+}
+.video-section .video-controls .controls-container .progress input[type=range].seek-bar::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  box-shadow: 4.1px 4.1px 1px rgba(125, 0, 0, 0), 0px 0px 4.1px rgba(151, 0, 0, 0);
+  background: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  border: 1px solid #666666;
+}
+.video-section .video-controls .controls-container .progress input[type=range].seek-bar::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 0px solid #999999;
+  height: 12px;
+  width: 20px;
+  border-radius: 8px;
+  background: #f3f3f3;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -4px;
+}
+.video-section .video-controls .controls-container .progress input[type=range].seek-bar:focus::-webkit-slider-runnable-track {
+  background: rgba(13, 13, 13, 0);
+}
+.video-section .video-controls .controls-container .progress input[type=range].seek-bar::-moz-range-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  box-shadow: 4.1px 4.1px 1px rgba(125, 0, 0, 0), 0px 0px 4.1px rgba(151, 0, 0, 0);
+  background: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  border: 1px solid #666666;
+}
+.video-section .video-controls .controls-container .progress input[type=range].seek-bar::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 0px solid #999999;
+  height: 12px;
+  width: 20px;
+  border-radius: 8px;
+  background: #f3f3f3;
+  cursor: pointer;
+}
+.video-section .video-controls .controls-container .progress input[type=range].seek-bar::-ms-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+.video-section .video-controls .controls-container .progress input[type=range].seek-bar::-ms-fill-lower {
+  background: rgba(0, 0, 0, 0);
+  border: 1px solid #666666;
+  border-radius: 20px;
+  box-shadow: 4.1px 4.1px 1px rgba(125, 0, 0, 0), 0px 0px 4.1px rgba(151, 0, 0, 0);
+}
+.video-section .video-controls .controls-container .progress input[type=range].seek-bar::-ms-fill-upper {
+  background: rgba(0, 0, 0, 0);
+  border: 1px solid #666666;
+  border-radius: 20px;
+  box-shadow: 4.1px 4.1px 1px rgba(125, 0, 0, 0), 0px 0px 4.1px rgba(151, 0, 0, 0);
+}
+.video-section .video-controls .controls-container .progress input[type=range].seek-bar::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 0px solid #999999;
+  height: 12px;
+  width: 20px;
+  border-radius: 8px;
+  background: #f3f3f3;
+  cursor: pointer;
+  height: 6px;
+}
+.video-section .video-controls .controls-container .progress input[type=range].seek-bar:focus::-ms-fill-lower {
+  background: rgba(0, 0, 0, 0);
+}
+.video-section .video-controls .controls-container .progress input[type=range].seek-bar:focus::-ms-fill-upper {
+  background: rgba(13, 13, 13, 0);
+}
+.video-section .video-controls .controls-container .mute {
+  width: 36px;
+}
+.video-section .video-controls .controls-container .mute a.button {
+  background: url(../../images/player/player-unmute.svg);
+  background-repeat: no-repeat;
+}
+.video-section .video-controls .controls-container .volume {
+  width: 100px;
+}
+.video-section .video-controls .controls-container .volume input[type=range].volume-bar {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 3px 0;
+  background: none;
+}
+.video-section .video-controls .controls-container .volume input[type=range].volume-bar:focus {
+  outline: none;
+}
+.video-section .video-controls .controls-container .volume input[type=range].volume-bar::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+  background: rgba(0, 0, 0, 0);
+  border-radius: 6px;
+  border: 1px solid #666666;
+}
+.video-section .video-controls .controls-container .volume input[type=range].volume-bar::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid rgba(153, 153, 153, 0);
+  height: 12px;
+  width: 12px;
+  border-radius: 6px;
+  background: #f3f3f3;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -4px;
+}
+.video-section .video-controls .controls-container .volume input[type=range].volume-bar:focus::-webkit-slider-runnable-track {
+  background: rgba(0, 0, 0, 0);
+}
+.video-section .video-controls .controls-container .volume input[type=range].volume-bar::-moz-range-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+  background: rgba(0, 0, 0, 0);
+  border-radius: 6px;
+  border: 1px solid #666666;
+}
+.video-section .video-controls .controls-container .volume input[type=range].volume-bar::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid rgba(153, 153, 153, 0);
+  height: 12px;
+  width: 12px;
+  border-radius: 6px;
+  background: #f3f3f3;
+  cursor: pointer;
+}
+.video-section .video-controls .controls-container .volume input[type=range].volume-bar::-ms-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+.video-section .video-controls .controls-container .volume input[type=range].volume-bar::-ms-fill-lower {
+  background: rgba(0, 0, 0, 0);
+  border: 1px solid #666666;
+  border-radius: 12px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+}
+.video-section .video-controls .controls-container .volume input[type=range].volume-bar::-ms-fill-upper {
+  background: rgba(0, 0, 0, 0);
+  border: 1px solid #666666;
+  border-radius: 12px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+}
+.video-section .video-controls .controls-container .volume input[type=range].volume-bar::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid rgba(153, 153, 153, 0);
+  height: 12px;
+  width: 12px;
+  border-radius: 6px;
+  background: #f3f3f3;
+  cursor: pointer;
+  height: 6px;
+}
+.video-section .video-controls .controls-container .volume input[type=range].volume-bar:focus::-ms-fill-lower {
+  background: rgba(0, 0, 0, 0);
+}
+.video-section .video-controls .controls-container .volume input[type=range].volume-bar:focus::-ms-fill-upper {
+  background: rgba(0, 0, 0, 0);
+}
+.video-section .video-controls .controls-container .full-screen {
+  width: 36px;
+}
+.video-section .video-controls .controls-container .full-screen a.button {
+  background: url(../../images/player/player-enter-fullscreen.svg);
+  background-repeat: no-repeat;
+}
