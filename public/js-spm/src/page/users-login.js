@@ -5,7 +5,7 @@
 var init = function () {
     console.log('users-login');
 
-    resizeHeight();
+    //resizeHeight();
 
     // Don't ask me why i do this.
     setTimeout(function () {

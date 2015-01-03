@@ -1,50 +1,16 @@
 @import "../public/base";
 
-html,
-body,
-.wrap,
-.layout {
-    height: 100% !important;
-}
-
-.layout {
-    position: relative;
-    top: 0;
-    display: table;
-}
-
-.header {
-    position: absolute;
-    top: 0;
-    right: 1em;
-
-    .nav {
-        :nth-child(1){
-            margin-right: 0 !important;
-        }
-
-        a.button {
-            padding: 0.5em 1em;
-            margin: 0.5em;
-            min-width: 7em;
-            display: inline-block;
-            text-align: center;
-            color: #333333;
-            border: 0.1em solid #333333;
-            border-radius: 0.5em;
-            text-decoration: none;
-        }
-    }
-}
-
 .main {
-
-    display: table-cell;
-    vertical-align: middle;
 
     .about {
         width: 100%;
         padding: 1em 0;
+
+        .title{
+            border-bottom: 1px solid #eeeeee;
+            padding-bottom: 1em;
+        }
+
     }
 
     .info {
@@ -61,10 +27,8 @@ body,
             text-decoration: none;
         }
     }
+
 }
 
 .footer {
-    position: absolute;
-    right: 1em;
-    bottom: 0;
 }

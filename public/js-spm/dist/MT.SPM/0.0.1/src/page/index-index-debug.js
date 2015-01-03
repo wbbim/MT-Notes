@@ -12,7 +12,8 @@ define("MT.SPM/0.0.1/src/page/index-index-debug", [], function(require, exports,
   };
 
   function randomBackground() {
-    var _num = (Math.random() * 10).toFixed(0) % 2;
+    //var _num = (Math.random()*10).toFixed(0) % 2;
+    var _num = Math.floor(Math.random() * 3 + 1) - 1;
     var _bgSrc = '0' + _num.toString();
     var $wrap = $('.wrap');
     $wrap.css({

@@ -16,7 +16,7 @@ exports.conf = {
             "doc_user": "thonatos",
             "doc_project": "Mt.Notes.And.Documents"
         },
-        "GC": "G"
+        "GC": "C"
     },
     "runEnv": {
         "DEV": true,

@@ -15,12 +15,11 @@ var CONFIG_RUN_ENV  = {};
 var CONFIG_SECURE   = {};
 var CONFIG_SITE= {};
 
-var MtNode = {
+var MtNotes = {
 
     getConf: function () {
 
         // READ CONF
-
         var _conf = require('./conf/config').conf;
 
         if(!_conf){
@@ -150,8 +149,8 @@ var MtNode = {
     }
 };
 
-if( MtNode.getConf() ){
-    MtNode.init();
+if( MtNotes.getConf() ){
+    MtNotes.init();
 }
 
 module.exports = app;
