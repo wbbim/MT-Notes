@@ -113,31 +113,51 @@ var MtNotes = {
         _protected.setErrors = function () {
             // ------------- ERROR HANDLER -------------
 
-            app.use(function (req, res, next) {
-                var err = new Error('Not Found');
-                err.status = 404;
-                next(err);
-            });
-
-            // development error handler
             if (CONFIG_RUN_ENV.DEV) {
+
+                // development error handler
+                app.use(function (req, res,next) {
+                    var err = new Error('Not Found');
+                    err.status(404);
+                    res.render('404', {
+                        message: err.message,
+                        status: err.status,
+                        stack:err.stack
+                    });
+
+                    return;
+                });
                 app.use(function (err, req, res, next) {
                     res.status(err.status || 500);
-                    res.render('error', {
+                    res.render('500', {
                         message: err.message,
                         error: err
                     });
                 });
+
+            }else{
+
+                // production error handler
+                app.use(function (req, res) {
+                    var err = new Error('Not Found');
+                    err.status(404);
+                    res.render('404', {
+                        message: err.message,
+                        status: err.status,
+                        stack:''
+                    });
+                });
+                app.use(function (err, req, res, next) {
+                    res.status(err.status || 500);
+                    res.render('500', {
+                        message: err.message,
+                        error: {}
+                    });
+                });
             }
 
-            // production error handler
-            app.use(function (err, req, res, next) {
-                res.status(err.status || 500);
-                res.render('error', {
-                    message: err.message,
-                    error: {}
-                });
-            });
+
+
         };
 
         return obj;

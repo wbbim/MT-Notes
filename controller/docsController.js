@@ -10,13 +10,14 @@ var template = require('../conf/config_emu').create.docTemplate();
 
 exports.docsController = {
 
-    getMulti: function (req, res) {
+    getMulti: function (req, res, mt) {
 
         // Query Multi
-        var _category = req.param('category') || '';
+        var _category = mt.category || '';
+        var _document = decodeURI(mt.document.replace(/\.md$/, '')); // decodeURI for document named in chinese
         var _path = _category;
 
-        if(document.host.indexOf('coding') !== -1){
+        if (document.host.indexOf('coding') !== -1) {
             _path = 'treeinfo/master/' + _path;
         }
 
@@ -29,18 +30,21 @@ exports.docsController = {
             path: document.path + _path
         };
 
-        renderData(_category || 'Docs', query, res);
+        renderData(_document || 'Docs', query, res);
 
     },
 
-    getSingle: function (req, res) {
+    getSingle: function (req, res, mt) {
 
         // Query Single
-        var _category = req.param('category');
-        var _document = req.param('document');
-        var _path = _category + '/' + _document;
+        var _category = mt.category;
+        var _document = decodeURI(mt.document.replace(/\.md$/, '')); // decodeURI for document named in chinese
 
-        if(document.host.indexOf('coding') !== -1){
+        var _path = _category;
+
+        console.log(mt.category);
+
+        if (document.host.indexOf('coding') !== -1) {
             _path = 'blob/master/' + _path;
         }
 
@@ -53,11 +57,11 @@ exports.docsController = {
             path: document.path + _path
         };
 
-        renderData(_document.replace(/\.md$/,''), query, res);
+        renderData(_document, query, res);
     }
 };
 
-function renderData (pageTitle, queryString, res) {
+function renderData(pageTitle, queryString, res) {
 
     queryService.get(queryString, function (err, data) {
 
@@ -68,10 +72,10 @@ function renderData (pageTitle, queryString, res) {
 
         if (_template.templateType === 'docs/single') {
 
-            if(queryString.host.indexOf('coding') !== -1){
-                _content = renderService.renderMarkdown(JSON.parse(data),'C');
-            }else{
-                _content = renderService.renderMarkdown(JSON.parse(data),'G');
+            if (queryString.host.indexOf('coding') !== -1) {
+                _content = renderService.renderMarkdown(JSON.parse(data), 'C');
+            } else {
+                _content = renderService.renderMarkdown(JSON.parse(data), 'G');
             }
 
 
@@ -79,9 +83,9 @@ function renderData (pageTitle, queryString, res) {
 
             var _tmp = JSON.parse(data);
 
-            if(queryString.host.indexOf('coding') !== -1){
+            if (queryString.host.indexOf('coding') !== -1) {
                 _content = _tmp.data.infos;
-            }else{
+            } else {
                 _content = _tmp;
             }
         }

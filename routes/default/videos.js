@@ -14,5 +14,4 @@ router.route('/')
 
 router.route('/live')
     .get(videosController.liveGet);
-
 module.exports = router;
