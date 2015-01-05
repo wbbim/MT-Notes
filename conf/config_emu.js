@@ -2,8 +2,11 @@
  * Created by thonatos on 14/12/19.
  */
 
-var _docRepo = require('./config').conf.docRepo;
-var _obj = require('../utils/obj');
+var fs      = require('fs');
+var path    = require('path');
+
+var CONFIG_APP = checkConf();
+var UTIL = require('../utils/obj');
 
 var CODING = {
     host: 'coding.net',
@@ -17,30 +20,49 @@ var GITHUB = {
     path: '/repos/MTTUSER/MTTPROJECT/contents/'
 };
 
+function checkConf(){
 
-exports.create = {
+    var _conf = {};
+
+    if (path.existsSync(path.join(__dirname, '../config_local.json'))) {
+
+        console.log('emu: Find Find Private Config File, Use the Config.');
+        _conf = JSON.parse(fs.readFileSync(path.join(__dirname, '../config_local.json'),'utf-8')).docRepo;
+
+
+    }else{
+        console.log('emu: Cant Find Private Config File, Use default Config.');
+        _conf = require('./config_app').docRepo
+    }
+
+    return _conf;
+}
+
+module.exports = {
+
     docTemplate: function () {
         return {
             templateType: '',
             templateName: ''
         };
     },
+
     docRepo: function () {
 
-        if (_docRepo.GC === "G") {
+        if (CONFIG_APP.GC === "G") {
 
-            var _g = _obj.cloneObj(GITHUB);
+            var _g = UTIL.cloneObj(GITHUB);
 
-            _g.path = _g.path.replace(/MTTUSER/g, _docRepo.github.doc_user);
-            _g.path = _g.path.replace(/MTTPROJECT/g, _docRepo.github.doc_project);
+            _g.path = _g.path.replace(/MTTUSER/g, CONFIG_APP.github.doc_user);
+            _g.path = _g.path.replace(/MTTPROJECT/g, CONFIG_APP.github.doc_project);
 
             return _g;
 
         } else {
 
-            var _c = _obj.cloneObj(CODING);
-            _c.path = _c.path.replace(/MTTUSER/g, _docRepo.coding.doc_user);
-            _c.path = _c.path.replace(/MTTPROJECT/g, _docRepo.coding.doc_project);
+            var _c = UTIL.cloneObj(CODING);
+            _c.path = _c.path.replace(/MTTUSER/g, CONFIG_APP.coding.doc_user);
+            _c.path = _c.path.replace(/MTTPROJECT/g, CONFIG_APP.coding.doc_project);
 
             return _c;
         }

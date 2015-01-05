@@ -6,3 +6,6 @@ public/js-spm/spm_modules/
 # File
 *.DS_Store
 npm-debug.log
+
+# Config
+config_local.json

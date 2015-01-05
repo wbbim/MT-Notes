@@ -3,9 +3,9 @@
  */
 
 
-exports.conf = {
+module.exports = {
     "site":{
-      "name":"Thonatos.Yang"
+      "name":"MT.NOTES"
     } ,
     "docRepo": {
         "github": {
@@ -16,7 +16,20 @@ exports.conf = {
             "doc_user": "thonatos",
             "doc_project": "Mt.Notes.And.Documents"
         },
-        "GC": "G"
+        "GC": "C"
+    },
+    "secure": {
+        "cookie": {
+            "name": "MT.NOTES_"
+        },
+        "session": {
+            "name": "MT.Name",
+            "secret": "MT.Secret"
+        },
+        "administartor": {
+            "email": "m@t.biu",
+            "passwd": "what?are#you$doing!"
+        }
     },
     "runEnv": {
         "DEV": true,
@@ -24,19 +37,6 @@ exports.conf = {
         "LOCAL": false,
         "SEAJS": true,
         "DEBUG": false
-    },
-    "secure": {
-        "cookie": {
-            "name": "MT.NODE_"
-        },
-        "session": {
-            "name": "MT.Name",
-            "secret": "MT.Secret"
-        },
-        "administartor": {
-            "email": "thonatos",
-            "passwd": "vzhibo"
-        }
     }
 };
 

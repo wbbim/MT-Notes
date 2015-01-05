@@ -5,8 +5,10 @@
 var queryService = require('../service/queryService').queryService;
 var renderService = require('../service/renderService').renderService;
 
-var document = require('../conf/config_emu').create.docRepo();
-var template = require('../conf/config_emu').create.docTemplate();
+var CONFIG_EMU = require('../conf/config_emu');
+
+var DOCUMENT = CONFIG_EMU.docRepo();
+var TEMPLATE = CONFIG_EMU.docTemplate();
 
 exports.docsController = {
 
@@ -17,17 +19,17 @@ exports.docsController = {
         var _document = decodeURI(mt.document.replace(/\.md$/, '')); // decodeURI for document named in chinese
         var _path = _category;
 
-        if (document.host.indexOf('coding') !== -1) {
+        if (DOCUMENT.host.indexOf('coding') !== -1) {
             _path = 'treeinfo/master/' + _path;
         }
 
-        template.templateType = 'docs/multi';
-        template.templateName = 'docs-multi';
+        TEMPLATE.templateType = 'docs/multi';
+        TEMPLATE.templateName = 'docs-multi';
 
         var query = {
-            host: document.host,
-            port: document.port,
-            path: document.path + _path
+            host: DOCUMENT.host,
+            port: DOCUMENT.port,
+            path: DOCUMENT.path + _path
         };
 
         renderData(_document || 'Docs', query, res);
@@ -39,22 +41,19 @@ exports.docsController = {
         // Query Single
         var _category = mt.category;
         var _document = decodeURI(mt.document.replace(/\.md$/, '')); // decodeURI for document named in chinese
-
         var _path = _category;
 
-        console.log(mt.category);
-
-        if (document.host.indexOf('coding') !== -1) {
+        if (DOCUMENT.host.indexOf('coding') !== -1) {
             _path = 'blob/master/' + _path;
         }
 
-        template.templateType = 'docs/single';
-        template.templateName = 'docs-single';
+        TEMPLATE.templateType = 'docs/single';
+        TEMPLATE.templateName = 'docs-single';
 
         var query = {
-            host: document.host,
-            port: document.port,
-            path: document.path + _path
+            host: DOCUMENT.host,
+            port: DOCUMENT.port,
+            path: DOCUMENT.path + _path
         };
 
         renderData(_document, query, res);
@@ -66,9 +65,8 @@ function renderData(pageTitle, queryString, res) {
     queryService.get(queryString, function (err, data) {
 
         var _gotData = !err;
-        var _template = template;
+        var _template = TEMPLATE;
         var _content = [];
-
 
         if (_template.templateType === 'docs/single') {
 
@@ -77,7 +75,6 @@ function renderData(pageTitle, queryString, res) {
             } else {
                 _content = renderService.renderMarkdown(JSON.parse(data), 'G');
             }
-
 
         } else if (_template.templateType === 'docs/multi') {
 

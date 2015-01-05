@@ -4,7 +4,6 @@
 
 var https = require('https');
 
-
 exports.queryService = {
 
     get: function (queryString, callback) {

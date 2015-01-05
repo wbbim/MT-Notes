@@ -1,6 +1,6 @@
 var fs      = require('fs');
 var path    = require('path');
-var logger  = require('morgan');
+var morgan  = require('morgan');
 var favicon = require('serve-favicon');
 var session = require('express-session');
 var express = require('express');
@@ -11,25 +11,41 @@ var cookieParser = require('cookie-parser');
 
 var app = express();
 
-var CONFIG_RUN_ENV  = {};
-var CONFIG_SECURE   = {};
-var CONFIG_SITE= {};
+var APP_RUNENV = {};
+var APP_SECURE = {};
 
-var MtNotes = {
+var CONFIG_SITE = {};
+
+
+var MT_NOTES = {
 
     getConf: function () {
 
         // READ CONF
-        var _conf = require('./conf/config').conf;
+        var _configApp = require('./conf/config_app');
 
-        if(!_conf){
+        if (path.existsSync('config_local.json')) {
+
+            // do something
+            var _configLocal = JSON.parse(fs.readFileSync('config_local.json','utf-8'));
+
+            CONFIG_SITE = _configLocal.site;
+            APP_RUNENV  = _configLocal.runEnv;
+            APP_SECURE  = _configLocal.secure;
+
+        }else{
+
+            console.log('Cant Find Private Config File, Use default Config.');
+
+            CONFIG_SITE = _configApp.site;
+            APP_RUNENV  = _configApp.runEnv;
+            APP_SECURE  = _configApp.secure;
+        }
+
+        if(!_configApp){
             console.log('Cant Read Configure Json File.');
             return false;
         }
-
-        CONFIG_RUN_ENV  = _conf.runEnv;
-        CONFIG_SECURE   = _conf.secure;
-        CONFIG_SITE   = _conf.site;
 
         return true;
     },
@@ -51,24 +67,24 @@ var MtNotes = {
         _protected.setLocals = function () {
 
             app.set('site',CONFIG_SITE);
-            app.set('config', CONFIG_RUN_ENV);
+            app.set('config', APP_RUNENV);
 
         };
 
         _protected.setAPP = function () {
 
-            app.set('port', process.env.PORT || CONFIG_RUN_ENV.PORT);
+            app.set('port', process.env.PORT || APP_RUNENV.PORT);
             app.set('views', path.join(__dirname, 'views'));
             app.set('view engine', 'ejs');
 
-            app.use(logger('dev'));
+            app.use(morgan('tiny'));
             app.use(bodyParser.urlencoded({extended: false}));
             app.use(bodyParser.json());
 
-            app.use(cookieParser(CONFIG_SECURE.cookie.name));
+            app.use(cookieParser(APP_SECURE.cookie.name));
             app.use(session({
-                name: CONFIG_SECURE.session.name,
-                secret: CONFIG_SECURE.session.secret,
+                name: APP_SECURE.session.name,
+                secret: APP_SECURE.session.secret,
                 resave: false,
                 saveUninitialized: true,
                 cookie: {
@@ -113,10 +129,10 @@ var MtNotes = {
         _protected.setErrors = function () {
             // ------------- ERROR HANDLER -------------
 
-            if (CONFIG_RUN_ENV.DEV) {
+            if (APP_RUNENV.DEV) {
 
                 // development error handler
-                app.use(function (req, res,next) {
+                app.use(function (req, res) {
                     var err = new Error('Not Found');
                     err.status(404);
                     res.render('404', {
@@ -124,8 +140,6 @@ var MtNotes = {
                         status: err.status,
                         stack:err.stack
                     });
-
-                    return;
                 });
                 app.use(function (err, req, res, next) {
                     res.status(err.status || 500);
@@ -169,8 +183,8 @@ var MtNotes = {
     }
 };
 
-if( MtNotes.getConf() ){
-    MtNotes.init();
+if( MT_NOTES.getConf() ){
+    MT_NOTES.init();
 }
 
 module.exports = app;
