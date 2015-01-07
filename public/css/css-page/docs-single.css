@@ -612,6 +612,16 @@ body {
 .header .nav .nav-ul li a:hover {
   box-shadow: inset 0 -3px 0px #ffffff;
 }
+@media screen and (max-width: 1024px) {
+  .header .nav .nav-brand a {
+    line-height: 0.9em;
+    font-size: 0.9em;
+  }
+  .header .nav .nav-ul li a {
+    line-height: 0.9em;
+    font-size: 0.9em;
+  }
+}
 .inner:before,
 .nav:before,
 .nav-ul:before {
@@ -688,6 +698,8 @@ body {
 }
 .content a {
   color: #0069d6;
+  display: block;
+  overflow: auto;
 }
 .content a:hover {
   color: #0050a3;
@@ -783,9 +795,6 @@ body {
   color: #737373;
   font-size: 11px;
   padding: 0;
-}
-.content ul li {
-  overflow: auto;
 }
 .content sup {
   font-size: 0.83em;

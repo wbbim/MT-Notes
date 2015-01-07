@@ -24,14 +24,14 @@ function checkConf(){
 
     var _conf = {};
 
-    if (path.existsSync(path.join(__dirname, '../config_local.json'))) {
+    if (fs.existsSync(path.join(__dirname, '../config_local.json'))) {
 
-        console.log('emu: Find Find Private Config File, Use the Config.');
+        console.log('CONFIG_EMU: Find Private Config File, Use the Config.');
         _conf = JSON.parse(fs.readFileSync(path.join(__dirname, '../config_local.json'),'utf-8')).docRepo;
 
 
     }else{
-        console.log('emu: Cant Find Private Config File, Use default Config.');
+        console.log('CONFIG_EMU: Cant Find Private Config File, Use default Config.');
         _conf = require('./config_app').docRepo
     }
 

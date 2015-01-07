@@ -24,20 +24,23 @@ var MT_NOTES = {
         // READ CONF
         var _configApp = require('./conf/config_app');
 
-        if (path.existsSync('config_local.json')) {
+        if (fs.existsSync('config_local.json')) {
 
+            console.log('APP: Find Private Config File, Use the Config.');
             // do something
             var _configLocal = JSON.parse(fs.readFileSync('config_local.json','utf-8'));
 
             CONFIG_SITE = _configLocal.site;
+
             APP_RUNENV  = _configLocal.runEnv;
             APP_SECURE  = _configLocal.secure;
 
         }else{
 
-            console.log('Cant Find Private Config File, Use default Config.');
+            console.log('APP: Cant Find Private Config File, Use default Config.');
 
             CONFIG_SITE = _configApp.site;
+
             APP_RUNENV  = _configApp.runEnv;
             APP_SECURE  = _configApp.secure;
         }

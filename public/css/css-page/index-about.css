@@ -612,6 +612,16 @@ body {
 .header .nav .nav-ul li a:hover {
   box-shadow: inset 0 -3px 0px #ffffff;
 }
+@media screen and (max-width: 1024px) {
+  .header .nav .nav-brand a {
+    line-height: 0.9em;
+    font-size: 0.9em;
+  }
+  .header .nav .nav-ul li a {
+    line-height: 0.9em;
+    font-size: 0.9em;
+  }
+}
 .inner:before,
 .nav:before,
 .nav-ul:before {
