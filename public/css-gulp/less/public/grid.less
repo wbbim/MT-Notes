@@ -5,6 +5,20 @@
     display: block;
     float: left;
 }
+.row{
+    width: 100%;
+
+    &:before{
+        content: ' ';
+        display: table;
+    }
+
+    &:after{
+        content: ' ';
+        display: table;
+        clear: both;
+    }
+}
 
 .col-1 {
     .col(1);

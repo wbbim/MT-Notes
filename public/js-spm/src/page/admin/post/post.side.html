@@ -1,0 +1,9 @@
+<div class="side-brand">
+    <a href="#">MT.NOTES</a>
+</div>
+
+<ul class="side-nav">
+    <li ng-repeat="menu in menuList">
+        <a ui-sref="{{ menu.url }}"><i class="fa fa-circle-o">{{ menu.name }}</i></a>
+    </li>
+</ul>

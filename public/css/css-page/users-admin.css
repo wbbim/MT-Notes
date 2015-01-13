@@ -460,6 +460,9 @@ table {
 .white {
   color: #ffffff;
 }
+.left {
+  float: left;
+}
 .right {
   float: right;
 }
@@ -471,6 +474,18 @@ table {
 }
 .text-right {
   text-align: right;
+}
+.row {
+  width: 100%;
+}
+.row:before {
+  content: ' ';
+  display: table;
+}
+.row:after {
+  content: ' ';
+  display: table;
+  clear: both;
 }
 .col-1 {
   width: 8.33333333% !important;
@@ -635,9 +650,108 @@ body {
   clear: both;
   display: table;
 }
+form .columns {
+  padding: 0.5em 1em;
+}
+form .columns label {
+  width: 100%;
+  height: 1em;
+}
+form .columns input,
+form .columns select,
+form .columns textarea {
+  margin-top: 0.5em;
+  padding: 0.5em;
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid #eeeeee;
+  border-radius: 0.3em;
+}
+form .columns input:focus,
+form .columns select:focus,
+form .columns textarea:focus {
+  border: 1px solid #f04b5f;
+  box-shadow: none;
+  outline: none;
+}
+form .columns input,
+form .columns select,
+form .columns button {
+  height: 2.4em;
+}
+form .columns small {
+  color: #f04b5f;
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 0.5em;
+  padding: 0.5em 1em;
+  display: block;
+}
+form .columns .button {
+  color: white;
+  background: #80AD56;
+  border-radius: 2px;
+  border: none;
+  font-size: 1em;
+  line-height: 1em;
+  display: inline-block;
+}
+.panel {
+  margin: 1em 1em 0 1em;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+}
+.panel .panel-header {
+  padding: 0.5em 1em;
+  border-bottom: 1px solid #fafafa;
+}
+.panel .panel-header:before {
+  content: ' ';
+  display: table;
+}
+.panel .panel-header:after {
+  content: ' ';
+  clear: both;
+  display: table;
+}
+.panel .panel-body {
+  padding: 0.5em 1em;
+}
+.panel .panel-footer {
+  padding: 0.5em 1em;
+  border-top: 1px solid #fafafa;
+}
+.panel .panel-footer .inner {
+  padding: 0;
+}
+.posts {
+  padding: 2em 0;
+}
+.posts .post .post-title h3 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+.posts .post .post-content {
+  color: #626262;
+}
+.posts .post .post-meta {
+  margin: 0;
+  padding: 0;
+  color: #626262;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+}
+.posts a {
+  color: #222222;
+  text-decoration: none;
+}
 .header {
-  background-color: #f04b5f;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #666666;
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 .header .inner .nav a {
@@ -647,36 +761,69 @@ body {
   font-size: 1.17em;
   margin: 1em 0;
 }
-.main .inner .sidebar ul {
+.side-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  min-width: 15em;
+  background-color: #2b303b;
+  box-shadow: 2px 0 1px rgba(0, 0, 0, 0.2);
+}
+.side-box .side-brand {
+  padding: 1.8em 1em;
+  background: #272b35;
+  border-bottom: 1px solid #232730;
+  color: #ffffff;
+  text-align: center;
+}
+.side-box .side-brand a {
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1.2em;
+  color: #fff;
+  text-decoration: none;
+}
+.side-box .side-brand a:before {
+  content: 'mT';
+  padding: 0em 0.5em;
+  margin-right: 1em;
+  font-size: 1em;
+  line-height: 1.2em;
+  background: #fff;
+  color: #000;
+  display: inline-block;
+}
+.side-box .side-nav {
+  padding: 0 1em;
   list-style: none;
-  background: #f7f7f7;
-  border-radius: 0.5em;
-  padding: 0.5em;
 }
-.main .inner .sidebar ul li {
-  padding: 0.5em;
-}
-.main .document {
-  width: 100%;
-  padding: 1em;
-}
-.main .document .title {
-  padding: 1em 0;
-  border-bottom: 1px solid #eeeeee;
-  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
-}
-.main .document .content {
-  padding: 1em 0;
-}
-.footer {
-  background-color: #37393c;
-  box-shadow: 0px -2px 1px rgba(0, 0, 0, 0.2);
-}
-.footer .inner .state {
-  padding: 1em 0;
-}
-.footer .inner .state p {
+.side-box .side-nav li {
   padding: 0.5em 0;
-  margin: 0;
-  color: #a6a6a6;
+}
+.side-box .side-nav a {
+  height: 1em;
+  line-height: 1em;
+  display: inline-block;
+  color: #ffffff;
+  text-decoration: none;
+}
+.side-box .side-nav a .fa:before {
+  margin-right: 0.5em;
+}
+.main-box {
+  float: right;
+  min-width: 960px;
+  overflow: auto;
+}
+.main-box .header {
+  padding: 1.8em 0;
+  font-size: 1em;
+}
+.main-box .main .form {
+  margin-top: 2em;
+}
+.delete-post-button {
+  display: inline-block;
+  color: #507716!important;
 }

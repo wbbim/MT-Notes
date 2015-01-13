@@ -460,6 +460,9 @@ table {
 .white {
   color: #ffffff;
 }
+.left {
+  float: left;
+}
 .right {
   float: right;
 }
@@ -471,6 +474,18 @@ table {
 }
 .text-right {
   text-align: right;
+}
+.row {
+  width: 100%;
+}
+.row:before {
+  content: ' ';
+  display: table;
+}
+.row:after {
+  content: ' ';
+  display: table;
+  clear: both;
 }
 .col-1 {
   width: 8.33333333% !important;

@@ -17,11 +17,7 @@ router.route('*')
         url.shift(); // Remove url.indexOf('/');
         url.shift(); // Remove url.indexOf('/doc');
 
-
         if(url.length > 0){
-
-            // This means that it is the url for category or document
-            //console.log('is not root',url);
 
             category = url.join('/');
             document = url[url.length - 1].replace(/\.md$/,'');
@@ -39,9 +35,6 @@ router.route('*')
             }
 
         }else{
-
-            // This means that it is the root dir
-            //console.log('is root',url);
 
             category = url;
             document = '';

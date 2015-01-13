@@ -1,10 +1,11 @@
-var fs      = require('fs');
-var path    = require('path');
-var morgan  = require('morgan');
+var fs = require('fs');
+var path = require('path');
+var morgan = require('morgan');
 var favicon = require('serve-favicon');
 var session = require('express-session');
 var express = require('express');
-var bodyParser  = require('body-parser');
+var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 
 // ------------- CONFIG -------------
@@ -26,27 +27,25 @@ var MT_NOTES = {
 
         if (fs.existsSync('config_local.json')) {
 
-            console.log('APP: Find Private Config File, Use the Config.');
-            // do something
-            var _configLocal = JSON.parse(fs.readFileSync('config_local.json','utf-8'));
+            var _configLocal = JSON.parse(fs.readFileSync('config_local.json', 'utf-8'));
 
+            console.log('## MT-NOTES: APP, Find Private Config File, Use the Config.');
             CONFIG_SITE = _configLocal.site;
 
-            APP_RUNENV  = _configLocal.runEnv;
-            APP_SECURE  = _configLocal.secure;
+            APP_RUNENV = _configLocal.runEnv;
+            APP_SECURE = _configLocal.secure;
 
-        }else{
+        } else {
 
-            console.log('APP: Cant Find Private Config File, Use default Config.');
-
+            console.log('## MT-NOTES: APP, Cant Find Private Config File, Use default Config.');
             CONFIG_SITE = _configApp.site;
 
-            APP_RUNENV  = _configApp.runEnv;
-            APP_SECURE  = _configApp.secure;
+            APP_RUNENV = _configApp.runEnv;
+            APP_SECURE = _configApp.secure;
         }
 
-        if(!_configApp){
-            console.log('Cant Read Configure Json File.');
+        if (!_configApp) {
+            console.log('## MT-NOTES: Cant Read Configure Json File.');
             return false;
         }
 
@@ -62,6 +61,7 @@ var MT_NOTES = {
 
             _protected.setLocals();
             _protected.setAPP();
+            _protected.setDatabase();
             _protected.setResources();
             _protected.setRouters();
             _protected.setErrors();
@@ -69,7 +69,7 @@ var MT_NOTES = {
 
         _protected.setLocals = function () {
 
-            app.set('site',CONFIG_SITE);
+            app.set('site', CONFIG_SITE);
             app.set('config', APP_RUNENV);
 
         };
@@ -98,6 +98,22 @@ var MT_NOTES = {
 
         };
 
+        _protected.setDatabase = function () {
+            // MONGOOSE FOR OUR API
+            var db_options = {
+                db: {native_parser: true},
+                server: {poolSize: 5},
+                user: 'tfme',
+                pass: 'tfme2014'
+            };
+            mongoose.connect('mongodb://localhost:27017/tfme', db_options);
+            var db = mongoose.connection;
+            db.on('error', console.error.bind(console, 'connection error:'));
+            db.once('open', function () {
+                console.log('## MT-NOTES: Database initialized with Mongoose.');
+            });
+        };
+
         _protected.setResources = function () {
 
             // ------------- RESOURCES -------------
@@ -116,16 +132,18 @@ var MT_NOTES = {
             var docs = require('./routes/default/docs');
             var index = require('./routes/default/index');
             var users = require('./routes/default/users');
+            var posts = require('./routes/default/posts');
             var videos = require('./routes/default/videos');
 
             app.use('/', index);
             app.use(/^\/doc\w{0,1}/, docs);
             app.use('/users', users);
+            app.use(/^\/post\w{0,1}/, posts);
             app.use('/videos', videos);
 
             // Api
-            //var api   = require('./routes/api/api');
-            //app.use('/api',api);
+            var api   = require('./routes/api/api');
+            app.use('/api',api);
         };
 
 
@@ -141,7 +159,7 @@ var MT_NOTES = {
                     res.render('404', {
                         message: err.message,
                         status: err.status,
-                        stack:err.stack
+                        stack: err.stack
                     });
                 });
                 app.use(function (err, req, res, next) {
@@ -152,7 +170,7 @@ var MT_NOTES = {
                     });
                 });
 
-            }else{
+            } else {
 
                 // production error handler
                 app.use(function (req, res) {
@@ -161,7 +179,7 @@ var MT_NOTES = {
                     res.render('404', {
                         message: err.message,
                         status: err.status,
-                        stack:''
+                        stack: ''
                     });
                 });
                 app.use(function (err, req, res, next) {
@@ -172,7 +190,6 @@ var MT_NOTES = {
                     });
                 });
             }
-
 
 
         };
@@ -186,7 +203,7 @@ var MT_NOTES = {
     }
 };
 
-if( MT_NOTES.getConf() ){
+if (MT_NOTES.getConf()) {
     MT_NOTES.init();
 }
 

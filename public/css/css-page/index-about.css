@@ -460,6 +460,9 @@ table {
 .white {
   color: #ffffff;
 }
+.left {
+  float: left;
+}
 .right {
   float: right;
 }
@@ -471,6 +474,18 @@ table {
 }
 .text-right {
   text-align: right;
+}
+.row {
+  width: 100%;
+}
+.row:before {
+  content: ' ';
+  display: table;
+}
+.row:after {
+  content: ' ';
+  display: table;
+  clear: both;
 }
 .col-1 {
   width: 8.33333333% !important;
@@ -642,18 +657,4 @@ body {
 .main .about .title {
   border-bottom: 1px solid #eeeeee;
   padding-bottom: 1em;
-}
-.main .info {
-  padding: 1em 0;
-}
-.main .info a.button {
-  padding: 0.5em 1em;
-  margin: 0.5em 0;
-  min-width: 7em;
-  display: inline-block;
-  text-align: center;
-  color: #333333;
-  border: 0.1em solid #333333;
-  border-radius: 0.5em;
-  text-decoration: none;
 }

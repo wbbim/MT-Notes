@@ -4,7 +4,7 @@
 
 var app = require('./app');
 
-var server = app.listen(app.get('port'), function() {
-    console.log('\n === ' + new Date() +' MT.Server listening on port ' + server.address().port + ' ===\n');
+var server = app.listen(app.get('port'), function () {
+    console.log('## MT-NOTES: ' + 'MT.Server listening on port ' + server.address().port + ',' + new Date());
 });
 
