@@ -10,33 +10,33 @@ var postService = angular.module('ASS.service.postService', [])
     .factory('postService', ['ajaxService', function (ajaxService) {
 
         return ({
-            add: _add,
-            del: _del,
-            rev: _rev,
-            get: _get,
-            getAll: _getAll
+            add: add,
+            del: del,
+            rev: rev,
+            get: get,
+            getAll: getAll
         });
 
-        function _add(post) {
+        function add(post) {
 
             post.category = post.category.name;
             post.author = _user || 'nobody';
             return ajaxService.post(_postUrl, post);
         }
 
-        function _del(pid) {
+        function del(pid) {
             return ajaxService.del(_postUrl + '/' + pid);
         }
 
-        function _rev(pid, post) {
+        function rev(pid, post) {
             return ajaxService.put(_postUrl + '/' + pid, post);
         }
 
-        function _get(pid) {
+        function get(pid) {
             return ajaxService.get(_postUrl + '/' + pid);
         }
 
-        function _getAll(pager) {
+        function getAll(pager) {
             return ajaxService.get(_postsUrl + '/' + pager);
         }
     }]);

@@ -32,7 +32,7 @@ function checkConf(){
 
     }else{
         console.log('## MT-NOTES: CONFIG_EMU, Cant Find Private Config File, Use default Config.');
-        _conf = require('./config_app').docRepo
+        _conf = require('./config_app').docRepo;
     }
 
     return _conf;

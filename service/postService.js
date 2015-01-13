@@ -15,8 +15,6 @@ exports.postService = {
         _post.save(function (err) {
 
             if (err) {
-                console.log(err);
-
                 callback(err);
                 return;
             }
@@ -58,8 +56,9 @@ exports.postService = {
             _id: pid
         }, function (err, post) {
             if (err) {
-                callback(err)
+                callback(err);
             }
+
             callback({
                 req: '/post/' + pid,
                 res: 'success',
@@ -75,6 +74,7 @@ exports.postService = {
                 callback(err);
                 return;
             }
+
             callback({
                 post: post
             });
@@ -96,7 +96,7 @@ exports.postService = {
             Post.find().skip(( currentPage - 1 ) * perPageNum).limit(perPageNum).sort('-create_date').exec(function (err, posts) {
 
                 if (err) {
-                    return err;
+                   callback(err);
                     return;
                 }
 
