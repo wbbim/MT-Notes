@@ -1,11 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var Post = require('../../models/post');
 
-var postService = require('../../service/postService').postService;
+var postsController = require('../../controller/postsController').postsController;
 
+// Return Json
 router.route('/')
-
     .get(function (req, res) {
         res.json({
             req: '/',
@@ -14,24 +13,10 @@ router.route('/')
         });
     });
 
-router.route('/posts/:currentPage')
+router.route('/posts/page/:currentPage')
+    .get(postsController.getAll);
 
-    .get(function (req, res) {
-        var perPageNum = req.params.perPageNum || 2,
-            currentPage = req.params.currentPage || 1;
-
-        postService.getAll(currentPage, perPageNum, function (data) {
-
-            res.json({
-                pageCount: data.pageCount,
-                currentPage: data.currentPage,
-                perPageNum: data.perPageNum,
-                posts: data.posts
-            });
-
-        });
-
-    });
-
+router.route('/posts/:pid')
+    .get(postsController.get);
 
 module.exports = router;

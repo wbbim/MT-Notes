@@ -7,11 +7,40 @@ var postService = require('../service/postService').postService;
 
 exports.postsController = {
 
+    // Return JSON
+    get: function (req,res) {
+
+        var pid = req.params.pid;
+
+        postService.get(pid, function (data) {
+
+            res.json({
+                pageTitle: data.post.name,
+                pageName: 'posts-single',
+                pageContent: data
+            });
+        });
+    },
+    getAll: function (req,res) {
+        var perPageNum = req.params.perPageNum || 2,
+            currentPage = req.params.currentPage || 1;
+
+        postService.getAll(currentPage, perPageNum, function (data) {
+
+            res.json({
+                pageCount: data.pageCount,
+                currentPage: data.currentPage,
+                perPageNum: data.perPageNum,
+                posts: data.posts
+            });
+
+        });
+    },
     add: function (req, res) {
 
         var post = {
-            name: req.body.title,
-            desc: req.body.excerpt,
+            name: req.body.name,
+            desc: req.body.desc,
             tags: req.body.tags,
             date: moment().format("dddd, MMMM Do YYYY"),
             author: req.body.author,
@@ -22,15 +51,18 @@ exports.postsController = {
         console.log(post);
 
         postService.add(post, function (data) {
+
             res.json(data);
         });
 
     },
     put: function (req, res) {
 
+        var pid = req.params.pid;
+
         var post = {
-            name: req.body.title,
-            desc: req.body.excerpt,
+            name: req.body.name,
+            desc: req.body.desc,
             tags: req.body.tags,
             date: moment().format("dddd, MMMM Do YYYY"),
             author: req.body.author,
@@ -38,7 +70,8 @@ exports.postsController = {
             category: req.body.category
         };
 
-        postService.put(post, function (data) {
+        postService.put(pid,post, function (data) {
+
             res.json(data);
         });
 
@@ -50,29 +83,18 @@ exports.postsController = {
         console.log(pid);
 
         postService.del(pid, function (data) {
+
             res.json(data);
         });
 
     },
-    get: function (req,res) {
 
-        var pid = req.params.pid;
-        postService.get(pid, function (data) {
-
-            res.json('posts/single', {
-                pageTitle: data.post.name,
-                pageName: 'posts-single',
-                pageContent: data
-            });
-        });
-
-    },
-
+    // Return HTML
     getSingle: function (req, res) {
 
         var pid = req.params.pid;
+
         postService.get(pid, function (data) {
-            //res.send(data);
 
             res.render('posts/single', {
                 pageTitle: data.post.name,
@@ -82,12 +104,13 @@ exports.postsController = {
         });
 
     },
-    getAll: function (req, res) {
+    getMulti: function (req, res) {
 
         var perPageNum = req.params.perPageNum || 2;
         var currentPage = req.params.currentPage || 1;
 
         postService.getAll(currentPage, perPageNum, function (data) {
+
             res.render('posts/multi', {
                 pageTitle: 'Post',
                 pageName: 'posts-multi',

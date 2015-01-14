@@ -27,24 +27,31 @@ exports.postService = {
 
         });
     },
-    put: function (post, callback) {
+    put: function (pid, post, callback) {
 
-        Post.findById(req.params.pid, function (err, _post) {
+        Post.findById(pid, function (err, oldPost) {
+
             if (err) {
                 callback(err);
             }
 
-            _post = post;
+            oldPost.name = post.name;
+            oldPost.desc = post.desc;
+            oldPost.tags = post.tags;
+            oldPost.date = post.date;
+            oldPost.author = post.author;
+            oldPost.content = post.content;
 
-            _post.save(function (err) {
+            oldPost.save(function (err) {
+
                 if (err) {
                     callback(err);
                 }
 
                 callback({
-                    req: '/post/' + req.params.pid,
+                    req: '/post/' + pid,
                     res: 'success',
-                    msg: req.body.name + " Updated."
+                    msg: post.name + " Updated."
                 });
             });
         });
@@ -55,6 +62,7 @@ exports.postService = {
         Post.remove({
             _id: pid
         }, function (err, post) {
+
             if (err) {
                 callback(err);
             }
@@ -70,6 +78,7 @@ exports.postService = {
     get: function (pid, callback) {
 
         Post.findById(pid, function (err, post) {
+
             if (err) {
                 callback(err);
                 return;
@@ -92,11 +101,10 @@ exports.postService = {
                 callback(err);
             }
 
-
             Post.find().skip(( currentPage - 1 ) * perPageNum).limit(perPageNum).sort('-create_date').exec(function (err, posts) {
 
                 if (err) {
-                   callback(err);
+                    callback(err);
                     return;
                 }
 

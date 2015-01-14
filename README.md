@@ -1,8 +1,10 @@
 MT.NOTES
 
-## About
+## #About
 
 A blog/documents Site Running on NodeJS Server.
+
+## #Config
 
 ### Private Config
 
@@ -46,3 +48,27 @@ if there is not a file named with config_local.json, it will use default conf.
     }
 }
 ```
+
+## #Api
+
+### Public Api
+
+#### METHOD:GET
+
+* /posts/
+* /posts/:pid
+* /posts/page/:currentPage
+
+### Private Api
+
+#### METHOD:POST
+
+* /users/post/
+
+#### METHOD:PUT
+
+* /users/post/:pid
+
+#### METHOD:DELETE
+
+* /users/post/:pid

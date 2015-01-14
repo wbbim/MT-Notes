@@ -5,30 +5,80 @@
 var express = require('express');
 var router = express.Router();
 
-var usersController = require('../../controller/usersController').usersController;
 var postsController = require('../../controller/postsController').postsController;
 
-router.route('*')
-    .all(usersController.loginAll);
 
-router.route('/')
-    .get(function (req, res) {
+module.exports = function (passport) {
+
+    router.route('/')
+        .get(function (req, res) {
+            res.redirect('/users/login');
+        });
+
+    router.route('/login')
+        .get(function (req, res) {
+            res.render('users/login', {
+                pageTitle: 'Login',
+                pageName: 'users-login',
+                message: req.flash('loginMessage')
+            });
+
+
+        })
+        .post(passport.authenticate('local-login', {
+            successRedirect: '/users/admin',
+            failureRedirect: '/users/login',
+            failureFlash: true
+
+        }));
+
+    router.route('/logout')
+        .get(function (req, res) {
+            req.logout();
+            res.redirect('/');
+        });
+
+    router.route('/signup')
+        .get(function (req, res) {
+            res.render('users/signup', {
+                pageTitle: 'Signup',
+                pageName: 'users-signup',
+                message: req.flash('signupMessage')
+            });
+
+        })
+        .post(passport.authenticate('local-signup', {
+            successRedirect: '/users/admin',
+            failureRedirect: '/users/signup',
+            failureFlash: true
+
+        }));
+
+    router.route('/admin')
+        .get(isLoggedIn, function (req, res) {
+            res.render('users/admin', {
+                pageTitle: 'Admin',
+                pageName: 'users-admin'
+            });
+        });
+
+    // Add Post
+    router.route('/post')
+        .post(postsController.add);
+
+    // REV OR DEL
+    router.route('/post/:pid')
+        .put(postsController.put)
+        .delete(postsController.del);
+
+    function isLoggedIn(req, res, next) {
+
+        if (req.isAuthenticated()) {
+            return next();
+        }
+
         res.redirect('/users/login');
-    });
+    }
 
-// Add Post
-router.route('/post')
-    .post(postsController.add);
-
-router.route('/post/:pid')
-    .put(postsController.put)
-    .delete(postsController.del);
-
-router.route('/login')
-    .get(usersController.loginGet)
-    .post(usersController.loginPost);
-
-router.route('/admin')
-    .get(usersController.adminGet);
-
-module.exports = router;
+    return router;
+};

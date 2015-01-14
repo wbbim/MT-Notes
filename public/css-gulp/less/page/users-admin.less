@@ -3,6 +3,7 @@
 @import "../public/compoment/form";
 @import "../public/compoment/panel";
 @import "../public/compoment/post";
+@import "../public/compoment/pager";
 
 
 .header {
@@ -124,8 +125,11 @@
 }
 
 
-.delete-post-button{
+.delete-post-button,
+.rev-post-button{
     display: inline-block;
-    color: #507716!important;
+    color: @green-light !important;
+    margin: 0 .5em;
 }
+
 

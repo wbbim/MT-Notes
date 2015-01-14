@@ -7,11 +7,13 @@ var router = express.Router();
 
 var postsController = require('../../controller/postsController').postsController;
 
+// Render HTML
+
 router.route('/')
-    .get(postsController.getAll);
+    .get(postsController.getMulti);
 
 router.route('/page/:currentPage')
-    .get(postsController.getAll);
+    .get(postsController.getMulti);
 
 router.route('/:pid')
     .get(postsController.getSingle);

@@ -2,8 +2,9 @@
  * Created by thonatos on 14-11-8.
  */
 
-var _postUrl  = '/users/post';
-var _postsUrl = '/api/posts';
+var PRIVATE_API = '/users/post';
+var PUBLIC_API = '/api/posts';
+
 var _user = 'thonatos';
 
 var postService = angular.module('ASS.service.postService', [])
@@ -21,23 +22,23 @@ var postService = angular.module('ASS.service.postService', [])
 
             post.category = post.category.name;
             post.author = _user || 'nobody';
-            return ajaxService.post(_postUrl, post);
+            return ajaxService.post(PRIVATE_API, post);
         }
 
         function del(pid) {
-            return ajaxService.del(_postUrl + '/' + pid);
+            return ajaxService.del(PRIVATE_API + '/' + pid);
         }
 
         function rev(pid, post) {
-            return ajaxService.put(_postUrl + '/' + pid, post);
+            return ajaxService.put(PRIVATE_API + '/' + pid, post);
         }
 
         function get(pid) {
-            return ajaxService.get(_postUrl + '/' + pid);
+            return ajaxService.get(PUBLIC_API + '/' + pid);
         }
 
         function getAll(pager) {
-            return ajaxService.get(_postsUrl + '/' + pager);
+            return ajaxService.get(PUBLIC_API + '/page/' + pager);
         }
     }]);
 

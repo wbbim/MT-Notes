@@ -556,6 +556,10 @@ body {
   font: 14px "Open Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+a {
+  color: #222222;
+  text-decoration: none;
+}
 .wrap {
   width: 100%;
   margin: 0 auto;
@@ -582,12 +586,12 @@ body {
   padding: 1em;
 }
 .header {
-  background-color: #f04b5f;
+  background-color: rgba(43, 48, 59, 0.9);
   color: #ffffff;
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 .header .inner {
-  padding: 0!important;
+  padding: 0 !important;
 }
 .header .nav .nav-brand {
   float: left;
@@ -639,24 +643,28 @@ body {
 }
 .inner:before,
 .nav:before,
-.nav-ul:before {
+.nav-ul:before,
+.pager:before,
+.columns:before {
   content: ' ';
   display: table;
 }
 .inner:after,
 .nav:after,
-.nav-ul:after {
+.nav-ul:after,
+.pager:after,
+.columns:after {
   content: ' ';
   clear: both;
   display: table;
 }
 .panel {
-  margin: 1em 1em 0 1em;
+  margin-top: 1em;
   background-color: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.07);
 }
 .panel .panel-header {
-  padding: 0.5em 1em;
+  padding: .7em 1em;
   border-bottom: 1px solid #fafafa;
 }
 .panel .panel-header:before {
@@ -669,10 +677,10 @@ body {
   display: table;
 }
 .panel .panel-body {
-  padding: 0.5em 1em;
+  padding: .5em 1em;
 }
 .panel .panel-footer {
-  padding: 0.5em 1em;
+  padding: .7em 1em;
   border-top: 1px solid #fafafa;
 }
 .panel .panel-footer .inner {
@@ -698,10 +706,6 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   text-transform: uppercase;
-}
-.posts a {
-  color: #222222;
-  text-decoration: none;
 }
 html,
 body {

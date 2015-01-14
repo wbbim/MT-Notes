@@ -26,6 +26,15 @@ module.exports = {
             "name": "MT.Name",
             "secret": "MT.Secret"
         },
+        "database":{
+            "url":"mongodb://localhost:27017/tfme",
+            "options":{
+                db: {native_parser: true},
+                server: {poolSize: 5},
+                user: 'tfme',
+                pass: 'tfme2014'
+            }
+        },
         "administartor": {
             "email": "m@t.biu",
             "passwd": "what?are#you$doing!"

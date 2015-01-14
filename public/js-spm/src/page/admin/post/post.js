@@ -2,15 +2,7 @@
  * Created by thonatos on 15/1/12.
  */
 
-/********************************************************
- * STATIC
- ********************************************************/
-
 var post = angular.module('ASS.post', ['ui.router']);
-
-/********************************************************
- * CONTROLLER
- ********************************************************/
 
 post.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $stateProvider
@@ -47,6 +39,15 @@ post.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
                     controller: 'postAddCtrl'
                 }
             }
+        })
+        .state('post.rev', {
+            url: '/rev/:pid',
+            views: {
+                'main@post': {
+                    templateUrl: '/public/js-spm/src/page/admin/post/post.rev.html',
+                    controller: 'postRevCtrl'
+                }
+            }
         });
 }]);
 
@@ -67,7 +68,7 @@ post.controller('postMainCtrl', ['$scope', 'postService', function ($scope, post
 
 post.controller('postListCtrl', ['$scope', 'postService', function ($scope, postService) {
 
-    $scope.title = 'Post.List';
+    $scope.title = 'List all posts';
 
     var _currentPage = 1;
 
@@ -122,7 +123,7 @@ post.controller('postListCtrl', ['$scope', 'postService', function ($scope, post
 
 post.controller('postAddCtrl', ['$scope', 'postService', function ($scope, postService) {
 
-    $scope.title = 'Post.Add';
+    $scope.title = 'Add a new post';
 
 
     $scope.categories = [
@@ -150,5 +151,34 @@ post.controller('postAddCtrl', ['$scope', 'postService', function ($scope, postS
 
 }]);
 
+post.controller('postRevCtrl', ['$scope','$stateParams','postService', function ($scope, $stateParams,postService) {
+
+    $scope.title = 'Revision a old post';
+
+    var pid = $stateParams.pid;
+
+    postService.get(pid).then(function (response) {
+        console.log(response);
+        $scope.post = response.pageContent.post;
+    });
+
+    $scope.categories = [
+        {id: 1, name: 'Default'},
+        {id: 2, name: 'Document'}];
+
+    $scope.submitPostForm = function (Valid) {
+        if (Valid) {
+
+            console.log($scope.post);
+            postService.rev(pid,$scope.post).then(function (response) {
+                console.log(response);
+                alert('success');
+            });
+        } else {
+            alert('you need complete the form');
+        }
+    };
+
+}]);
 
 module.exports = post;

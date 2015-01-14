@@ -1,10 +1,15 @@
 var fs = require('fs');
 var path = require('path');
+
 var morgan = require('morgan');
 var favicon = require('serve-favicon');
 var session = require('express-session');
 var express = require('express');
+
 var mongoose = require('mongoose');
+var passport = require('passport');
+var flash    = require('connect-flash');
+
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 
@@ -16,7 +21,6 @@ var APP_RUNENV = {};
 var APP_SECURE = {};
 
 var CONFIG_SITE = {};
-
 
 var MT_NOTES = {
 
@@ -61,6 +65,7 @@ var MT_NOTES = {
 
             _protected.setLocals();
             _protected.setAPP();
+            _protected.setAuth();
             _protected.setDatabase();
             _protected.setResources();
             _protected.setRouters();
@@ -84,6 +89,12 @@ var MT_NOTES = {
             app.use(bodyParser.urlencoded({extended: false}));
             app.use(bodyParser.json());
 
+        };
+
+        _protected.setAuth = function () {
+
+            require('./service/authService')(passport);
+
             app.use(cookieParser(APP_SECURE.cookie.name));
             app.use(session({
                 name: APP_SECURE.session.name,
@@ -95,19 +106,28 @@ var MT_NOTES = {
                     httpOnly: true
                 }
             }));
+            app.use(passport.initialize());
+            app.use(passport.session());
+            app.use(flash());
 
         };
 
         _protected.setDatabase = function () {
             // MONGOOSE FOR OUR API
-            var db_options = {
-                db: {native_parser: true},
-                server: {poolSize: 5},
-                user: 'tfme',
-                pass: 'tfme2014'
-            };
-            mongoose.connect('mongodb://localhost:27017/tfme', db_options);
+            //var db_options = {
+            //    db: {native_parser: true},
+            //    server: {poolSize: 5},
+            //    user: 'tfme',
+            //    pass: 'tfme2014'
+            //};
+
+            var db_url     = APP_SECURE.database.url;
+            var db_options = APP_SECURE.database.options;
+
+            mongoose.connect(db_url, db_options);
+
             var db = mongoose.connection;
+
             db.on('error', console.error.bind(console, 'connection error:'));
             db.once('open', function () {
                 console.log('## MT-NOTES: Database initialized with Mongoose.');
@@ -128,26 +148,12 @@ var MT_NOTES = {
 
             // ------------- ROUTERS -------------
 
-            // Default
-            var docs = require('./routes/default/docs');
-            var index = require('./routes/default/index');
-            var users = require('./routes/default/users');
-            var posts = require('./routes/default/posts');
-            var videos = require('./routes/default/videos');
-
-            app.use('/', index);
-            app.use(/^\/doc\w{0,1}/, docs);
-            app.use('/users', users);
-            app.use(/^\/post\w{0,1}/, posts);
-            app.use('/videos', videos);
-
-            // Api
-            var api   = require('./routes/api/api');
-            app.use('/api',api);
+            require('./routes/route')(app, passport);
         };
 
 
         _protected.setErrors = function () {
+
             // ------------- ERROR HANDLER -------------
 
             if (APP_RUNENV.DEV) {
@@ -155,7 +161,7 @@ var MT_NOTES = {
                 // development error handler
                 app.use(function (req, res) {
                     var err = new Error('Not Found');
-                    err.status(404);
+                    res.status(404);
                     res.render('404', {
                         message: err.message,
                         status: err.status,

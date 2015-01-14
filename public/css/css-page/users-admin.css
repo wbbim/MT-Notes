@@ -556,6 +556,10 @@ body {
   font: 14px "Open Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+a {
+  color: #222222;
+  text-decoration: none;
+}
 .wrap {
   width: 100%;
   margin: 0 auto;
@@ -582,12 +586,12 @@ body {
   padding: 1em;
 }
 .header {
-  background-color: #f04b5f;
+  background-color: rgba(43, 48, 59, 0.9);
   color: #ffffff;
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 .header .inner {
-  padding: 0!important;
+  padding: 0 !important;
 }
 .header .nav .nav-brand {
   float: left;
@@ -639,13 +643,17 @@ body {
 }
 .inner:before,
 .nav:before,
-.nav-ul:before {
+.nav-ul:before,
+.pager:before,
+.columns:before {
   content: ' ';
   display: table;
 }
 .inner:after,
 .nav:after,
-.nav-ul:after {
+.nav-ul:after,
+.pager:after,
+.columns:after {
   content: ' ';
   clear: both;
   display: table;
@@ -688,21 +696,28 @@ form .columns small {
   display: block;
 }
 form .columns .button {
+  padding: 0 2em;
+  line-height: 1em;
+  border: none;
+  border-radius: 2px;
+  font-size: 1em;
+  display: inline-block;
   color: white;
   background: #80AD56;
-  border-radius: 2px;
-  border: none;
-  font-size: 1em;
-  line-height: 1em;
-  display: inline-block;
+}
+form .columns .button.left {
+  margin-right: 1em;
+}
+form .columns .button.right {
+  margin-left: 1em;
 }
 .panel {
-  margin: 1em 1em 0 1em;
+  margin-top: 1em;
   background-color: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.07);
 }
 .panel .panel-header {
-  padding: 0.5em 1em;
+  padding: .7em 1em;
   border-bottom: 1px solid #fafafa;
 }
 .panel .panel-header:before {
@@ -715,10 +730,10 @@ form .columns .button {
   display: table;
 }
 .panel .panel-body {
-  padding: 0.5em 1em;
+  padding: .5em 1em;
 }
 .panel .panel-footer {
-  padding: 0.5em 1em;
+  padding: .7em 1em;
   border-top: 1px solid #fafafa;
 }
 .panel .panel-footer .inner {
@@ -745,9 +760,14 @@ form .columns .button {
   text-overflow: ellipsis;
   text-transform: uppercase;
 }
-.posts a {
-  color: #222222;
-  text-decoration: none;
+.pager {
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  border: 1px solid #eeeeee;
+}
+.pager .prevPage,
+.pager .nextPage {
+  color: #507716;
 }
 .header {
   background-color: #ffffff;
@@ -823,7 +843,9 @@ form .columns .button {
 .main-box .main .form {
   margin-top: 2em;
 }
-.delete-post-button {
+.delete-post-button,
+.rev-post-button {
   display: inline-block;
-  color: #507716!important;
+  color: #507716 !important;
+  margin: 0 .5em;
 }
