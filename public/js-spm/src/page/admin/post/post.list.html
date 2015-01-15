@@ -11,9 +11,8 @@
             <div class="row posts">
 
                 <!--Post-Content-->
-                <div class="col-12">
-
-                    <div class="panel post" ng-repeat="p in post">
+                <div class="col-12 post" ng-repeat="p in post">
+                    <div class="panel">
                         <div class="panel-header">
                             <div class="title left"><span class="small-text-left" ng-repeat="t in p.tags || null">{{ t || "Default"}}</span>
                             </div>
@@ -45,7 +44,6 @@
                         <a ng-click="prevPage()" class="prevPage left" href="" ng-show="Prev">Prev</a>
                         <a ng-click="nextPage()" class="nextPage right" href="" ng-show="Next">Next</a>
                     </div>
-
                 </div>
             </div>
         </section>

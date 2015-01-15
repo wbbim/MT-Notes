@@ -32,8 +32,9 @@
 
 				<!--Posts-List-->
 				<% pageContent.posts.forEach(function (post) { %>
-				<div class="col-6">
-					<div class="panel post">
+
+				<div class="col-6 post">
+					<div class="panel">
 						<div class="panel-header">
 							<div class="title"><%= post.tags[0] %></div>
 						</div>
@@ -67,20 +68,18 @@
 
 			<% if(pageContent.pageCount > 1){ %>
 
-			<div class="pager">
-
-				<div class="inner">
-
+			<div class="row">
+				<div class="col-12 pager">
 					<% if(pageContent.currentPage > 1){ %>
-					<a class="prev" href="/posts/page/<%= parseInt(pageContent.currentPage) - 1 %>">Prev</a>
+					<a class="prevPage left"
+					   href="/posts/page/<%= parseInt(pageContent.currentPage) - 1 %>">Prev</a>
 					<% } %>
 
 					<% if(pageContent.pageCount > pageContent.currentPage ){ %>
-					<a class="next" href="/posts/page/<%= parseInt(pageContent.currentPage) + 1 %>">Next</a>
+					<a class="nextPage right"
+					   href="/posts/page/<%= parseInt(pageContent.currentPage) + 1 %>">Next</a>
 					<% } %>
-
 				</div>
-
 			</div>
 
 			<% } %>

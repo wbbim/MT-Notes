@@ -707,6 +707,16 @@ a {
   text-overflow: ellipsis;
   text-transform: uppercase;
 }
+.pager {
+  margin: 0.5em 0;
+  padding: 0.5em 1em;
+  border: 1px solid #eeeeee;
+}
+.pager .prevPage,
+.pager .nextPage {
+  color: #507716;
+  display: block;
+}
 html,
 body {
   background-color: #fafafa!important;
@@ -723,19 +733,5 @@ body {
   text-transform: uppercase;
 }
 .main .pager {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  padding: 1em;
-  width: 100%;
-}
-.main .pager .inner {
   background-color: #fff;
-}
-.main .pager .inner .prev {
-  display: block;
-  float: left;
-}
-.main .pager .inner .next {
-  display: block;
-  float: right;
 }
