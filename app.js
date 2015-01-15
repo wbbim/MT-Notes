@@ -76,6 +76,7 @@ var MT_NOTES = {
 
             app.set('site', CONFIG_SITE);
             app.set('config', APP_RUNENV);
+            app.set('administrator',APP_SECURE.administrator);
 
         };
 
@@ -93,7 +94,7 @@ var MT_NOTES = {
 
         _protected.setAuth = function () {
 
-            require('./service/authService')(passport);
+            require('./service/authService')(app,passport);
 
             app.use(cookieParser(APP_SECURE.cookie.name));
             app.use(session({
@@ -114,12 +115,6 @@ var MT_NOTES = {
 
         _protected.setDatabase = function () {
             // MONGOOSE FOR OUR API
-            //var db_options = {
-            //    db: {native_parser: true},
-            //    server: {poolSize: 5},
-            //    user: 'tfme',
-            //    pass: 'tfme2014'
-            //};
 
             var db_url     = APP_SECURE.database.url;
             var db_options = APP_SECURE.database.options;

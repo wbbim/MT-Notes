@@ -35,9 +35,8 @@ module.exports = {
                 pass: 'tfme2014'
             }
         },
-        "administartor": {
-            "email": "m@t.biu",
-            "passwd": "what?are#you$doing!"
+        "administrator": {
+            "email": "m@t.biu"
         }
     },
     "runEnv": {

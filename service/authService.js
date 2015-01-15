@@ -5,7 +5,7 @@
 var User = require('../models/user');
 var LocalStrategy = require('passport-local').Strategy;
 
-module.exports = function (passport) {
+module.exports = function (app,passport) {
 
 
     // used to serialize the user for the session
@@ -37,13 +37,20 @@ module.exports = function (passport) {
                     return done(err);
 
                 if (user) {
-                    return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+                    return done(null, false, req.flash('signUpMessage', 'That email is already taken.'));
                 } else {
 
                     var newUser = new User();
 
+                    var _defaultRole = 'user';
+
+                    if(email === app.get('administrator')){
+                        _defaultRole = 'administrator';
+                    }
+
                     newUser.local.email = email;
                     newUser.local.password = newUser.generateHash(password); // use the generateHash function in our user model
+                    newUser.local.role = _defaultRole;
 
                     newUser.save(function (err) {
                         if (err)
@@ -73,10 +80,10 @@ module.exports = function (passport) {
                     return done(err);
 
                 if (!user)
-                    return done(null, false, req.flash('loginMessage', 'No user found.'));
+                    return done(null, false, req.flash('signInMessage', 'Oops! Wrong Email.'));
 
                 if (!user.validPassword(password))
-                    return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+                    return done(null, false, req.flash('signInMessage', 'Oops! Wrong Password.'));
 
                 return done(null, user);
             });
