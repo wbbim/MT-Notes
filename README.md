@@ -27,7 +27,7 @@ A blog/documents Site Running on NodeJS Server.
 
 	[Trying-For-Separating-FrontEnd-From-BackEnd](http://www.thonatos.com/docs/MT-Experimentations/Trying-For-Separating-FrontEnd-From-BackEnd.md)
 	
-同时也没完全写完，但是坑好像玩得有点大，所以，先分享了，有兴趣的一起玩，没兴趣了我就自己慢慢玩..
+同时也没完全写完，但是坑好像挖得有点大，所以，先分享了，有兴趣的一起玩，没兴趣了我就自己慢慢玩..
 
 ---
 

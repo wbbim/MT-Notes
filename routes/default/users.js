@@ -47,12 +47,15 @@ module.exports = function (passport) {
             });
 
         })
-        .post(passport.authenticate('local-signup', {
-            successRedirect: '/users/admin',
-            failureRedirect: '/users/signup',
-            failureFlash: true
-
-        }));
+        //.post(passport.authenticate('local-signup', {
+        //    successRedirect: '/users/admin',
+        //    failureRedirect: '/users/signup',
+        //    failureFlash: true
+        //
+        //}));
+        .post(function (req, res) {
+            res.send('Register Closed.');
+        });
 
     router.route('/admin')
         .get(isLoggedIn, function (req, res) {
