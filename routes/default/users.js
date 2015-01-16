@@ -61,8 +61,16 @@ module.exports = function (passport) {
 
     router.route('/profile')
         .get(isSignedIn, function (req, res) {
-            console.log(req.user);
 
+            res.render('users/profile', {
+                pageTitle: 'Profile',
+                pageName: 'users-profile',
+                pageContent:{
+                    'isAdministrator': function () {
+                        return (req.user.local.role === 'administrator');
+                    }
+                }
+            });
         });
 
     // Add Post

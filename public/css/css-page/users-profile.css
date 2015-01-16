@@ -658,86 +658,63 @@ a {
   clear: both;
   display: table;
 }
-.panel {
-  margin-top: 1em;
-  background-color: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.07);
-}
-.panel .panel-header {
-  padding: .7em 1em;
-  border-bottom: 1px solid #fafafa;
-}
-.panel .panel-header:before {
-  content: ' ';
-  display: table;
-}
-.panel .panel-header:after {
-  content: ' ';
-  clear: both;
-  display: table;
-}
-.panel .panel-body {
-  padding: .5em 1em;
-}
-.panel .panel-footer {
-  padding: .7em 1em;
-  border-top: 1px solid #fafafa;
-}
-.panel .panel-footer .inner {
-  padding: 0;
-}
-.posts {
-  padding: 2em 0;
-}
-.posts .post .post-title h3 {
-  margin-top: 0;
-  margin-bottom: 0.5em;
-}
-.posts .post .post-content {
-  color: #626262;
-}
-.posts .post .post-meta {
-  margin: 0;
-  padding: 0;
-  color: #626262;
-  font-size: 12px;
-  font-weight: 600;
-  line-height: normal;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-transform: uppercase;
-}
-.pager {
-  margin: 0.5em 0;
+form .columns {
   padding: 0.5em 1em;
-  border: 1px solid #eeeeee;
 }
-.pager .prevPage,
-.pager .nextPage {
-  color: #507716;
+form .columns label {
+  width: 100%;
+  height: 1em;
+}
+form .columns input,
+form .columns select,
+form .columns textarea {
+  margin-top: 0.5em;
+  padding: 0.5em;
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid #eeeeee;
+  border-radius: 0.3em;
+}
+form .columns input:focus,
+form .columns select:focus,
+form .columns textarea:focus {
+  border: 1px solid #f04b5f;
+  box-shadow: none;
+  outline: none;
+}
+form .columns input,
+form .columns select,
+form .columns button {
+  height: 2.4em;
+}
+form .columns small {
+  color: #f04b5f;
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 0.5em;
+  padding: 0.5em 1em;
   display: block;
 }
-html,
-body {
-  background-color: #fafafa!important;
+form .columns .button {
+  padding: 0 2em;
+  line-height: 1em;
+  border: none;
+  border-radius: 2px;
+  font-size: 1em;
+  display: inline-block;
+  color: white;
+  background: #80AD56;
 }
-.main .title {
-  margin: 0;
-  padding: 0;
-  color: #626262;
-  font-size: 12px;
-  font-weight: 600;
-  line-height: normal;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-transform: uppercase;
+form .columns .button.left {
+  margin-right: 1em;
 }
-.main .post:nth-child(odd) {
-  padding-right: 0.5em;
+form .columns .button.right {
+  margin-left: 1em;
 }
-.main .post:nth-child(event) {
-  padding-left: 0.5em;
+.header .info {
+  padding: 2em 0;
 }
-.main .pager {
-  background-color: #fff;
+.main .form-login {
+  width: 100%;
+  padding: 1em 0;
 }
