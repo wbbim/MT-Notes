@@ -1,6 +1,6 @@
 {
-  "name": "MT.NODE",
-  "version": "0.0.1",
+  "name": "MT.NOTES",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "supervisor autoload.js"

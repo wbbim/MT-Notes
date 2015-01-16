@@ -1,1 +1,0 @@
-define("MT.SPM/0.0.1/src/page/index-about",[],function(n,i){var o=function(){console.log("\n\n\u6700\u540e\u4f60\u8fd8\u662f\u548c\u522b\u4eba\u5728\u4e00\u8d77\u4e48\uff1f\n\u4ece\u4e00\u5f00\u59cb\uff0c\u8fd9\u5c31\u662f\u4e2a\u7b11\u8bdd\u5bf9\u5427\u3002\n\n")};i.init=o});

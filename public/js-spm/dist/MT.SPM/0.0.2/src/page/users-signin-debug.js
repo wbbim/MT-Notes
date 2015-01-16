@@ -1,3 +1,4 @@
+define("MT.SPM/0.0.2/src/page/users-signin-debug", [], function(require, exports, module){
 /**
  * Created by thonatos on 14/11/27.
  */
@@ -28,3 +29,4 @@ function resizeHeight(){
 }
 
 exports.init = init;
+});

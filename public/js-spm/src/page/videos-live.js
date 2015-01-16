@@ -29,6 +29,9 @@ var init = function () {
     html5Player.init();
     html5Player.resume();
 
+    var updateBrowser = require('../components/update-browser').create('',false);
+
+    updateBrowser.init();
 };
 
 

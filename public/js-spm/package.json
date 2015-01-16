@@ -1,6 +1,6 @@
 {
   "name": "MT.SPM",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Bigger b..b..g..g..b..",
   "keywords": [],
   "homepage": "",
@@ -18,7 +18,9 @@
     "output": [
       "src/page/index-index.js",
       "src/page/index-about.js",
-      "src/page/users-login.js",
+      "src/page/users-signin.js",
+      "src/page/users-signup.js",
+      "src/page/users-admin.js",
       "src/page/docs-multi.js",
       "src/page/docs-single.js",
       "src/page/videos-live.js"

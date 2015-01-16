@@ -1,1 +1,0 @@
-define("MT.SPM/0.0.1/src/page/docs-multi",[],function(i,n){var o=function(){console.log("doc-multi")};n.init=o});
