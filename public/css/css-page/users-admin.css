@@ -787,7 +787,7 @@ form .columns .button.right {
   top: 0;
   left: 0;
   bottom: 0;
-  min-width: 15em;
+  min-width: 12em;
   background-color: #2b303b;
   box-shadow: 2px 0 1px rgba(0, 0, 0, 0.2);
 }
@@ -834,8 +834,10 @@ form .columns .button.right {
 }
 .main-box {
   float: right;
+  width: 100%;
   min-width: 960px;
   overflow: auto;
+  padding-left: 12em;
 }
 .main-box .header {
   padding: 1.8em 0;
