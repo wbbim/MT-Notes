@@ -44,7 +44,7 @@ module.exports = function (app,passport) {
 
                     var _defaultRole = 'user';
 
-                    if(email === app.get('administrator')){
+                    if(email === app.get('administrator_email')){
                         _defaultRole = 'administrator';
                     }
 

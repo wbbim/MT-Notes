@@ -76,7 +76,7 @@ var MT_NOTES = {
 
             app.set('site', CONFIG_SITE);
             app.set('config', APP_RUNENV);
-            app.set('administrator',APP_SECURE.administrator);
+            app.set('administrator_email',APP_SECURE.administrator.email);
 
         };
 
