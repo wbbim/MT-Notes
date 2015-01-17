@@ -8,7 +8,7 @@ var postService = require('../service/postService').postService;
 exports.blogController = {
 
     // Return JSON
-    get: function (req,res) {
+    get: function (req, res) {
 
         var pid = req.params.pid;
 
@@ -20,7 +20,7 @@ exports.blogController = {
             });
         });
     },
-    getAll: function (req,res) {
+    getAll: function (req, res) {
         var perPageNum = req.params.perPageNum || 2,
             currentPage = req.params.currentPage || 1;
 
@@ -69,8 +69,7 @@ exports.blogController = {
             category: req.body.category
         };
 
-        postService.put(pid,post, function (data) {
-
+        postService.put(pid, post, function (data) {
             res.json(data);
         });
 

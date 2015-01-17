@@ -20,9 +20,12 @@ exports.postService = {
             }
 
             callback({
-                req: '/post',
-                res: 'success',
-                msg: post.name + " Added."
+                auth: true,
+                data: {
+                    req: '/post',
+                    res: 'success',
+                    msg: post.name + " Added."
+                }
             });
 
         });
@@ -49,9 +52,13 @@ exports.postService = {
                 }
 
                 callback({
-                    req: '/post/' + pid,
-                    res: 'success',
-                    msg: post.name + " Updated."
+                    auth: true,
+                    data: {
+                        req: '/post/' + pid,
+                        res: 'success',
+                        msg: post.name + " Updated."
+                    }
+
                 });
             });
         });
@@ -68,9 +75,12 @@ exports.postService = {
             }
 
             callback({
-                req: '/post/' + pid,
-                res: 'success',
-                msg: pid + " Removed."
+                auth: true,
+                data: {
+                    req: '/post/' + pid,
+                    res: 'success',
+                    msg: pid + " Removed."
+                }
             });
         });
 

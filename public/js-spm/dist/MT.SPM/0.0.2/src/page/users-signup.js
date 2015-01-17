@@ -1,1 +1,0 @@
-define("MT.SPM/0.0.2/src/page/users-signup",[],function(n,s){var i=function(){console.log("users-signup")};s.init=i});

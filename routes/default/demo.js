@@ -9,9 +9,12 @@ var demoController = require('../../controller/demoController').demoController;
 
 router.route('/')
     .get(function (req, res) {
-        res.send('Demo Page');
+        res.render('demo/index', {
+            pageTitle: 'Demo',
+        });
     });
 
 router.route('/live')
     .get(demoController.live);
+
 module.exports = router;

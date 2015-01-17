@@ -3,20 +3,19 @@ var router = express.Router();
 
 var blogController = require('../../controller/blogController').blogController;
 
-// Return Json
 router.route('/')
     .get(function (req, res) {
         res.json({
             req: '/',
             res: '',
-            msg: 'Welcome to @TF.ME!'
+            msg: 'Welcome to NOTES@MT!'
         });
     });
 
-router.route('/posts/page/:currentPage')
+router.route('/blog/page/:currentPage')
     .get(blogController.getAll);
 
-router.route('/posts/:pid')
+router.route('/blog/post/:pid')
     .get(blogController.get);
 
 module.exports = router;

@@ -11,11 +11,11 @@
 
 	<% include ../tmpl/header_pub.ejs %>
 
-	<link rel="stylesheet" href="/public/css/css-page/users-signup.min.css">
+	<link rel="stylesheet" href="/public/css/css-page/user-signup.min.css">
 
 	<!-- GLOBAL JAVASCRIPT -->
 	<script>
-		PAGE_NAME = 'users-signup';
+		JS_PAGE_NAME = 'none';
 	</script>
 
 </head>
@@ -34,7 +34,7 @@
 		</div>
 
 		<div class="row main">
-			<form class="form-login col-12 center" action="/users/signup" method="post">
+			<form class="form-login col-12 center" action="/user/signup" method="post">
 
 				<% if ( (message !== undefined) && (message.length > 0) ) { %>
 				<div class="col-12 columns">

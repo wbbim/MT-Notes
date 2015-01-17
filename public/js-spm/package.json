@@ -18,12 +18,9 @@
     "output": [
       "src/page/index-index.js",
       "src/page/index-about.js",
-      "src/page/users-signin.js",
-      "src/page/users-signup.js",
-      "src/page/users-admin.js",
-      "src/page/docs-multi.js",
-      "src/page/docs-single.js",
-      "src/page/videos-live.js"
+      "src/page/user-admin.js",
+      "src/page/demo-live.js",
+      "src/page/none.js"
     ],
     "dependencies": {
       "seajs": "2.3.0",

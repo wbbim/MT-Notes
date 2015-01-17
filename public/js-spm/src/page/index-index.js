@@ -4,6 +4,10 @@
 
 var init = function () {
 
+
+    var public = require('./public');
+    public.init();
+
     console.log("\n\n" +
     "儿时的梦想，终究未能实现。\n"+
     "如今还剩下什么呢？\n\n");
@@ -15,6 +19,7 @@ var init = function () {
     //$(window).resize(resizeHeader);
 
     randomBackground();
+
 };
 
 function randomBackground(){

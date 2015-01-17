@@ -20,10 +20,10 @@
 		}
 		<!-- We use different app-version by run_env-->
 		if (app_config.local) {
-			sea_config.app = '/public/js-spm/src/page/' + PAGE_NAME + sea_config.suffix;
+			sea_config.app = '/public/js-spm/src/page/' + JS_PAGE_NAME + sea_config.suffix;
 			sea_config.base = '/public/js-spm/spm_modules/';
 		} else {
-			sea_config.app = '/public/js-spm/dist/MT.SPM/0.0.2/src/page/' + PAGE_NAME + sea_config.suffix;
+			sea_config.app = '/public/js-spm/dist/MT.SPM/0.0.2/src/page/' + JS_PAGE_NAME + sea_config.suffix;
 			sea_config.base = '/public/js-spm/dist';
 		}
 		seajs.config({base: sea_config.base});

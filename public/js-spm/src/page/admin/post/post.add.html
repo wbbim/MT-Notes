@@ -40,8 +40,10 @@
 
                 <div class="col-6 columns">
                     <label>Select Category</label>
-                    <select name="category" ng-model="post.category"
-                            ng-options="item as item.name for item in categories"></select>
+                    <select name="category"
+                            ng-model="post.category"
+                            ng-options="category for category in categories"></select>
+
                     <small class="error" ng-show="postForm.category.$invalid && !postForm.category.$pristine">Tags is
                         required.
                     </small>

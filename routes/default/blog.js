@@ -7,15 +7,13 @@ var router = express.Router();
 
 var blogController = require('../../controller/blogController').blogController;
 
-// Render HTML
-
 router.route('/')
     .get(blogController.getMulti);
 
 router.route('/page/:currentPage')
     .get(blogController.getMulti);
 
-router.route('/:pid')
+router.route('/post/:pid')
     .get(blogController.getSingle);
 
 module.exports = router;

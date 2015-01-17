@@ -49,6 +49,19 @@ module.exports = function (passport) {
             res.redirect('/');
         });
 
+    router.route('/profile')
+        .get(isSignedIn, function (req, res) {
+
+            var isAdministrator = req.user.local.role === 'administrator';
+
+            res.render('user/profile', {
+                pageTitle: 'Profile',
+                pageContent: {
+                    'isAdministrator': isAdministrator
+                }
+            });
+        });
+
     router.route('/admin')
         .get(isAdministrator, function (req, res) {
             res.render('user/admin', {
@@ -56,33 +69,68 @@ module.exports = function (passport) {
             });
         });
 
-    router.route('/profile')
-        .get(isSignedIn, function (req, res) {
+    /*
+     * === Private Function ===
+     * Function:
+     *          add/put/del A Post
+     * Return:
+     *          object.json
+     * */
 
-            res.render('user/profile', {
-                pageTitle: 'Profile',
-                pageContent:{
-                    'isAdministrator': function () {
-                        return (req.user.local.role === 'administrator');
-                    }
-                }
-            });
-        });
-
-    // Add Post
     router.route('/post')
-        .post(blogController.add);
+        .post(isAdministratorApi, blogController.add);
 
-    // REV OR DEL
     router.route('/post/:pid')
-        .put(blogController.put)
-        .delete(blogController.del);
+        .put(isAdministratorApi, blogController.put)
+        .delete(isAdministratorApi, blogController.del);
 
+    /*
+     * === Private Function ===
+     * Function:
+     *          auth before add/put/del a post.
+     * Return:
+     *          object.json
+     * */
 
-    // PRIVATE FUNC
+    function isAdministratorApi(req, res, next) {
+
+        if (req.isAuthenticated() && (req.user.local.role === 'administrator')) {
+            return next();
+        }
+
+        res.json({
+            auth: false,
+            data: {
+                req: '',
+                res: '',
+                msg: 'Auth Failed,Please Sign in, And Try Again'
+            }
+
+        });
+    }
+
+    /*
+     * === Private Function ===
+     * Function:
+     *          auth before redirect to target page
+     * Return:
+     *          if not,turn to sign in page.
+     * */
+
     function isSignedIn(req, res, next) {
 
         if (req.isAuthenticated()) {
+
+            var _email = '';
+
+            if(req.user && req.user.local && req.user.local.email){
+                _email = req.user.local.email;
+            }
+
+            console.log(_email);
+
+            res.cookie('MT.User', {email:_email}, {expires: new Date(Date.now() + 900000), httpOnly: false });
+
             return next();
         }
         res.redirect('/user/signin');
@@ -94,7 +142,7 @@ module.exports = function (passport) {
 
             return next();
         }
-        res.redirect('/user/signin');
+        res.redirect('/user/profile');
     }
 
     return router;
