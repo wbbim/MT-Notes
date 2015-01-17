@@ -5,42 +5,40 @@
 var express = require('express');
 var router = express.Router();
 
-var postsController = require('../../controller/postsController').postsController;
-
+var blogController = require('../../controller/blogController').blogController;
 
 module.exports = function (passport) {
 
     router.route('/')
         .get(function (req, res) {
-            res.redirect('/users/signin');
+            res.redirect('/user/signin');
         });
 
     router.route('/signin')
         .get(function (req, res) {
-            res.render('users/signin', {
+            res.render('user/signin', {
                 pageTitle: 'Signin',
-                pageName: 'users-signin',
                 message: req.flash('signInMessage')
             });
         })
         .post(passport.authenticate('local-signin', {
-            successRedirect: '/users/profile',
-            failureRedirect: '/users/signin',
+            successRedirect: '/user/profile',
+            failureRedirect: '/user/signin',
             failureFlash: true
         }));
 
     router.route('/signup')
         .get(function (req, res) {
-            res.render('users/signup', {
+            res.render('user/signup', {
                 pageTitle: 'Signup',
-                pageName: 'users-signup',
+                pageName: 'user-signup',
                 message: req.flash('signUpMessage')
             });
 
         })
         .post(passport.authenticate('local-signup', {
-            successRedirect: '/users/profile',
-            failureRedirect: '/users/signup',
+            successRedirect: '/user/profile',
+            failureRedirect: '/user/signup',
             failureFlash: true
 
         }));
@@ -53,18 +51,16 @@ module.exports = function (passport) {
 
     router.route('/admin')
         .get(isAdministrator, function (req, res) {
-            res.render('users/admin', {
-                pageTitle: 'Admin',
-                pageName: 'users-admin'
+            res.render('user/admin', {
+                pageTitle: 'Admin'
             });
         });
 
     router.route('/profile')
         .get(isSignedIn, function (req, res) {
 
-            res.render('users/profile', {
+            res.render('user/profile', {
                 pageTitle: 'Profile',
-                pageName: 'users-profile',
                 pageContent:{
                     'isAdministrator': function () {
                         return (req.user.local.role === 'administrator');
@@ -75,22 +71,22 @@ module.exports = function (passport) {
 
     // Add Post
     router.route('/post')
-        .post(postsController.add);
+        .post(blogController.add);
 
     // REV OR DEL
     router.route('/post/:pid')
-        .put(postsController.put)
-        .delete(postsController.del);
+        .put(blogController.put)
+        .delete(blogController.del);
 
+
+    // PRIVATE FUNC
     function isSignedIn(req, res, next) {
 
         if (req.isAuthenticated()) {
             return next();
         }
-
-        res.redirect('/users/signin');
+        res.redirect('/user/signin');
     }
-
 
     function isAdministrator(req, res, next) {
 
@@ -98,8 +94,7 @@ module.exports = function (passport) {
 
             return next();
         }
-
-        res.redirect('/users/signin');
+        res.redirect('/user/signin');
     }
 
     return router;

@@ -1,10 +1,27 @@
-<% include ../tmpl/header %>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+
+	<% include ../tmpl/header_meta.ejs %>
+
+	<title><%= pageTitle %> - <%= settings.site.name %></title>
+
+	<% include ../tmpl/header_pub.ejs %>
+
+	<link rel="stylesheet" href="/public/css/css-page/users-signup.min.css">
+
+	<!-- GLOBAL JAVASCRIPT -->
+	<script>
+		PAGE_NAME = 'users-signup';
+	</script>
+
+</head>
+<body>
 
 <div class="wrap">
-	<!--[if lt IE 7]>
-	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a
-			href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-	<![endif]-->
 
 	<div class="layout">
 
@@ -53,4 +70,8 @@
 
 </div>
 
-<% include ../tmpl/footer %>
+<% include ../tmpl/footer_pub.ejs %>
+<% include ../tmpl/footer_sea.ejs %>
+
+</body>
+</html>

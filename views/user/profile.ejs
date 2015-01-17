@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+
+	<% include ../tmpl/header_meta.ejs %>
+
+	<title><%= pageTitle %> - <%= settings.site.name %></title>
+
+	<% include ../tmpl/header_pub.ejs %>
+
+	<link rel="stylesheet" href="/public/css/css-page/users-profile.min.css">
+
+	<!-- GLOBAL JAVASCRIPT -->
+	<script>
+		PAGE_NAME = 'users-profile';
+	</script>
+
+</head>
+<body>
+
+<div class="wrap">
+
+	<div class="layout">
+
+		<div class="header">
+			<div class="row inner">
+				<div class="col-12 center text-left info">
+					MT.NOTES & Profile
+				</div>
+			</div>
+		</div>
+
+		<div class="row main">
+
+			<a href="/users/signout">Signout</a>
+
+			<% if(pageContent.isAdministrator){ %>
+			<a href="/users/admin">Management</a>
+			<% } %>
+		</div>
+
+		<div class="footer">
+			<div class="row inner">
+				<div class="col-12 center text-right">
+					@GR.TEAM & Arashi Vision.
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<% include ../tmpl/footer_pub.ejs %>
+<% include ../tmpl/footer_sea.ejs %>
+
+</body>
+</html>

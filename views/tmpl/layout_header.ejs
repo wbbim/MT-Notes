@@ -1,0 +1,34 @@
+<div class="header">
+	<div class="row inner">
+		<div class="col-12 nav">
+			<div class="nav-brand">
+				<a href="/"><%= settings.site.name %></a>
+			</div>
+			<ul class="nav-ul right">
+
+				<%
+				var menu = [
+					{name: 'Home', link: '/', active: false},
+					{name: 'Blog', link: '/blog', active: false},
+					{name: 'Docs', link: '/docs', active: false},
+					{name: 'About', link: '/about', active: false}];
+				%>
+
+				<% menu.forEach(function (menuItem) { %>
+
+					<% if(menuItem.name === MENU_ACTIVE ){ %>
+
+						<li class="active"><a href="<%= menuItem.link %>"><%= menuItem.name %></a></li>
+
+					<% }else{ %>
+
+						<li><a href="<%= menuItem.link %>"><%= menuItem.name %></a></li>
+
+					<% } %>
+
+				<% }); %>
+
+			</ul>
+		</div>
+	</div>
+</div>

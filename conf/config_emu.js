@@ -40,13 +40,6 @@ function checkConf(){
 
 module.exports = {
 
-    docTemplate: function () {
-        return {
-            templateType: '',
-            templateName: ''
-        };
-    },
-
     docRepo: function () {
 
         if (CONFIG_APP.GC === "G") {

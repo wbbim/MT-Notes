@@ -5,13 +5,13 @@
 var express = require('express');
 var router = express.Router();
 
-var videosController = require('../../controller/videosController').videosController;
+var demoController = require('../../controller/demoController').demoController;
 
 router.route('/')
     .get(function (req, res) {
-        res.send('Videos Page');
+        res.send('Demo Page');
     });
 
 router.route('/live')
-    .get(videosController.liveGet);
+    .get(demoController.live);
 module.exports = router;

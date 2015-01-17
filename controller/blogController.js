@@ -5,7 +5,7 @@
 var moment = require('moment');
 var postService = require('../service/postService').postService;
 
-exports.postsController = {
+exports.blogController = {
 
     // Return JSON
     get: function (req,res) {
@@ -16,7 +16,6 @@ exports.postsController = {
 
             res.json({
                 pageTitle: data.post.name,
-                pageName: 'posts-single',
                 pageContent: data
             });
         });
@@ -96,9 +95,8 @@ exports.postsController = {
 
         postService.get(pid, function (data) {
 
-            res.render('posts/single', {
+            res.render('blog/single', {
                 pageTitle: data.post.name,
-                pageName: 'posts-single',
                 pageContent: data
             });
         });
@@ -111,9 +109,8 @@ exports.postsController = {
 
         postService.getAll(currentPage, perPageNum, function (data) {
 
-            res.render('posts/multi', {
-                pageTitle: 'Post',
-                pageName: 'posts-multi',
+            res.render('blog/multi', {
+                pageTitle: 'Blog',
                 pageContent: data
             });
 

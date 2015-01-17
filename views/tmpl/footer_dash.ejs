@@ -1,6 +1,15 @@
-<% include lib_footer.ejs %>
-<% include lib_footer_dash.ejs %>
-<% include lib_footer_sea.ejs %>
+<% if(settings.config.LOCAL){ %>
 
-</body>
-</html>
+	<!-- INCLUDE JAVASCRIPT -->
+	<script type="text/javascript" src="/public/vendors/bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript" src="/public/vendors/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="/public/vendors/bower_components/marked/lib/marked.js"></script>
+
+<% }else{ %>
+
+	<!-- INCLUDE JAVASCRIPT -->
+	<script type="text/javascript" src="http://cdn.bootcss.com/angular.js/1.3.8/angular.min.js"></script>
+	<script type="text/javascript" src="http://cdn.bootcss.com/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
+	<script src="http://cdn.bootcss.com/marked/0.3.2/marked.js"></script>
+
+<% } %>

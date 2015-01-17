@@ -4,9 +4,10 @@
 
 
 module.exports = {
-    "site":{
-      "name":"MT.NOTES"
-    } ,
+    "site": {
+        "name": "MT.NOTES",
+        "desc": "A blog/documents Site Running on NodeJS Server"
+    },
     "docRepo": {
         "github": {
             "doc_user": "thonatos",
@@ -26,9 +27,9 @@ module.exports = {
             "name": "MT.Name",
             "secret": "MT.Secret"
         },
-        "database":{
-            "url":"mongodb://localhost:27017/tfme",
-            "options":{
+        "database": {
+            "url": "mongodb://localhost:27017/tfme",
+            "options": {
                 db: {native_parser: true},
                 server: {poolSize: 5},
                 user: 'tfme',

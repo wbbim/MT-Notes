@@ -5,10 +5,8 @@
 var queryService = require('../service/queryService').queryService;
 var renderService = require('../service/renderService').renderService;
 
-var CONFIG_EMU = require('../conf/config_emu');
-
-var DOCUMENT = CONFIG_EMU.docRepo();
-var TEMPLATE = CONFIG_EMU.docTemplate();
+var DOCUMENT = require('../conf/config_emu').docRepo();
+var TEMPLATE = '';
 
 exports.docsController = {
 
@@ -23,8 +21,7 @@ exports.docsController = {
             _path = 'treeinfo/master/' + _path;
         }
 
-        TEMPLATE.templateType = 'docs/multi';
-        TEMPLATE.templateName = 'docs-multi';
+        TEMPLATE = 'docs/multi';
 
         var query = {
             host: DOCUMENT.host,
@@ -47,8 +44,7 @@ exports.docsController = {
             _path = 'blob/master/' + _path;
         }
 
-        TEMPLATE.templateType = 'docs/single';
-        TEMPLATE.templateName = 'docs-single';
+        TEMPLATE = 'docs/single';
 
         var query = {
             host: DOCUMENT.host,
@@ -65,10 +61,9 @@ function renderData(pageTitle, queryString, res) {
     queryService.get(queryString, function (err, data) {
 
         var _gotData = !err;
-        var _template = TEMPLATE;
         var _content = [];
 
-        if (_template.templateType === 'docs/single') {
+        if (TEMPLATE === 'docs/single') {
 
             if (queryString.host.indexOf('coding') !== -1) {
                 _content = renderService.renderMarkdown(JSON.parse(data), 'C');
@@ -76,7 +71,7 @@ function renderData(pageTitle, queryString, res) {
                 _content = renderService.renderMarkdown(JSON.parse(data), 'G');
             }
 
-        } else if (_template.templateType === 'docs/multi') {
+        } else if (TEMPLATE === 'docs/multi') {
 
             var _tmp = JSON.parse(data);
 
@@ -87,9 +82,8 @@ function renderData(pageTitle, queryString, res) {
             }
         }
 
-        res.render(_template.templateType, {
+        res.render(TEMPLATE, {
             pageTitle: pageTitle,
-            pageName: _template.templateName,
             pageContent: {
                 render: _gotData,
                 title: pageTitle,

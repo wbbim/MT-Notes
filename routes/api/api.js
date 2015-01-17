@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var postsController = require('../../controller/postsController').postsController;
+var blogController = require('../../controller/blogController').blogController;
 
 // Return Json
 router.route('/')
@@ -14,9 +14,9 @@ router.route('/')
     });
 
 router.route('/posts/page/:currentPage')
-    .get(postsController.getAll);
+    .get(blogController.getAll);
 
 router.route('/posts/:pid')
-    .get(postsController.get);
+    .get(blogController.get);
 
 module.exports = router;

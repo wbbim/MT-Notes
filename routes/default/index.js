@@ -11,8 +11,7 @@ router.route('/')
     .get(function (req, res) {
         res.render('index/index',
             {
-                pageTitle: 'Index',
-                pageName: 'index-index'
+                pageTitle: 'Index'
             });
     });
 
@@ -20,8 +19,7 @@ router.route('/about')
     .get(function (req, res) {
         res.render('index/about',
             {
-                pageTitle: 'About',
-                pageName: 'index-about'
+                pageTitle: 'About'
             });
     });
 
