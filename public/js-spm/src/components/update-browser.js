@@ -116,7 +116,7 @@ var updateBrowser = {
             var _rawHTML = '\
                     <div class="update-browser-box">\
                         <div class="update-browser-icon"><img src="/public/images/icon/'+_PixRatio+'x/updataBrowserIcon.png'+'" alt=""></div>\
-                        <div class="update-browser-info"><p>马上升级你的浏览器，活的更流畅的访问体验</p></div>\
+                        <div class="update-browser-info"><p>马上升级你的浏览器，获得更流畅的访问体验</p></div>\
                         <div class="update-browser-action"><a href="#">免费更新</a></div>\
                     </div>\
                     <div class="update-browser-close"><a id="update-browser-button-close" href="#">残忍拒绝</a></div></div>';

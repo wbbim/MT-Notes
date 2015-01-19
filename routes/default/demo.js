@@ -10,11 +10,14 @@ var demoController = require('../../controller/demoController').demoController;
 router.route('/')
     .get(function (req, res) {
         res.render('demo/index', {
-            pageTitle: 'Demo',
+            pageTitle: 'Demo'
         });
     });
 
-router.route('/live')
-    .get(demoController.live);
+router.route('/video-live')
+    .get(demoController.videolive);
+
+router.route('/update-browser')
+    .get(demoController.updateBrowser);
 
 module.exports = router;
