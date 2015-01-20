@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
 <head>
 
 	<% include ../tmpl/header_meta.ejs %>
@@ -31,10 +35,10 @@
 
 		<div class="main">
 
-			<div class="row posts">
-
-				<!--Post-Content-->
+			<div class="row inner">
 				<div class="col-12">
+
+					<!--Post-Content-->
 
 					<% var post = pageContent.post; %>
 					<div class="panel post">
@@ -58,9 +62,10 @@
 							</div>
 						</div>
 					</div>
-				</div>
 
+				</div>
 			</div>
+
 
 		</div>
 		<div class="footer">

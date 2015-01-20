@@ -26,19 +26,46 @@ html, body {
         text-transform: uppercase;
     }
 
-    .post {
-        &:nth-child(odd) {
-            padding-right: 0.5em;
-        }
+    .posts {
+        -webkit-column-count: 2;
+        -webkit-column-gap: 10px;
+        -webkit-column-fill: auto;
+        -moz-column-count: 2;
+        -moz-column-gap: 10px;
+        -moz-column-fill: auto;
+        column-count: 2;
+        column-gap: 15px;
+        column-fill: auto;
 
-        &:nth-child(event) {
-            padding-left: 0.5em;
+        .post {
+            display: inline-block;
+            vertical-align: top;
         }
     }
 
     .pager {
         background-color: #fff;
     }
+}
+
+@media screen and (max-width: 1024px) {
+
+    .main {
+        .posts {
+            -webkit-column-count: 1;
+            -webkit-column-gap: 10px;
+            -webkit-column-fill: auto;
+            -moz-column-count: 1;
+            -moz-column-gap: 10px;
+            -moz-column-fill: auto;
+            column-count: 1;
+            column-gap: 15px;
+            column-fill: auto;
+
+        }
+
+    }
+
 }
 
 .footer {

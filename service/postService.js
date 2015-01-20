@@ -102,8 +102,8 @@ exports.postService = {
     },
     getAll: function (currentPage, perPageNum, callback) {
 
-        var perPageNum = perPageNum || 2;
-        var currentPage = currentPage || 1;
+        var perPageNum = perPageNum;
+        var currentPage = currentPage;
 
         Post.count(function (err, totalRecords) {
 
@@ -111,7 +111,7 @@ exports.postService = {
                 callback(err);
             }
 
-            Post.find().skip(( currentPage - 1 ) * perPageNum).limit(perPageNum).sort('-create_date').exec(function (err, posts) {
+            Post.find().skip(( currentPage - 1 ) * perPageNum).limit(perPageNum).sort('-date').exec(function (err, posts) {
 
                 if (err) {
                     callback(err);

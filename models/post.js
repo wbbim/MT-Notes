@@ -8,7 +8,7 @@ var postSchema = new mongoose.Schema({
     name:       String,
     desc:       String,
     tags:       Array,
-    date:       String,
+    date:       { type: Date, default: Date.now },
     author:     String,
     content:    String,
     category:   String

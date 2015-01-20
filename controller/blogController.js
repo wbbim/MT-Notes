@@ -21,7 +21,7 @@ exports.blogController = {
         });
     },
     getAll: function (req, res) {
-        var perPageNum = req.params.perPageNum || 2,
+        var perPageNum = req.params.perPageNum || 5,
             currentPage = req.params.currentPage || 1;
 
         postService.getAll(currentPage, perPageNum, function (data) {
@@ -41,7 +41,7 @@ exports.blogController = {
             name: req.body.name,
             desc: req.body.desc,
             tags: req.body.tags,
-            date: moment().format("dddd, MMMM Do YYYY"),
+            date: new Date(),
             author: req.body.author,
             content: req.body.content,
             category: req.body.category
@@ -63,7 +63,7 @@ exports.blogController = {
             name: req.body.name,
             desc: req.body.desc,
             tags: req.body.tags,
-            date: moment().format("dddd, MMMM Do YYYY"),
+            date: new Date(),
             author: req.body.author,
             content: req.body.content,
             category: req.body.category
@@ -103,7 +103,7 @@ exports.blogController = {
     },
     getMulti: function (req, res) {
 
-        var perPageNum = req.params.perPageNum || 2;
+        var perPageNum = req.params.perPageNum || 5;
         var currentPage = req.params.currentPage || 1;
 
         postService.getAll(currentPage, perPageNum, function (data) {
