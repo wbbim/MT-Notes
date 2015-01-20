@@ -78,8 +78,8 @@ var updateBrowser = {
 
         obj.options = options || {};
 
-        obj.options.versionRequied = {i: 8, f: 23, o: 12, s: 6.2, n: 12, c: 28};
-        obj.options.versionDefault = {i: 8, f: 23, o: 12, s: 6.2, n: 12, c: 28};
+        obj.options.versionRequied = {i: 10, f: 23, o: 12, s: 6.2, n: 12, c: 28};
+        obj.options.versionDefault = {i: 9, f: 23, o: 12, s: 6.2, n: 12, c: 28};
         obj.options.versionMinimal = {i: 9, f: 23, o: 12, s: 6.2, n: 12, c: 28};
 
         obj.options.version = options.version || obj.options.versionDefault;
@@ -180,9 +180,9 @@ var updateBrowser = {
 
             var _rawHTML = '\
                     <div class="update-browser-box">\
-                        <div class="update-browser-icon"><img src="/public/images/icon/'+_PixRatio+'x/updataBrowserIcon.png'+'" alt=""></div>\
-                        <div class="update-browser-info"><p>马上升级你的浏览器，活的更流畅的访问体验</p></div>\
-                        <div class="update-browser-action"><a href="#">免费更新</a></div>\
+                        <div class="update-browser-icon"><img src="/public/images/icons/'+_PixRatio+'x/icon-update-browser.png'+'" alt=""></div>\
+                        <div class="update-browser-info"><p>马上升级您的浏览器，获得更流畅的访问体验</p></div>\
+                        <div class="update-browser-action"><a href="/demo/update-browser">免费更新</a></div>\
                     </div>\
                     <div class="update-browser-close"><a id="update-browser-button-close" href="#">残忍拒绝</a></div></div>';
 
@@ -199,7 +199,7 @@ var updateBrowser = {
 .update-browser-icon img{width: 28px;vertical-align: middle;}\
 .update-browser-info p{margin: 10px;display: block;font-size: 16px;color: #505050;}\
 .update-browser-action a{padding: 10px 0;display: block;font-size: 16px;color: #2732c9;}\
-.update-browser-close{position: absolute;top: 23px;right: 23px;}\
+.update-browser-close{position: absolute;top: 14px;right: 23px;}\
 .update-browser-close a{display: block;text-decoration: none;font-size: 12px;color: #858689;}';
 
             var style = options.style || _rawCSS;
