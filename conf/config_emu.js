@@ -24,7 +24,7 @@ function checkConf(){
 
     var _conf = {};
 
-    if (fs.existsSync(path.join(__dirname, '../config_local.json'))) {
+    if (fs.existsSync('config_local.json')) {
 
         console.log('## MT-NOTES: CONFIG_EMU, Find Private Config File, Use the Config.');
         _conf = JSON.parse(fs.readFileSync(path.join(__dirname, '../config_local.json'),'utf-8')).docRepo;
