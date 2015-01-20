@@ -29,7 +29,8 @@ var MT_NOTES = {
         // READ CONF
         var _configApp = require('./conf/config_app');
 
-        if (fs.existsSync('./config_local.json')) {
+
+        if (fs.existsSync(path.join(__dirname, 'config_local.json'))) {
 
             var _configLocal = JSON.parse(fs.readFileSync('config_local.json', 'utf-8'));
 
