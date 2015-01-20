@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "private": true,
   "scripts": {
-    "start": "supervisor autoload.js"
+    "start": "node autoload.js"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
