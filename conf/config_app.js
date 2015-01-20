@@ -45,7 +45,8 @@ module.exports = {
         "PORT": 8084,
         "LOCAL": false,
         "SEAJS": true,
-        "DEBUG": false
+        "DEBUG": false,
+        "TRUST": false
     }
 };
 
