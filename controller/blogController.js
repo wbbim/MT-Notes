@@ -2,7 +2,6 @@
  * Created by thonatos on 15/1/10.
  */
 
-var moment = require('moment');
 var postService = require('../service/postService').postService;
 
 exports.blogController = {
