@@ -119,6 +119,8 @@ module.exports = function (passport) {
 
     function isSignedIn(req, res, next) {
 
+        console.log('isSignin',req.isAuthenticated());
+
         if (req.isAuthenticated()) {
 
             var _email = '';
@@ -134,7 +136,6 @@ module.exports = function (passport) {
             return next();
         }
 
-        console.log('isSignin',req.isAuthenticated());
         //res.redirect('/user/signin');
     }
 
