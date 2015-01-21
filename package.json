@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "private": true,
   "scripts": {
-    "start": "node autoload.js"
+    "start": "forever start -w autoload.js"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",

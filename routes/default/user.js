@@ -136,7 +136,7 @@ module.exports = function (passport) {
             return next();
         }
 
-        //res.redirect('/user/signin');
+        res.redirect('/user/signin');
     }
 
     function isAdministrator(req, res, next) {
