@@ -133,7 +133,9 @@ module.exports = function (passport) {
 
             return next();
         }
-        res.redirect('/user/signin');
+
+        console.log('isSignin',req.isAuthenticated());
+        //res.redirect('/user/signin');
     }
 
     function isAdministrator(req, res, next) {
