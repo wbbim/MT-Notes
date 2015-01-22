@@ -469,9 +469,6 @@ table {
 .center {
   margin: 0 auto;
 }
-.clearfix {
-  clear: both;
-}
 .text-right {
   text-align: right;
 }
@@ -555,9 +552,11 @@ table {
 body {
   font: 14px "Open Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
+  color: #555555;
 }
 a {
-  color: #222222;
+  color: #749b40;
+  font-weight: bold;
   text-decoration: none;
 }
 .wrap {
@@ -586,7 +585,7 @@ a {
   padding: 1em;
 }
 .header {
-  background-color: rgba(43, 48, 59, 0.9);
+  background-color: rgba(116, 155, 64, 0.94);
   color: #ffffff;
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2);
 }
@@ -701,9 +700,11 @@ a {
 .main .document .title {
   padding: 1em 0;
   border-bottom: 1px solid #eeeeee;
-  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
 .main .document .content {
+  padding: 1em 0;
+}
+.main .document .comments {
   padding: 1em 0;
 }
 .footer {

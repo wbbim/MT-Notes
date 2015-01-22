@@ -143,6 +143,7 @@ module.exports = function (passport) {
 
             return next();
         }
+
         res.redirect('/user/profile');
 
     }

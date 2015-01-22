@@ -34,8 +34,7 @@
 				<% if (pageContent.render){ %>
 
 				<!--<h2 class="title">Documents - <%= pageContent.title %> </h2>-->
-				<h4>List For Documents & Directory</h4>
-				<hr/>
+				<p class="title">List For Documents & Directory</p>
 
 				<div class="content">
 					<% if(pageContent.content.constructor == Array){ %>
@@ -55,7 +54,7 @@
 
 				<% }else{ %>
 
-				<h3 class="title">Can't get ?</h3>
+				<p class="title">Can't get ?</p>
 
 				<div class="content">
 					<pre>Something wrong, you may try again.</pre>
@@ -64,7 +63,6 @@
 
 				<% } %>
 
-				<hr/>
 			</div>
 		</div>
 		<div class="footer">

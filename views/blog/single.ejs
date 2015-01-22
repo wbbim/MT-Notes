@@ -39,7 +39,6 @@
 				<div class="col-12">
 
 					<!--Post-Content-->
-
 					<% var post = pageContent.post; %>
 					<div class="panel post">
 						<div class="panel-header">
@@ -52,6 +51,7 @@
 							<div class="post-content">
 								<%= post.content %>
 							</div>
+
 						</div>
 						<div class="panel-footer">
 							<div class="post-meta">
@@ -63,6 +63,8 @@
 						</div>
 					</div>
 
+					<!-- Comments -->
+					<% include ../tmpl/layout_comments.ejs %>
 				</div>
 			</div>
 
