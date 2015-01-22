@@ -693,6 +693,14 @@ a {
   clear: both;
   display: table;
 }
+.main .title {
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 1em;
+  margin: 0;
+}
+.main .info {
+  padding: 1em 0;
+}
 .footer {
   background-color: #37393c;
   box-shadow: 0px -2px 1px rgba(0, 0, 0, 0.2);

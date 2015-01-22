@@ -701,6 +701,8 @@ a {
   border-bottom: 1px solid #eeeeee;
   padding-bottom: 1em;
 }
-.footer .inner {
-  border-top: 1px solid #eeeeee;
+.footer .inner p {
+  margin: 0;
+  padding: 1em 0;
+  border-top: 1px solid #eee;
 }
