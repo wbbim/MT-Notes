@@ -755,3 +755,7 @@ body,
   width: 100%;
   color: #ffffff;
 }
+.footer .inner div {
+  margin: 0;
+  padding: 1em 0;
+}

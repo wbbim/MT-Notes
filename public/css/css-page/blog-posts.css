@@ -816,5 +816,10 @@ body {
   }
 }
 .footer .inner div {
+  padding: 1em 0;
   border-top: 1px solid #eeeeee;
+}
+.footer .inner div p {
+  padding: .5em 0;
+  margin: 0;
 }

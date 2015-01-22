@@ -701,7 +701,7 @@ a {
   border-bottom: 1px solid #eeeeee;
   padding-bottom: 1em;
 }
-.footer .inner p {
+.footer .inner div {
   margin: 0;
   padding: 1em 0;
   border-top: 1px solid #eee;
