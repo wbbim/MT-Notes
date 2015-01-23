@@ -20,6 +20,7 @@
       "src/page/index-about.js",
       "src/page/user-admin.js",
       "src/page/demo-live.js",
+      "src/page/demo-bg-video.js",
       "src/page/none.js"
     ],
     "dependencies": {
