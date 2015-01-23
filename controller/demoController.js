@@ -14,5 +14,10 @@ exports.demoController = {
         res.render('demo/update-browser', {
             pageTitle: 'Update Browser'
         });
+    },
+    backgroundVideo: function (req, res) {
+        res.render('demo/background-video', {
+            pageTitle: 'Background Video'
+        });
     }
 };

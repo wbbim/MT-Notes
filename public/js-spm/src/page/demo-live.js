@@ -9,18 +9,16 @@ var init = function () {
 
     console.log('Live Page');
 
+    var SOURCE = ['http://media.html5media.info/video.mp4','http://img.vzhibo.tv/introduction/a.mp4'];
     var html5Player = require('../components/html5-player').create(
+        '',
         $('.video-section'),
         $('.video-section video'),
         document.getElementById("html5-video"),
         {
-            display:{
-              volumeControl:false
-            },
-            control:
-            {
-                progress:false,
-                volume:false
+            videoUrl: SOURCE[1],
+            display: {
+                all:true
             }
         }
 

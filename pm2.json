@@ -1,0 +1,16 @@
+{
+  "apps" : [{
+    "name"        : "thonatos",
+    "script"      : "autoload.js",
+    "args"        : [],
+    "log_date_format"  : "YYYY-MM-DD HH:mm Z",
+    "ignoreWatch" : ["[\\/\\\\]\\./", "node_modules"],
+    "watch"       : true,
+    "node_args"   : "--harmony",
+    "cwd"         : "/Users/thonatos/workspace/localhost_thonatos",
+    "env": {
+      "NODE_ENV": "development",
+      "AWESOME_SERVICE_API_TOKEN": ""
+    }
+  }]
+}

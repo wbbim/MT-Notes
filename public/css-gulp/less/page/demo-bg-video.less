@@ -1,0 +1,238 @@
+@import "../public/base";
+
+html,
+body,
+.wrap,
+.layout {
+    height: 100% !important;
+}
+
+
+.mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+
+    .html-player,
+    .flash-player{
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+
+    .html-player{
+
+        video{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .flash-player,
+    #index-player{
+
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0 auto;
+    }
+}
+
+.layout{
+
+    position: relative;
+    display: table;
+
+    background-color: rgba(0,0,0,0.6);
+
+    .main{
+        display: table-cell;
+        vertical-align: middle;
+
+        .promote{
+
+            position: relative;
+            margin: 0 auto;
+            width: 400px;
+            height: 300px;
+
+            .promote-txt{
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                margin: 1em auto;
+                display: block;
+                width: 354px;
+            }
+
+            .promote-phone{
+                position: absolute;
+                left: 23px;
+                bottom: 0;
+                width: 204px;
+            }
+
+            .promote-btn{
+                position: absolute;
+                right: 23px;
+                bottom: 0;
+                width: 137px;
+
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    margin: 0;
+    height: 353px;
+
+    background-color: #161A1D;
+    text-align: center;
+    font-size: 14px;
+    color: #eee;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    .container{
+        position: relative;
+        margin:  0 auto;
+        padding: 0 36px;
+        display: block;
+        width: 960px;
+    }
+
+}
+
+.footer-row {
+
+    &:before,
+    &:after {
+        content: ' ';
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    .column {
+        margin: 0 36px 0 0;
+        float: left;
+
+        width: 195px;
+        text-align: left;
+
+        &:nth-child(4n) {
+            margin-right: 0;
+        }
+
+        .title {
+            margin: 44px 0 0px 0;
+
+            font-size: 14px;
+            line-height: 14px;
+
+            word-spacing: 4px;
+            color: rgb(240, 240, 240);
+        }
+
+        .tribute {
+            margin: 20px 0 0 0;
+
+            font-size: 12px;
+            line-height: 20px;
+        }
+
+        p {
+            font-size: 12px;
+            line-height: 12px;
+
+            color: rgb(170, 170, 170);
+        }
+
+        ul {
+            padding: 0;
+            margin: 24px 0 0 0;
+            list-style: none;
+
+            &.join {
+                margin-top: 20px;
+                margin-bottom: 60px;
+            }
+
+            li {
+
+                padding-bottom: 8px;
+
+                a {
+                    display: block;
+                    margin: 0;
+                    font-size: 12px;
+                    line-height: 20px;
+
+                    color: rgb(170, 170, 170);
+                    text-shadow: none;
+                    text-decoration: none;
+                }
+
+                p {
+                    margin: 0;
+                    font-size: 12px;
+                    line-height: 20px;
+                    color: rgb(170, 170, 170);
+                }
+
+            }
+        }
+    }
+}
+
+.footer-copyright {
+
+    border-top: 1px solid #242424;
+
+    &:before,
+    &:after {
+        content: ' ';
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    .cr-txt{
+        float: left;
+    }
+
+    .cr-img{
+        float: right;
+    }
+
+    .cr-bei{
+        float: right;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+        line-height: 56px;
+        color: #323232;
+    }
+
+    .made-in-nanjing{
+        margin-left: 12px;
+        height: 39px;
+        vertical-align: middle;
+    }
+}
