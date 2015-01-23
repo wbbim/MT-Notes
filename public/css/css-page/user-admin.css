@@ -881,7 +881,6 @@ form .columns .button.right {
 .main-box {
   float: right;
   width: 100%;
-  min-width: 960px;
   overflow: auto;
   padding-left: 12em;
 }
