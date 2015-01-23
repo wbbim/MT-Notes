@@ -119,6 +119,8 @@ module.exports = function (passport) {
 
     function isSignedIn(req, res, next) {
 
+        console.log(req.user);
+
         if (req.isAuthenticated()) {
 
             var _email = '';
@@ -126,8 +128,6 @@ module.exports = function (passport) {
             if(req.user && req.user.local && req.user.local.email){
                 _email = req.user.local.email;
             }
-
-            console.log(_email);
 
             res.cookie('MT.User', {email:_email}, {expires: new Date(Date.now() + 900000), httpOnly: false });
 

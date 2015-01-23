@@ -705,3 +705,10 @@ a {
 .main .demo-list li {
   list-style: none;
 }
+.main .demo-list li a {
+  display: block;
+  padding: 0.1em 0;
+  text-decoration: none;
+  color: #555555;
+  font-weight: normal;
+}
