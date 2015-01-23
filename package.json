@@ -3,7 +3,8 @@
   "version": "0.0.2",
   "private": true,
   "scripts": {
-    "start": "node autoload.js"
+    "start": "node autoload.js",
+    "build": "cd ./public/js-spm/ && spm build"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",

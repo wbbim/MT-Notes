@@ -17,38 +17,39 @@ var cookieParser = require('cookie-parser');
 
 var app = express();
 
-var APP_RUNENV = {};
-var APP_SECURE = {};
-
+var CONFIG_ENV= {};
 var CONFIG_SITE = {};
+var CONFIG_AUTH = {};
 
 var MT_NOTES = {
 
     getConf: function () {
 
         // READ CONF
-        var _configApp = require('./conf/config_app');
+        var privateConf = {};
+        var defaultConf = require('./conf/config_app');
 
         if (fs.existsSync(path.join(__dirname,'config_local.json'))) {
 
-            var _configLocal = JSON.parse(fs.readFileSync(path.join(__dirname,'/config_local.json'), 'utf-8'));
-
             console.log('## MT-NOTES: APP, Find Private Config File, Use the Config.');
-            CONFIG_SITE = _configLocal.site;
 
-            APP_RUNENV = _configLocal.runEnv;
-            APP_SECURE = _configLocal.secure;
+            privateConf = JSON.parse(fs.readFileSync(path.join(__dirname,'/config_local.json'), 'utf-8'));
+
+            CONFIG_ENV= privateConf.env;
+            CONFIG_SITE = privateConf.site;
+            CONFIG_AUTH = privateConf.auth;
 
         } else {
 
             console.log('## MT-NOTES: APP, Cant Find Private Config File, Use default Config.');
-            CONFIG_SITE = _configApp.site;
 
-            APP_RUNENV = _configApp.runEnv;
-            APP_SECURE = _configApp.secure;
+            CONFIG_ENV= defaultConf.env;
+            CONFIG_SITE = defaultConf.site;
+            CONFIG_AUTH = defaultConf.auth;
         }
 
-        if (!_configApp) {
+        if (!CONFIG_SITE) {
+
             console.log('## MT-NOTES: Cant Read Configure Json File.');
             return false;
         }
@@ -75,18 +76,18 @@ var MT_NOTES = {
         _protected.setLocals = function () {
 
             app.set('site', CONFIG_SITE);
-            app.set('config', APP_RUNENV);
-            app.set('administrator_email',APP_SECURE.administrator.email);
+            app.set('config', CONFIG_ENV);
+            app.set('administrator_email',CONFIG_AUTH.administrator.email);
 
         };
 
         _protected.setAPP = function () {
 
-            app.set('port', process.env.PORT || APP_RUNENV.PORT);
+            app.set('port', CONFIG_ENV.PORT || process.env.PORT);
             app.set('views', path.join(__dirname, 'views'));
             app.set('view engine', 'ejs');
 
-            app.set('trust proxy', APP_RUNENV.TRUST);
+            app.set('trust proxy', CONFIG_ENV.TRUST);
             app.use(morgan('tiny'));
             app.use(bodyParser.urlencoded({extended: false}));
             app.use(bodyParser.json());
@@ -97,10 +98,10 @@ var MT_NOTES = {
 
             require('./service/authService')(app,passport);
 
-            app.use(cookieParser(APP_SECURE.cookie.name));
+            app.use(cookieParser(CONFIG_AUTH.cookie.name));
             app.use(session({
-                name: APP_SECURE.session.name,
-                secret: APP_SECURE.session.secret,
+                name: CONFIG_AUTH.session.name,
+                secret: CONFIG_AUTH.session.secret,
                 resave: false,
                 saveUninitialized: true,
                 cookie: {
@@ -117,8 +118,8 @@ var MT_NOTES = {
         _protected.setDatabase = function () {
             // MONGOOSE FOR OUR API
 
-            var db_url     = APP_SECURE.database.url;
-            var db_options = APP_SECURE.database.options;
+            var db_url     = CONFIG_AUTH.database.url;
+            var db_options = CONFIG_AUTH.database.options;
 
             mongoose.connect(db_url, db_options);
 
@@ -152,7 +153,7 @@ var MT_NOTES = {
 
             // ------------- ERROR HANDLER -------------
 
-            if (APP_RUNENV.DEV) {
+            if (CONFIG_ENV.APP_DEVELOPMENT) {
 
                 // development error handler
                 app.use(function (req, res) {

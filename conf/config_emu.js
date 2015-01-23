@@ -27,12 +27,12 @@ function checkConf(){
     if (fs.existsSync('config_local.json')) {
 
         console.log('## MT-NOTES: CONFIG_EMU, Find Private Config File, Use the Config.');
-        _conf = JSON.parse(fs.readFileSync(path.join(__dirname, '../config_local.json'),'utf-8')).docRepo;
+        _conf = JSON.parse(fs.readFileSync(path.join(__dirname, '../config_local.json'),'utf-8')).site.docRepo;
 
 
     }else{
         console.log('## MT-NOTES: CONFIG_EMU, Cant Find Private Config File, Use default Config.');
-        _conf = require('./config_app').docRepo;
+        _conf = require('./config_app').site.docRepo;
     }
 
     return _conf;

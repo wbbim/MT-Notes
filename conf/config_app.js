@@ -6,20 +6,20 @@
 module.exports = {
     "site": {
         "name": "MT.NOTES",
-        "desc": "A blog/documents Site Running on NodeJS Server"
+        "desc": "A blog/documents Site Running on NodeJS Server",
+        "docRepo": {
+            "github": {
+                "doc_user": "thonatos",
+                "doc_project": "Mt.Notes.And.Documents"
+            },
+            "coding": {
+                "doc_user": "thonatos",
+                "doc_project": "Mt.Notes.And.Documents"
+            },
+            "GC": "C"
+        }
     },
-    "docRepo": {
-        "github": {
-            "doc_user": "thonatos",
-            "doc_project": "Mt.Notes.And.Documents"
-        },
-        "coding": {
-            "doc_user": "thonatos",
-            "doc_project": "Mt.Notes.And.Documents"
-        },
-        "GC": "C"
-    },
-    "secure": {
+    "auth": {
         "cookie": {
             "name": "MT.NOTES_"
         },
@@ -40,13 +40,13 @@ module.exports = {
             "email": "m@t.biu"
         }
     },
-    "runEnv": {
-        "DEV": true,
-        "PORT": 8084,
-        "LOCAL": false,
-        "SEAJS": true,
-        "DEBUG": false,
-        "TRUST": false
+    "env": {
+        "PORT": 8084,   // APP LEVEL: NODE SERVER PORT
+        "TRUST": false,  // APP LEVEL: BEHIND NGINX OR NOT
+        "APP_DEVELOPMENT": true,    // APP LEVEL: PRODUCTION OR DEVELOPMENT
+        "WEB_PRODUCTION": false, // WEB LEVEL: For Use CDN/LOCAL LIB
+        "WEB_SEA": true,  // WEB LEVEL: USE SEA JS OR NOT
+        "WEB_DEVELOPMENT": false // WEB LEVER: DEBUG FOR SEA JS
     }
 };
 

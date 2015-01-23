@@ -1,16 +1,16 @@
 <!-- INCLUDE JAVASCRIPT -->
 
-<% if(settings.config.LOCAL){ %>
+<% if(settings.config.WEB_PRODUCTION){ %>
+
+	<!-- In remote_server use: -->
+	<script src="http://cdn.bootcss.com/seajs/2.3.0/sea.js"></script>
+	<script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.js"></script>
+
+<% }else{ %>
 
 	<!-- In local_server use: -->
 	<script src="/public/js-spm/spm_modules/seajs/2.3.0/dist/sea.js"></script>
 	<script src="/public/js-spm/spm_modules/jquery/2.1.1/jquery.min.js"></script>
 	<script src="/public/js-spm/spm_modules/seajs-wrap/1.0.1/dist/seajs-wrap.js"></script>
-
-<% }else{ %>
-
-	<!-- In remote_server use: -->
-	<script src="http://cdn.bootcss.com/seajs/2.3.0/sea.js"></script>
-	<script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.js"></script>
 
 <% } %>
