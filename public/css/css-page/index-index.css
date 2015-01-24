@@ -662,7 +662,7 @@ a {
   }
   .header .nav .nav-ul {
     display: none;
-    padding-top: 3em;
+    padding-top: 1em;
     width: 100%;
     background-color: rgba(113, 147, 45, 0.9);
     text-align: center;
@@ -724,7 +724,7 @@ body,
   right: 0;
   top: 0;
   width: 100%;
-  background-color: rgba(87, 87, 87, 0.9);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 .main {
   display: table-cell;
@@ -747,6 +747,12 @@ body,
   border: 0.1em solid #ffffff;
   border-radius: 0.5em;
   text-decoration: none;
+}
+@media screen and (max-width: 768px) {
+  .header .nav .nav-ul {
+    padding-top: 0em;
+    background-color: rgba(87, 87, 87, 0.6);
+  }
 }
 .footer {
   position: absolute;
