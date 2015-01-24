@@ -12,7 +12,6 @@ var init = function () {
 
     var SOURCE = ['http://media.html5media.info/video.mp4','http://img.vzhibo.tv/introduction/a.mp4'];
     var html5Player = require("MT.SPM/0.0.2/src/components/html5-player-debug").create(
-        '',
         $('.video-section'),
         $('.video-section video'),
         document.getElementById("html5-video"),
@@ -293,10 +292,9 @@ define("MT.SPM/0.0.2/src/components/html5-player-debug", [], function(require, e
 
 var html5Player = {
 
-    create: function (bundleInterface, $container, $video, $player, options) {
+    create: function ($container, $video, $player, options) {
 
         var obj = {};
-        var _interface = bundleInterface || {};
         var _protected = {};
 
         /**
@@ -362,10 +360,10 @@ var html5Player = {
             var width = $container.width();
             var height = width / PLAYER_PROPORTION;
 
-            $container.find('.preview,video').css({
-                width: width,
-                height: height
-            });
+            //$container.find('.preview,video').css({
+            //    "width": width,
+            //    "height": height
+            //});
         };
 
         _protected.addPlayerControl = function () {
@@ -633,11 +631,11 @@ var html5Player = {
             // https://github.com/stefanerickson/covervid
 
             // call sizeVideo on load
-            document.addEventListener('DOMContentLoaded', sizeVideo);
+            document.addEventListener('DOMContentLoaded', sizeVideo,false);
 
             // call sizeVideo on resize
             window.onresize = function () {
-                debounce(sizeVideo(), 0);
+                debounce(sizeVideo(), 50);
             };
 
             // debounce for resize function
@@ -669,6 +667,8 @@ var html5Player = {
 
             // Define the attached selector
             function sizeVideo() {
+
+                console.log(new Date());
 
                 // Get parent element height and width
                 var parentHeight = elem.parentNode.offsetHeight;
@@ -803,7 +803,7 @@ var html5Player = {
 
             $player.src = _dataUrl;
             $player.load();
-            _protected.updateVideoSize($player,1920,1080);
+            _protected.updateVideoSize($player,1280,720);
             _protected.controlHandler();
             _protected.playerHandler();
 
