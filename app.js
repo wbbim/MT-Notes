@@ -104,7 +104,8 @@ var MT_NOTES = {
             resave: true,
             saveUninitialized: true,
             proxy: CONFIG_ENV.TRUST
-        }));
+            })
+        );
         app.use(passport.initialize());
         app.use(passport.session());
         app.use(flash());

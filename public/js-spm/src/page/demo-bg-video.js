@@ -51,8 +51,6 @@ function initPlayer() {
         $htmlPlayer.remove();
         $flashPlayer.show();
     }
-
-
 }
 
 function playHtml() {
@@ -75,7 +73,7 @@ function playHtml() {
     var $video = $('.html-player video');
     var $player = document.getElementById("html5-video");
 
-    htmlPlayer = require('../components/html5-player').create(_interface, $videoSection, $video, $player,
+    htmlPlayer = require('../components/html5-player').create($videoSection, $video, $player,
         {
             videoUrl: TEMP_VIDEO_URL,
             display: {
