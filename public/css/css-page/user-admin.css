@@ -797,13 +797,16 @@ form .columns .button.right {
 }
 .pager {
   margin: 0.5em 0;
-  padding: 0.5em 1em;
-  border: 1px solid #eeeeee;
+  padding: 0.5em 0;
 }
 .pager .prevPage,
 .pager .nextPage {
   color: #507716;
-  display: block;
+  display: inline-block;
+  padding: 5px 14px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 15px;
 }
 .header {
   background-color: #ffffff;
@@ -885,8 +888,11 @@ form .columns .button.right {
   padding-left: 12em;
 }
 .main-box .header {
-  padding: 1.8em 0;
+  padding: 1.8em 0.5em;
   font-size: 1em;
+}
+.main-box .main {
+  padding: 0 0.5em;
 }
 .main-box .main .form {
   margin-top: 2em;

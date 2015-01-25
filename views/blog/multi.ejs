@@ -82,12 +82,12 @@
 				<div class="col-12 pager">
 					<% if(pageContent.currentPage > 1){ %>
 					<a class="prevPage left"
-					   href="/blog/page/<%= parseInt(pageContent.currentPage) - 1 %>">Prev</a>
+					   href="/blog/page/<%= parseInt(pageContent.currentPage) - 1 %>">&larr; Prev</a>
 					<% } %>
 
 					<% if(pageContent.pageCount > pageContent.currentPage ){ %>
 					<a class="nextPage right"
-					   href="/blog/page/<%= parseInt(pageContent.currentPage) + 1 %>">Next</a>
+					   href="/blog/page/<%= parseInt(pageContent.currentPage) + 1 %>">Next &rarr;</a>
 					<% } %>
 				</div>
 

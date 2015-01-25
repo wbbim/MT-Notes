@@ -14,11 +14,8 @@ router.route('/')
         });
     });
 
-router.route('/video-live')
-    .get(demoController.videolive);
-
-router.route('/background-video')
-    .get(demoController.backgroundVideo);
+router.route('/html-video')
+    .get(demoController.htmlVideo);
 
 router.route('/update-browser')
     .get(demoController.updateBrowser);

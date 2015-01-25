@@ -700,6 +700,7 @@ body,
   height: 100% !important;
 }
 .wrap {
+  background-image: url(../../images/bg/01.jpg);
   background-size: cover;
   background-color: #ffffff;
 }
@@ -751,7 +752,7 @@ body,
 @media screen and (max-width: 768px) {
   .header .nav .nav-ul {
     padding-top: 0em;
-    background-color: rgba(87, 87, 87, 0.6);
+    background-color: rgba(87, 87, 87, 0.1);
   }
 }
 .footer {

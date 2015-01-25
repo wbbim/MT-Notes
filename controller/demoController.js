@@ -4,8 +4,8 @@
 
 
 exports.demoController = {
-    videolive : function(req,res){
-        res.render('demo/video-live', {
+    htmlVideo : function(req,res){
+        res.render('demo/html-video', {
             pageTitle: 'Live',
             liveFlag: true
         });
@@ -13,11 +13,6 @@ exports.demoController = {
     updateBrowser : function(req,res){
         res.render('demo/update-browser', {
             pageTitle: 'Update Browser'
-        });
-    },
-    backgroundVideo: function (req, res) {
-        res.render('demo/background-video', {
-            pageTitle: 'Background Video'
         });
     }
 };

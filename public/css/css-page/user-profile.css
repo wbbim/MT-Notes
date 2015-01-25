@@ -797,13 +797,16 @@ form .columns .button.right {
 }
 .pager {
   margin: 0.5em 0;
-  padding: 0.5em 1em;
-  border: 1px solid #eeeeee;
+  padding: 0.5em 0;
 }
 .pager .prevPage,
 .pager .nextPage {
   color: #507716;
-  display: block;
+  display: inline-block;
+  padding: 5px 14px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 15px;
 }
 .header {
   background-color: #ffffff;
