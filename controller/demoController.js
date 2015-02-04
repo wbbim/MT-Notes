@@ -2,6 +2,7 @@
  * Created by thonatos on 14/12/16.
  */
 
+var fileService = require('../service/fileService').fileService;
 
 exports.demoController = {
     htmlVideo : function(req,res){

@@ -27,35 +27,12 @@ var MT_NOTES = {
     getConf: function () {
 
         // READ CONF
-        var privateConf = {};
-        var defaultConf = require('./conf/config_app');
+        var privateConf = require('./conf/config_app')('APP');
 
-        if (fs.existsSync(path.join(__dirname, 'config_local.json'))) {
+        CONFIG_ENV = privateConf.env;
+        CONFIG_SITE = privateConf.site;
+        CONFIG_AUTH = privateConf.auth;
 
-            console.log('## MT-NOTES: APP, Find Private Config File, Use the Config.');
-
-            privateConf = JSON.parse(fs.readFileSync(path.join(__dirname, '/config_local.json'), 'utf-8'));
-
-            CONFIG_ENV = privateConf.env;
-            CONFIG_SITE = privateConf.site;
-            CONFIG_AUTH = privateConf.auth;
-
-        } else {
-
-            console.log('## MT-NOTES: APP, Cant Find Private Config File, Use default Config.');
-
-            CONFIG_ENV = defaultConf.env;
-            CONFIG_SITE = defaultConf.site;
-            CONFIG_AUTH = defaultConf.auth;
-        }
-
-        if (!CONFIG_SITE) {
-
-            console.log('## MT-NOTES: Cant Read Configure Json File.');
-            return false;
-        }
-
-        return true;
     },
 
     setConf: function () {
@@ -162,8 +139,7 @@ var MT_NOTES = {
     }
 };
 
-if (MT_NOTES.getConf()) {
-    MT_NOTES.init();
-}
+MT_NOTES.getConf();
+MT_NOTES.init();
 
 module.exports = app;

@@ -10,6 +10,7 @@ module.exports = function (app, passport) {
     var docs = require('./default/docs');
     var user = require('./default/user');
     var demo = require('./default/demo');
+    var file = require('./default/file');
 
     // Api
     var api   = require('./api/api');
@@ -20,6 +21,7 @@ module.exports = function (app, passport) {
     app.use('/docs', docs);
     app.use('/blog', blog);
     app.use('/demo', demo);
+    app.use('/file', file);
     app.use('/user', user(passport));
     app.use('/api',api);
 };

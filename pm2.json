@@ -1,10 +1,10 @@
 {
   "apps" : [{
-    "name"        : "thonatos",
+    "name"        : "thonatos.com",
     "script"      : "autoload.js",
     "args"        : [],
     "log_date_format"  : "YYYY-MM-DD HH:mm Z",
-    "ignoreWatch" : ["[\\/\\\\]\\./", "node_modules"],
+    "ignore_watch" : ["[\\/\\\\]\\./", "node_modules","static"],
     "watch"       : true,
     "node_args"   : "--harmony",
     "cwd"         : "/Users/thonatos/workspace/localhost_thonatos",
