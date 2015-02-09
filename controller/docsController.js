@@ -26,7 +26,7 @@ exports.docsController = {
         var query = {
             host: DOCUMENT.host,
             port: DOCUMENT.port,
-            path: DOCUMENT.path + _path
+            path: DOCUMENT.path + _path+"?access_token="+DOCUMENT.access_token
         };
 
         renderData(_document || 'Docs', query, res);
@@ -49,7 +49,7 @@ exports.docsController = {
         var query = {
             host: DOCUMENT.host,
             port: DOCUMENT.port,
-            path: DOCUMENT.path + _path
+            path: DOCUMENT.path + _path+"?access_token="+DOCUMENT.access_token
         };
 
         renderData(_document, query, res);

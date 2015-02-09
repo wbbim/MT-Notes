@@ -35,7 +35,8 @@ module.exports = function (from) {
                 "docRepo": {
                     "github": {
                         "doc_user": "thonatos",
-                        "doc_project": "Mt.Notes.And.Documents"
+                        "doc_project": "Mt.Notes.And.Documents",
+                        "access_token":""
                     },
                     "coding": {
                         "doc_user": "thonatos",
