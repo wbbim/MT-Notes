@@ -780,7 +780,7 @@ a {
   width: 36px;
 }
 .video-section .video-controls .controls-container .play a.button {
-  background: url(../../images/player/player-play.svg);
+  background-image: url(../../images/player/player-play.svg);
   background-repeat: no-repeat;
 }
 .video-section .video-controls .controls-container .progress {
@@ -789,7 +789,7 @@ a {
 .video-section .video-controls .controls-container .progress input[type=range].seek-bar {
   -webkit-appearance: none;
   width: 100%;
-  margin: 3px 0;
+  margin: 8px 0;
   background: none;
 }
 .video-section .video-controls .controls-container .progress input[type=range].seek-bar:focus {
@@ -876,7 +876,7 @@ a {
   width: 36px;
 }
 .video-section .video-controls .controls-container .mute a.button {
-  background: url(../../images/player/player-unmute.svg);
+  background-image: url(../../images/player/player-unmute.svg);
   background-repeat: no-repeat;
 }
 .video-section .video-controls .controls-container .volume {
@@ -885,7 +885,7 @@ a {
 .video-section .video-controls .controls-container .volume input[type=range].volume-bar {
   -webkit-appearance: none;
   width: 100%;
-  margin: 3px 0;
+  margin: 8px 0;
   background: none;
 }
 .video-section .video-controls .controls-container .volume input[type=range].volume-bar:focus {
@@ -972,6 +972,6 @@ a {
   width: 36px;
 }
 .video-section .video-controls .controls-container .full-screen a.button {
-  background: url(../../images/player/player-enter-fullscreen.svg);
+  background-image: url(../../images/player/player-enter-fullscreen.svg);
   background-repeat: no-repeat;
 }
