@@ -27,7 +27,7 @@ var MT_NOTES = {
     getConf: function () {
 
         // READ CONF
-        var privateConf = require('./conf/config_app')('APP');
+        var privateConf = require('./app/common/conf/config_app')('APP');
 
         CONFIG_ENV = privateConf.env;
         CONFIG_SITE = privateConf.site;
@@ -51,7 +51,7 @@ var MT_NOTES = {
         });
 
         // PASSPORT FOR AUTH
-        require('./conf/config_passport')(app, passport);
+        require('./app/common/conf/config_passport')(app, passport);
 
         // Compression middleware (should be placed before express.static)
         app.use(compression({
@@ -66,7 +66,7 @@ var MT_NOTES = {
         app.set('administrator_email', CONFIG_AUTH.administrator.email);
 
         app.set('port', CONFIG_ENV.PORT || process.env.PORT);
-        app.set('views', path.join(__dirname, 'views'));
+        app.set('views', path.join(__dirname, 'app/common/views'));
         app.set('view engine', 'ejs');
 
         app.set('trust proxy', CONFIG_ENV.TRUST);
@@ -88,7 +88,7 @@ var MT_NOTES = {
         app.use(flash());
 
         // ------------- ROUTERS -------------
-        require('./routes/route')(app, passport);
+        require('./app/route')(app, passport);
 
         // ------------- ERROR HANDLER -------------
         if (CONFIG_ENV.APP_DEVELOPMENT) {
