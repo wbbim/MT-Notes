@@ -15,7 +15,8 @@ exports.queryService = {
             agent: false,
             headers: {
                 'Connection': 'keep-alive',
-                'User-Agent': 'MT.Server'
+                'User-Agent': 'MT.Server',
+                'Authorization': 'token '+ queryString.access_token
             }
         };
 
