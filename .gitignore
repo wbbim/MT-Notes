@@ -9,3 +9,5 @@ npm-debug.log
 
 # Config
 config_local.json
+pm2_local.json
+pm2_server.json
