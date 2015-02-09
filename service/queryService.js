@@ -14,9 +14,9 @@ exports.queryService = {
             path: queryString.path || '/',
             agent: false,
             headers: {
-                'Connection': 'keep-alive',
+                'Authorization': 'token '+ queryString.access_token,
                 'User-Agent': 'MT.Server',
-                'Authorization': 'token '+ queryString.access_token
+                'Connection': 'keep-alive'
             }
         };
 
