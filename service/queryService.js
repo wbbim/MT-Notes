@@ -20,6 +20,7 @@ exports.queryService = {
             }
         };
 
+
         var _protect = {
 
             receive: function (response) {
@@ -39,6 +40,8 @@ exports.queryService = {
                     _length += chunk.length;
 
                 }).on('end', function () {
+
+                    console.log(_options.headers);
 
                     //console.log('QueryService: End.');
                     callback(null, _chunks);
