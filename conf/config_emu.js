@@ -11,13 +11,15 @@ var UTIL = require('../utils/obj');
 var CODING = {
     host: 'coding.net',
     port: 443,
-    path: '/api/user/MTTUSER/project/MTTPROJECT/git/'
+    path: '/api/user/MTTUSER/project/MTTPROJECT/git/',
+    access_token:''
 };
 
 var GITHUB = {
     host: 'api.github.com',
     port: 443,
-    path: '/repos/MTTUSER/MTTPROJECT/contents/'
+    path: '/repos/MTTUSER/MTTPROJECT/contents/',
+    access_token:CONFIG_APP.github.access_token
 };
 
 module.exports = {

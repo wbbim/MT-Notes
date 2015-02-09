@@ -41,8 +41,6 @@ exports.queryService = {
 
                 }).on('end', function () {
 
-                    console.log(_options.headers);
-
                     //console.log('QueryService: End.');
                     callback(null, _chunks);
                 });
