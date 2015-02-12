@@ -20,4 +20,11 @@ router.route('/html-video')
 router.route('/update-browser')
     .get(demoController.updateBrowser);
 
+router.route('/bullet-time')
+    .get(function (req, res) {
+        res.render('demo/bullet-time', {
+            pageTitle: 'BulletTime'
+        });
+    });
+
 module.exports = router;

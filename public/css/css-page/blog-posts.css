@@ -472,6 +472,9 @@ table {
 .text-right {
   text-align: right;
 }
+.clearfix {
+  clear: both;
+}
 .row {
   width: 100%;
 }
@@ -641,6 +644,14 @@ a {
 }
 .header .nav .nav-ul li a:hover {
   box-shadow: inset 0 -3px 0px #ffffff;
+}
+.footer .inner div {
+  padding: 1em 0;
+  border-top: 1px solid #eee;
+}
+.footer .inner div p {
+  padding: .5em 0;
+  margin: 0;
 }
 @media screen and (max-width: 1024px) {
   .header .nav .nav-brand a {
@@ -821,12 +832,4 @@ body {
        -moz-column-fill: auto;
             column-fill: auto;
   }
-}
-.footer .inner div {
-  padding: 1em 0;
-  border-top: 1px solid #eeeeee;
-}
-.footer .inner div p {
-  padding: .5em 0;
-  margin: 0;
 }

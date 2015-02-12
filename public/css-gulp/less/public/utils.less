@@ -14,3 +14,24 @@
 .text-right{
     text-align: right;
 }
+
+.clearfix{
+    clear: both;
+}
+
+#utils{
+
+    .clear(){
+
+        &:before{
+            content: ' ';
+            display: table;
+        }
+
+        &:after{
+            content: ' ';
+            display: table;
+            clear: both;
+        }
+    }
+}
