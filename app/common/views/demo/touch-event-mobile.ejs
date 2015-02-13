@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+
+	<% include ../tmpl/header_meta.ejs %>
+
+	<title><%= pageTitle %> - <%= settings.site.name %></title>
+
+	<% include ../tmpl/header_pub.ejs %>
+
+	<link rel="stylesheet" href="/public/css/css-page/demo-touch-event-mobile.min.css">
+
+	<!-- GLOBAL JAVASCRIPT -->
+	<script>
+		JS_PAGE_NAME = 'demo-touch-event-mobile';
+	</script>
+
+	<% MENU_ACTIVE = 'Demo'; %>
+
+</head>
+<body>
+
+<div class="layout">
+
+	<% include ../tmpl/layout_header.ejs %>
+
+	<div class="main">
+		<div class="inner">
+			<div class="box-3d">
+				<div class="rectangle"><h3>这是一个3d演示</h3></div>
+			</div>
+
+			<div class="info-3d">
+				<p class="direction">Direction: <span>null</span> </p>
+				<p class="degree-x">DegreeX: <span>0</span> deg</p>
+				<p class="degree-y">DegreeY: <span>0</span> deg</p>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+</div>
+
+<% include ../tmpl/footer_pub.ejs %>
+<% include ../tmpl/footer_sea.ejs %>
+
+</body>
+</html>

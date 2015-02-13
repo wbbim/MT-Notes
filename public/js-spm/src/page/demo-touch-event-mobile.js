@@ -123,46 +123,42 @@ function initAnimation() {
 
 exports.init = function () {
 
-    var bulletWrapIndex = 0;
+    var degreeX = 0;
+    var degreeY = 0;
 
-    initImg(initAnimation());
+    //initImg(initAnimation());
 
-    var touchListener = require('../utils/touchListener').create($('.bullet-wrap'));
+    var touchListener = require('../utils/touchListener').create($('.box-3d'));
 
     touchListener.registerSwipeLeftCallback(function () {
-
-        console.log('left', bulletWrapIndex);
-
-        if (bulletWrapIndex > 0) {
-            bulletWrapIndex--;
-        }
-
-        if (bulletWrapIndex > -1) {
-            translate();
-        }
-
+        degreeY -= 120;
+        translate('left',degreeX,degreeY);
     });
 
     touchListener.registerSwipeRightCallback(function () {
-
-        console.log('right', bulletWrapIndex);
-
-        if (bulletWrapIndex < 3) {
-            bulletWrapIndex++;
-        }
-
-        if (bulletWrapIndex < 4) {
-            translate();
-        }
-
+        degreeY += 120;
+        translate('right',degreeX,degreeY);
     });
 
-    function translate() {
+    touchListener.registerSwipeUpCallback(function () {
+        degreeX -= 120;
+        translate('up',degreeX,degreeY);
+    });
 
-        console.log(bulletWrapIndex);
+    touchListener.registerSwipeDownCallback(function () {
 
-        $('.box-ul').css({
-            'left': -300 * bulletWrapIndex + 'px'
+        degreeX += 120;
+        translate('down',degreeX,degreeY);
+    });
+
+
+
+    function translate(direction,x,y) {
+        $('.direction span').html(direction);
+        $('.degree-x span').html(x);
+        $('.degree-y span').html(y);
+        $('.box-3d .rectangle').css({
+            'transform': 'rotateX('+ x +'deg)'+' rotateY('+ y +'deg)'
         });
     }
 

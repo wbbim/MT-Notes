@@ -708,9 +708,11 @@ a {
   width: 100%;
   padding: 1em;
 }
-.main .document .title {
+.main .document h3.title {
+  margin: 0;
   padding: 1em 0;
   border-bottom: 1px solid #eeeeee;
+  font-family: initial;
 }
 .main .document .content {
   padding: 1em 0;

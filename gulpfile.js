@@ -20,8 +20,8 @@ var del = require('del'),
 var less_src = './public/css-gulp/less-page/*.less';
 var sass_src = './public/css-gulp/scss-page/*.scss';
 
-var less_src_watch = './public/css/less/page/**/*.less';
-var scss_src_watch = './public/css/scss/page/**/*.scss';
+var less_src_watch = './public/css-gulp/less/page/**/*.less';
+var scss_src_watch = './public/css-gulp/scss/page/**/*.scss';
 
 var path_dev = './public/css/css-page/';
 var path_dep = './public/css/css-page/';

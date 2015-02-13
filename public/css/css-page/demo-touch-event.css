@@ -704,51 +704,10 @@ a {
   clear: both;
   display: table;
 }
-.main .document {
-  width: 100%;
-  padding: 1em;
+.info-3d {
+  margin: 0 auto;
+  padding: 4em 0;
 }
-.main .document .title {
-  margin: 0;
-  padding: 1em 0;
-  display: block;
-  font-size: 1em;
-  font-family: initial;
-  border-bottom: 1px solid #eeeeee;
-  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
-}
-.main .document .content {
-  padding: 0.5em 0;
-}
-.main .document .content ul {
-  padding-left: 1em;
-  border-left: 0.2em solid #749b40;
-}
-.main .document .content ul li {
-  list-style: none;
-  margin: .3em 0;
-  margin-top: 5px;
-  padding: 5px 0;
-  font-size: 0.8em;
-  border-bottom: 1px solid #eee;
-}
-.main .document .content ul li a {
-  display: block;
-  padding: 0.1em 0;
-  text-decoration: none;
-  color: #555555;
-  font-weight: normal;
-}
-@media screen and (max-width: 1024px) {
-  .main .document .content {
-    padding: 2em 0;
-  }
-  .main .document .content ul li a {
-    font-size: 0.8em;
-  }
-  .main .document hr {
-    border: none;
-    border-bottom: 1px solid #eeeeee;
-    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
-  }
+.info-3d p {
+  font-size: 12px;
 }
