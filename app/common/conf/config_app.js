@@ -78,6 +78,11 @@ module.exports = function (from) {
                 "WEB_PRODUCTION": false, // WEB LEVEL: For Use CDN/LOCAL LIB
                 "WEB_SEA": true,  // WEB LEVEL: USE SEA JS OR NOT
                 "WEB_DEVELOPMENT": false // WEB LEVER: DEBUG FOR SEA JS
+            },
+            "ssl":{
+                "key":"/Users/thonatos/personal/doc/SSL/thonatos.com.key",
+                "cert":"/Users/thonatos/personal/doc/SSL/thonatos.com.ssl_bundle.crt",
+                "port":8443
             }
         }
     }

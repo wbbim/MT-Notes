@@ -21,6 +21,7 @@ var app = express();
 var CONFIG_ENV = {};
 var CONFIG_SITE = {};
 var CONFIG_AUTH = {};
+var CONFIG_SSL = {};
 
 var MT_NOTES = {
 
@@ -32,6 +33,7 @@ var MT_NOTES = {
         CONFIG_ENV = privateConf.env;
         CONFIG_SITE = privateConf.site;
         CONFIG_AUTH = privateConf.auth;
+        CONFIG_SSL = privateConf.ssl;
 
     },
 
@@ -63,6 +65,7 @@ var MT_NOTES = {
 
         app.set('site', CONFIG_SITE);
         app.set('config', CONFIG_ENV);
+        app.set('ssl',CONFIG_SSL);
         app.set('administrator_email', CONFIG_AUTH.administrator.email);
 
         app.set('port', CONFIG_ENV.PORT || process.env.PORT);
