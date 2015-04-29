@@ -18,6 +18,9 @@ router.route('/')
 router.route('/html-video')
     .get(demoController.htmlVideo);
 
+router.route('/mt-notes')
+    .get(demoController.mtNotes);
+
 router.route('/update-browser')
     .get(demoController.updateBrowser);
 

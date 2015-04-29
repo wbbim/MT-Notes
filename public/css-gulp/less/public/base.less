@@ -10,7 +10,7 @@
 }
 
 body {
-    font: 14px "Open Sans", Helvetica, Arial, sans-serif;
+    font: 12px "Open Sans", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     color: @gray;
 }
@@ -64,16 +64,18 @@ a {
 
     .nav {
 
+        @nav-a-size:0.9em;
+
         .nav-brand {
             float: left;
 
             a {
 
-                padding: 2em 1em;
-                line-height: 1em;
+                padding: 2*@nav-a-size @nav-a-size;
+                line-height: @nav-a-size;
 
                 display: block;
-                font-size: 1em;
+                font-size: @nav-a-size;
                 text-decoration: none;
 
                 color: @header-link;
@@ -92,7 +94,7 @@ a {
             float: right;
 
             a{
-                padding: 16px;
+                padding: @nav-a-size;
                 display: block;
                 img{
                     width: 29px;
@@ -117,11 +119,11 @@ a {
                 }
 
                 a {
-                    padding: 2em 1em;
-                    line-height: 1em;
+                    padding: 2*@nav-a-size @nav-a-size;
+                    line-height: @nav-a-size;
 
                     display: block;
-                    font-size: 1em;
+                    font-size: @nav-a-size;
                     text-decoration: none;
 
                     color: @header-link;

@@ -553,7 +553,7 @@ table {
   box-sizing: border-box;
 }
 body {
-  font: 14px "Open Sans", Helvetica, Arial, sans-serif;
+  font: 12px "Open Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   color: #555555;
 }
@@ -599,10 +599,10 @@ a {
   float: left;
 }
 .header .nav .nav-brand a {
-  padding: 2em 1em;
-  line-height: 1em;
+  padding: 1.8em 0.9em;
+  line-height: 0.9em;
   display: block;
-  font-size: 1em;
+  font-size: 0.9em;
   text-decoration: none;
   color: #ffffff;
   box-shadow: inset 0 -2px 0px #ffffff;
@@ -615,7 +615,7 @@ a {
   float: right;
 }
 .header .nav .nav-ul-toggle a {
-  padding: 16px;
+  padding: 0.9em;
   display: block;
 }
 .header .nav .nav-ul-toggle a img {
@@ -635,10 +635,10 @@ a {
   box-shadow: inset 0 -2px 0px #ffffff;
 }
 .header .nav .nav-ul li a {
-  padding: 2em 1em;
-  line-height: 1em;
+  padding: 1.8em 0.9em;
+  line-height: 0.9em;
   display: block;
-  font-size: 1em;
+  font-size: 0.9em;
   text-decoration: none;
   color: #ffffff;
 }

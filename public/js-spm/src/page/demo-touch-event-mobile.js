@@ -123,6 +123,9 @@ function initAnimation() {
 
 exports.init = function () {
 
+    var public = require('./public');
+    public.init();
+
     var degreeX = 0;
     var degreeY = 0;
 

@@ -15,5 +15,10 @@ exports.demoController = {
         res.render('demo/update-browser', {
             pageTitle: 'Update Browser'
         });
+    },
+    mtNotes : function(req,res){
+        res.render('demo/mt-notes', {
+            pageTitle: 'MT Notes'
+        });
     }
 };
