@@ -6,23 +6,23 @@ var express = require('express');
 var router = express.Router();
 var MobileDetect = require('mobile-detect');
 
-var demoController = require('./demoController').demoController;
+var labsController = require('./labsController').labsController;
 
 router.route('/')
     .get(function (req, res) {
-        res.render('demo/index', {
+        res.render('labs/index', {
             pageTitle: 'Demo'
         });
     });
 
 router.route('/html-video')
-    .get(demoController.htmlVideo);
+    .get(labsController.htmlVideo);
 
 router.route('/mt-notes')
-    .get(demoController.mtNotes);
+    .get(labsController.mtNotes);
 
 router.route('/update-browser')
-    .get(demoController.updateBrowser);
+    .get(labsController.updateBrowser);
 
 router.route('/touch-event')
     .get(function (req, res) {
@@ -32,18 +32,18 @@ router.route('/touch-event')
         if (mobileDetect.mobile()) {
 
             if (mobileDetect.tablet() && !mobileDetect.is('AndroidOS')) {
-                res.render('demo/touch-event', {
+                res.render('labs/touch-event', {
                     pageTitle: 'Touch Event'
                 });
             } else {
-                res.render('demo/touch-event-mobile', {
+                res.render('labs/touch-event-mobile', {
                     pageTitle: 'Touch Event'
                 });
             }
 
         } else {
             // Desktop
-            res.render('demo/touch-event', {
+            res.render('labs/touch-event', {
                 pageTitle: 'Touch Event'
             });
         }

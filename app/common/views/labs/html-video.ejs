@@ -11,14 +11,14 @@
 
 	<% include ../tmpl/header_pub.ejs %>
 
-	<link rel="stylesheet" href="/public/css/css-page/demo-video.min.css">
+	<link rel="stylesheet" href="/public/css/css-page/labs-video.min.css">
 
 	<!-- GLOBAL JAVASCRIPT -->
 	<script>
-		JS_PAGE_NAME = 'demo-video';
+		JS_PAGE_NAME = 'labs-video';
 	</script>
 
-	<% MENU_ACTIVE = 'Demo'; %>
+	<% MENU_ACTIVE = 'Labs'; %>
 
 </head>
 <body>
@@ -47,14 +47,7 @@
 			</div>
 		</div>
 
-		<div class="footer">
-			<div class="row inner">
-				<div class="col-12 center text-right">
-					<p>Live is life .</p>
-					<p>时间总是把最好的，留在最后。</p>
-				</div>
-			</div>
-		</div>
+		<% include ../tmpl/layout_footer.ejs %>
 	</div>
 
 </div>

@@ -4,20 +4,20 @@
 
 var fileService = require('../common/service/fileService').fileService;
 
-exports.demoController = {
+exports.labsController = {
     htmlVideo : function(req,res){
-        res.render('demo/html-video', {
+        res.render('labs/html-video', {
             pageTitle: 'Live',
             liveFlag: true
         });
     },
     updateBrowser : function(req,res){
-        res.render('demo/update-browser', {
+        res.render('labs/update-browser', {
             pageTitle: 'Update Browser'
         });
     },
     mtNotes : function(req,res){
-        res.render('demo/mt-notes', {
+        res.render('labs/mt-notes', {
             pageTitle: 'MT Notes'
         });
     }
