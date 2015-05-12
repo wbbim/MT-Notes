@@ -1,5 +1,6 @@
 /**
  * Created by thonatos on 15/4/30.
+ * Thanks : @Moon (http://moonlib.com/606.html)
  */
 
 var request = require('request');
@@ -37,8 +38,11 @@ exports.fmService = {
         curlGet(url,"GET",function(err,data) {
             //Todo
             if(!err){
-                console.log(data);
                 callback(data);
+            }else{
+                callback({
+                    msg:'cant get data'
+                });
             }
         });
     },

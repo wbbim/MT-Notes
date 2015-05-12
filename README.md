@@ -13,6 +13,13 @@ A blog/documents Site Running on NodeJS Server.
 
 ## Change
 
+
+- 2015.05.12
+
+    - 增加私人电台（感谢@moon）
+    - 更新版本号为0.0.4
+    - 更新Fm代码
+    
 - 2015.04.30
 
     - 更名Demo为Labs
