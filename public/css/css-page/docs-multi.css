@@ -475,6 +475,9 @@ table {
 .clearfix {
   clear: both;
 }
+.hidden {
+  display: none;
+}
 .row {
   width: 100%;
 }

@@ -18,6 +18,7 @@
     "output": [
       "src/page/index-index.js",
       "src/page/index-about.js",
+      "src/page/index-fm.js",
       "src/page/user-admin.js",
       "src/page/demo-video.js",
       "src/page/demo-touch-event-mobile.js",

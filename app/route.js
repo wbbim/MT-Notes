@@ -11,6 +11,8 @@ module.exports = function (app, passport) {
     var user = require('./user/user');
     var labs = require('./labs/labs');
     var file = require('./file/file');
+    var fm = require('./fm/fm');
+
 
     // Api
     var api   = require('./api/api');
@@ -22,6 +24,8 @@ module.exports = function (app, passport) {
     app.use('/blog', blog);
     app.use('/labs', labs);
     app.use('/file', file);
+    app.use('/fm',fm);
     app.use('/user', user(passport));
     app.use('/api',api);
+
 };

@@ -24,5 +24,12 @@ router.route('/about')
             });
     });
 
+router.route('/fm')
+    .get(function (req, res) {
+        res.render('index/fm',
+            {
+                pageTitle: 'FM'
+            });
+    });
 
 module.exports = router;
